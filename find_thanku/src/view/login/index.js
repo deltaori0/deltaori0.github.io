@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import imgsrc from "./logo2.JPG";
 import * as S from "./styles";
+import './login.scss';
 
-const idbox = 'Google Account를 입력하세요'
-const pwbox = 'Password를 입력하세요'
+const idbox = 'Google 계정'
+const pwbox = 'Password'
 
 const Login = () => {
   const [inputs, setInputs]=useState({
@@ -28,20 +29,27 @@ const Login = () => {
     })
   };
 
-  return <S.Login>
+  return(
     <div>
-      <img src={imgsrc} width='150px' alt='logo'/>
-    </div>
-    <div>
-      <input name='id' placeholder={idbox} onChange={onChange} value={id}/><br/>
-      <input name='pw' placeholder={pwbox} onChange={onChange} value={pw}/><br/>
-      <button onClick={onReset}>로그인</button>
+    <S.Login>
       <div>
-        값:
-        {id} ({pw})
+        <img src={imgsrc} width='200px' alt='logo'/>
       </div>
+      <div><br/>
+       
+          <input class='input_box' name='id' placeholder={idbox} onChange={onChange} value={id}/><br/>
+          <input class='input_box' type='password' name='pw' placeholder={pwbox} onChange={onChange} value={pw}/><br/><br/>
+      
+        <button class='login_button' onClick={onReset}>로그인</button>
+        
+     
+        <div>
+          id / pw: 
+          {id} / {pw}
+        </div>
+      </div>
+    </S.Login>
     </div>
-    </S.Login>;
-};
+ )};
 
 export default Login;
