@@ -5,7 +5,7 @@ export const Login = styled.div`
     height: 500px;
   
     position: relative; /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
-    background: rgba(245, 224, 196,1.0);
+    background: white;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
   
     margin: 0 auto; /* 페이지 중앙에 나타나도록 설정 */
@@ -17,7 +17,7 @@ export const Login = styled.div`
     padding-bottom: 0px;
     padding-left: 30px;
 
-    border: 10px solid lightsalmon;    
+    border: 10px solid orange;    
     text-align: center;
     display: flex;
     flex-direction: column;
