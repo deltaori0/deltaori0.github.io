@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Login} />
+        <Route path="/" exact component={Main} />
         {/* <Route path="/login" exact component={Login} /> */}
         <Redirect from="*" to="/" />
       </Switch>
