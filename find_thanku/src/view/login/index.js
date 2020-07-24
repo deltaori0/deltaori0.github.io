@@ -3,6 +3,7 @@ import imgsrc from "./logo2.JPG";
 import * as S from "./styles";
 import './login.scss';
 
+//로그인 페이지
 const idbox = 'Google 계정'
 const pwbox = 'Password'
 
@@ -37,12 +38,11 @@ const Login = () => {
       </div>
       <div><br/>
        
-          <input class='input_box' name='id' placeholder={idbox} onChange={onChange} value={id}/><br/>
-          <input class='input_box' type='password' name='pw' placeholder={pwbox} onChange={onChange} value={pw}/><br/><br/>
+        <input class='input_box' name='id' placeholder={idbox} onChange={onChange} value={id}/><br/>
+        <input class='input_box' type='password' name='pw' placeholder={pwbox} onChange={onChange} value={pw}/><br/><br/>
       
         <button class='login_button' onClick={onReset}>로그인</button>
         
-     
         <div>
           id / pw: 
           {id} / {pw}
