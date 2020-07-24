@@ -6,14 +6,14 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Main from "./view/main";
-//import Login from "./view/login";
+//import Main from "./view/main";
+import Board from "./view/board_lost";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Main} />
+        <Route path="/" exact component={Board} />
         {/* <Route path="/login" exact component={Login} /> */}
         <Redirect from="*" to="/" />
       </Switch>
