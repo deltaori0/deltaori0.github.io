@@ -28,7 +28,7 @@ export const BlockContainer = styled(Link)`
   flex-direction: column;
 
   padding: 1.5rem;
-  margin: 2rem 7rem;
+  margin: 7rem 7rem;
 
   border: 1px solid ${THEME_COLOR.GRAYER};
   border-radius: 0.5rem;
