@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { THEME_COLOR } from "../../constant";
 
@@ -19,7 +20,7 @@ export const MainContainer = styled.div`
   justify-content: center;
 `;
 
-export const BlockContainer = styled.div`
+export const BlockContainer = styled(Link)`
   width: 30rem;
   height: 30rem;
 
@@ -35,6 +36,7 @@ export const BlockContainer = styled.div`
   align-items: center;
 
   background-color: ${THEME_COLOR.LIGHT_YELLOW};
+  text-decoration: none;
 `;
 
 export const Title = styled.div`
