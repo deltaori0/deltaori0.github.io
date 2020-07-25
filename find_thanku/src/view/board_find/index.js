@@ -3,6 +3,7 @@ import React from "react";
 import * as S from "./styles";
 import Layout from "../../component/layout";
 import { STATIC_URL } from "../../constant";
+import BoardHeader from "../../container/board-header";
 import BoardList from "../../container/board-list";
 
 const BoardFind = () => {
@@ -27,6 +28,7 @@ const BoardFind = () => {
           </S.SearchIcon>
         </S.ToolsContainer>
         <S.BoardListContainer>
+          <BoardHeader />
           <BoardList />
         </S.BoardListContainer>
       </S.BoardFind>

@@ -88,3 +88,9 @@ export const BoardListContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+export const BoardHeader = styled.div`
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+`;
