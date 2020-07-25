@@ -1,9 +1,14 @@
 import React from "react";
 
 import * as S from "./styles";
+import { Layout } from "../../component/layout/styles";
 
-const Main = () => {
-  return <S.Main></S.Main>;
+const BoardFind = () => {
+  return (
+    <Layout>
+      <S.BoardFind></S.BoardFind>
+    </Layout>
+  );
 };
 
-export default Main;
+export default BoardFind;

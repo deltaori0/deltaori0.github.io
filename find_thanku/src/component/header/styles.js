@@ -8,13 +8,13 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  height: 10rem;
+  height: 8rem;
   padding: 0rem 5rem;
 `;
 
 export const Logo = styled.img`
   display: block;
-  width: 15rem;
+  width: 13rem;
 `;
 
 export const Buttons = styled.div`
@@ -28,8 +28,8 @@ export const Button = styled.button`
 
   border: none;
   background-color: inherit;
-  font-size: 1.5rem;
-  font-weight: bolder;
+  font-size: 1.4rem;
+  font-weight: bold;
 
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@ export const Button = styled.button`
     height: 2rem;
   }
 
-  height: 10rem;
+  height: 8rem;
   width: 8.7rem;
   padding: 0rem 2rem;
   transition: background-color 0.5s;
