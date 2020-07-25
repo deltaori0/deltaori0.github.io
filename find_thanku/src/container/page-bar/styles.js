@@ -11,10 +11,6 @@ export const Pagebar = styled.div`
 export const Buttons = styled.ul`
   display: flex;
 
-  background-color: ${THEME_COLOR.GRAY};
-
-  border-radius: 10rem;
-
   margin: 0rem 0.5rem;
 `;
 
@@ -22,14 +18,12 @@ export const ArrowBlock = styled.button`
   width: 3.6rem;
   height: 3.6rem;
 
-  border-radius: 50%;
-  border: 1px solid ${THEME_COLOR.PRIMARY};
-
   background-color: inherit;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 `;
 
 export const Arrow = styled.div`

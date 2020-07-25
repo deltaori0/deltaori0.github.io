@@ -11,10 +11,6 @@ const Pagebar = () => {
         <S.Arrow className="left"></S.Arrow>
       </S.ArrowBlock>
       <S.Buttons>
-        <PageButton focus={true} />
-        <PageButton />
-        <PageButton />
-        <PageButton />
         <PageButton />
       </S.Buttons>
       <S.ArrowBlock>
