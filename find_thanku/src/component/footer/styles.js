@@ -7,6 +7,10 @@ export const Footer = styled.div`
 
   height: 4rem;
   padding: 0rem 2rem;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
 `;
 
 export const Label = styled.div`
