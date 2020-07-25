@@ -11,7 +11,7 @@ const Header = () => {
         <S.Logo src={STATIC_URL.LOGO} alt="Logo"></S.Logo>
       </S.DesktopLink>
       <S.Buttons>
-        <S.DesktopLink to="/board">
+        <S.DesktopLink to="/board_lost">
           <S.Button>분실물</S.Button>
         </S.DesktopLink>
         <S.DesktopLink to="/board_find">

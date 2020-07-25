@@ -7,13 +7,12 @@ export const BoardItem = styled.li`
   height: 100%;
   border: 1px solid ${THEME_COLOR.GRAYER};
 
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
 
   display: flex;
   flex-direction: column;
 
   align-items: center;
 
-  margin: 1rem 0rem;
   padding: 1rem 1rem;
 `;
