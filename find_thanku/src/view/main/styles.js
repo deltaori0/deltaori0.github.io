@@ -16,7 +16,7 @@ export const MainContainer = styled.div`
   flex-direction: row;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export const BlockContainer = styled.div`
@@ -26,24 +26,23 @@ export const BlockContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1.5rem;
+  margin: 2rem;
 
   border: 1px solid ${THEME_COLOR.GRAYER};
   border-radius: 0.5rem;
 
-  font-size: 1.2rem;
   align-items: center;
 `;
 
 export const Title = styled.div`
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   /* font-weight: bold; */
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const Description = styled.div`
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.4rem;
 `;

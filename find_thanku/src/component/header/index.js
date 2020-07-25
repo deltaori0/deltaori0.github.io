@@ -14,7 +14,7 @@ const Header = () => {
         <S.DesktopLink to="/board">
           <S.Button>분실물</S.Button>
         </S.DesktopLink>
-        <S.DesktopLink to="/board">
+        <S.DesktopLink to="/board_find">
           <S.Button>습득물</S.Button>
         </S.DesktopLink>
         <S.DesktopLink to="/login">

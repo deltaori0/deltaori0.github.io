@@ -10,6 +10,6 @@ export const Footer = styled.div`
 `;
 
 export const Label = styled.div`
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   margin: 0rem 0.5rem;
 `;
