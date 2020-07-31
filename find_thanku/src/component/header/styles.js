@@ -37,7 +37,7 @@ export const Button = styled.button`
   justify-content: center;
 
   &:hover {
-    background-color: ${THEME_COLOR.GRAY};
+    color: ${THEME_COLOR.YELLOW};
   }
 
   img {
