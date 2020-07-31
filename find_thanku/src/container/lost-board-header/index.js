@@ -2,14 +2,14 @@ import React from "react";
 
 import * as S from "./styles";
 
-const BoardHeader = () => {
+const FindBoardHeader = () => {
   return (
     <S.BoardHeader>
       <S.NameContainer>
-        <S.Label>습득물 명</S.Label>
+        <S.Label>분실물 명</S.Label>
       </S.NameContainer>
       <S.PlaceContainer>
-        <S.Label>습득 장소</S.Label>
+        <S.Label>분실 장소</S.Label>
       </S.PlaceContainer>
       <S.CommentContainer>
         <S.Label>댓글 수</S.Label>
@@ -24,4 +24,4 @@ const BoardHeader = () => {
   );
 };
 
-export default BoardHeader;
+export default FindBoardHeader;

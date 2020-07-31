@@ -3,8 +3,8 @@ import React from "react";
 import * as S from "./styles";
 import Layout from "../../component/layout";
 import { STATIC_URL } from "../../constant";
-import BoardHeader from "../../container/board-header";
-import BoardList from "../../container/board-list";
+import BoardHeader from "../../container/find-board-header";
+import BoardList from "../../container/find-board-list";
 import Pagebar from "../../container/page-bar";
 
 const BoardFind = () => {
@@ -20,13 +20,16 @@ const BoardFind = () => {
           </S.DescContainer>
         </S.BoardFindContainer>
         <S.ToolsContainer>
-          <S.SearchBox placeholder="검색" />
-          <S.SearchIcon>
-            <img
-              src={STATIC_URL.MAGNIFYING_GLASS_ICON}
-              alt="magnifying-glass"
-            />
-          </S.SearchIcon>
+          <S.SearchContainer>
+            <S.SearchBox placeholder="검색" />
+            <S.SearchIcon>
+              <img
+                src={STATIC_URL.MAGNIFYING_GLASS_ICON}
+                alt="magnifying-glass"
+              />
+            </S.SearchIcon>
+          </S.SearchContainer>
+          <S.WriteButton to="find_upload">글 작성</S.WriteButton>
         </S.ToolsContainer>
         <S.BoardListContainer>
           <BoardHeader />

@@ -14,7 +14,7 @@ export const Footer = styled.div`
   left: 0;
   bottom: 0;
 
-  background-color: ${THEME_COLOR.YELLOW};
+  background-color: ${THEME_COLOR.GRAY};
 `;
 
 export const Label = styled.div`

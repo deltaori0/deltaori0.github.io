@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-
+import { Link } from "react-router-dom";
 import { THEME_COLOR } from "../../constant";
 
 export const Header = styled.div`
@@ -10,6 +9,8 @@ export const Header = styled.div`
 
   height: 10rem;
   padding: 0rem 2rem;
+
+  border-bottom: 4px solid ${THEME_COLOR.YELLOW};
 `;
 
 export const Logo = styled.img`
@@ -36,7 +37,7 @@ export const Button = styled.button`
   justify-content: center;
 
   &:hover {
-    background-color: ${THEME_COLOR.GRAY};
+    color: ${THEME_COLOR.YELLOW};
   }
 
   img {
