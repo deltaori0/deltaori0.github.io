@@ -1,7 +1,5 @@
 import styled from "styled-components/macro";
-
 import { Link } from "react-router-dom";
-import { THEME_COLOR } from "../../constant";
 
 export const PageButton = styled.li`
   font-size: 1.4rem;

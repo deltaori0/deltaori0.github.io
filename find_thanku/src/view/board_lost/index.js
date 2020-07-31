@@ -1,49 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
+
 import * as S from "./styles";
 import Layout from "../../component/layout";
-
-//분실물 게시판
+import { STATIC_URL } from "../../constant";
+import BoardHeader from "../../container/lost-board-header";
+import BoardList from "../../container/lost-board-list";
+import Pagebar from "../../container/page-bar";
 
 const BoardLost = () => {
-  const [inputs, setInputs] = useState({
-    title: "",
-  });
-
-  const { title } = inputs; //여기에 값이 저장됨
-
-  const onChange = (e) => {
-    //입력시
-    const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
-
-  const onReset = () => {
-    //버튼클릭시
-    setInputs({
-      title: "",
-    });
-  };
-
   return (
     <Layout>
       <S.BoardLost>
-        <b>분실물 게시판</b>
-        <br />
-        <input
-          class=""
-          name="title"
-          placeholder="제목 검색"
-          onChange={onChange}
-          value={title}
-        />
-        <button class="" onClick={onReset}>
-          검색
-        </button>
-        <br />
-        title: {title}
+        <S.BoardLostContainer>
+          <S.TitleContainer>
+            <S.Title>분실물 게시판</S.Title>
+          </S.TitleContainer>
+          <S.DescContainer>
+            <S.Description>분실물 게시판에 대한 간단한 설명</S.Description>
+          </S.DescContainer>
+        </S.BoardLostContainer>
+        <S.ToolsContainer>
+          <S.SearchContainer>
+            <S.SearchBox placeholder="검색" />
+            <S.SearchIcon>
+              <img
+                src={STATIC_URL.MAGNIFYING_GLASS_ICON}
+                alt="magnifying-glass"
+              />
+            </S.SearchIcon>
+          </S.SearchContainer>
+          <S.WriteButton to="lost_upload">글 작성</S.WriteButton>
+        </S.ToolsContainer>
+        <S.BoardListContainer>
+          <BoardHeader />
+          <BoardList />
+        </S.BoardListContainer>
+        <S.PagebarContainer>
+          <Pagebar />
+        </S.PagebarContainer>
       </S.BoardLost>
     </Layout>
   );
