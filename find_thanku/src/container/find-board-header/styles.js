@@ -6,7 +6,10 @@ export const BoardHeader = styled.ul`
   height: 4rem;
   margin-bottom: 1rem;
   padding: 0;
-  /* border: 1px solid ${THEME_COLOR.GRAYER}; */
+  border: 0.5px solid white;
+
+  background-color: ${THEME_COLOR.LIGHT_YELLOW};
+  font-weight: bold;
 
   display: flex;
   flex-direction: row;
@@ -19,15 +22,23 @@ export const Label = styled.ul`
 `;
 
 export const NameContainer = styled.ul`
-  border: 1px solid ${THEME_COLOR.GRAYER};
+  border: 0.5px solid white;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const PlaceContainer = styled.ul`
-  border: 1px solid ${THEME_COLOR.GRAYER};
+export const FindPlaceContainer = styled.ul`
+  border: 0.5px solid white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LostPlaceContainer = styled.ul`
+  border: 0.5px solid white;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -35,7 +46,7 @@ export const PlaceContainer = styled.ul`
 `;
 
 export const CommentContainer = styled.ul`
-  border: 1px solid ${THEME_COLOR.GRAYER};
+  border: 0.5px solid white;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -43,7 +54,7 @@ export const CommentContainer = styled.ul`
 `;
 
 export const WriterContainer = styled.ul`
-  border: 1px solid ${THEME_COLOR.GRAYER};
+  border: 0.5px solid white;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -51,7 +62,7 @@ export const WriterContainer = styled.ul`
 `;
 
 export const DateContainer = styled.ul`
-  border: 1px solid ${THEME_COLOR.GRAYER};
+  border: 0.5px solid white;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

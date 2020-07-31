@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-
 import { THEME_COLOR } from "../../constant";
 
 export const BoardList = styled.ul`

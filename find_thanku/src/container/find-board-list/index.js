@@ -2,7 +2,7 @@ import React from "react";
 
 import * as S from "./styles";
 
-import BoardItem from "../../component/board-item";
+import BoardItem from "../../component/find-board-item";
 
 const BoardList = () => {
   return (

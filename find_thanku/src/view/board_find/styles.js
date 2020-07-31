@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 import { THEME_COLOR } from "../../constant";
 
 export const BoardFind = styled.div`
@@ -32,7 +33,6 @@ export const Title = styled.div`
   font-weight: bold;
 
   margin-bottom: 0.3rem;
-  border-bottom: 0.3rem solid ${THEME_COLOR.YELLOW};
 `;
 
 export const DescContainer = styled.div`
@@ -55,9 +55,34 @@ export const ToolsContainer = styled.div`
   display: flex;
 
   align-items: center;
+  justify-content: space-between;
   height: 100%;
 
   margin-bottom: 1.5rem;
+`;
+export const WriteButton = styled(Link)`
+  width: 7rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+
+  background-color: ${THEME_COLOR.YELLOW};
+  color: white;
+
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+`;
+
+export const SearchContainer = styled.div`
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const SearchBox = styled.input`

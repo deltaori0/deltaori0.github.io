@@ -1,9 +1,8 @@
 import styled from "styled-components/macro";
-
-import { Link } from "react-router-dom";
 import { THEME_COLOR } from "../../constant";
+import { Link } from "react-router-dom";
 
-export const BoardLost = styled.div`
+export const Notice = styled.div`
   width: 100%;
   height: 100%;
 
@@ -11,7 +10,7 @@ export const BoardLost = styled.div`
   margin-top: 1rem;
 `;
 
-export const BoardLostContainer = styled.div`
+export const NoticeContainer = styled.div`
   width: 100%;
   height: 100%;
 
@@ -19,6 +18,7 @@ export const BoardLostContainer = styled.div`
   flex-direction: column;
 
   align-items: center;
+  /* padding: 0rem 2rem; */
 `;
 
 export const TitleContainer = styled.div`
