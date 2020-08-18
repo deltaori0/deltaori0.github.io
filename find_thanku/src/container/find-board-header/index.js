@@ -9,10 +9,10 @@ const FindBoardHeader = () => {
         <S.Label>습득물 명</S.Label>
       </S.NameContainer>
       <S.LostPlaceContainer>
-        <S.Label>분실 장소</S.Label>
+        <S.Label>습득 장소</S.Label>
       </S.LostPlaceContainer>
       <S.FindPlaceContainer>
-        <S.Label>습득 장소</S.Label>
+        <S.Label>보관 장소</S.Label>
       </S.FindPlaceContainer>
       <S.CommentContainer>
         <S.Label>댓글 수</S.Label>
