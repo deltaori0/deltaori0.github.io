@@ -14,7 +14,7 @@ const LostUpload = () => {
             <S.Title>글 작성</S.Title>
           </S.TitleContainer>
           <S.WriteInputContainer>
-            <S.NameInput placeholder="보관물 명" />
+            <S.NameInput placeholder="분실물 명" />
             <S.PlaceInput placeholder="분실 장소" />
           </S.WriteInputContainer>
           <S.TextEditorContainer>

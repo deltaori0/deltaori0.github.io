@@ -14,6 +14,7 @@ import FindUpload from "./view/find-upload";
 import LostUpload from "./view/lost-upload";
 import Notice from "./view/notice";
 import NoticeUpload from "./view/notice-upload";
+import Join from "./view/join";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/lost_upload" exact component={LostUpload} />
         <Route path="/notice" exact component={Notice} />
         <Route path="/notice_upload" exact component={NoticeUpload} />
+        <Route path="/join" exact component={Join} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
