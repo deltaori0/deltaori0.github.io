@@ -17,7 +17,7 @@ export const Login = styled.div`
   padding-bottom: 0px;
   padding-left: 30px;
 
-  border: 10px solid orange;
+  border: 8px solid #F0B957;
   text-align: center;
   display: flex;
   flex-direction: column;
