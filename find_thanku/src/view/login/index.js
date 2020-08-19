@@ -3,6 +3,8 @@ import { STATIC_URL } from "../../constant";
 import Layout from "../../component/layout";
 import * as S from "./styles";
 import "./login.scss";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 //로그인 페이지
 const idbox = "Google 계정";
