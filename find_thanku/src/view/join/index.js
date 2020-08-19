@@ -1,4 +1,6 @@
+
 import React, { Component } from "react";
+
 import * as S from "./styles";
 import Layout from "../../component/layout";
 // import { render } from "@testing-library/react";
@@ -9,6 +11,7 @@ class JoinForm extends Component {
  Join = () => {
   // const id = this.id.value;
   // const pw = this.pw.value;
+
 
   const send_param = {
     headers,
@@ -52,6 +55,7 @@ class JoinForm extends Component {
       </Layout>
     );
 }
+
 };
 
 export default JoinForm;
