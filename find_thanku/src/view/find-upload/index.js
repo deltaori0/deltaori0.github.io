@@ -13,6 +13,9 @@ const FindUpload = () => {
           <S.TitleContainer>
             <S.Title>글 작성</S.Title>
           </S.TitleContainer>
+          <S.TitleInputContainer>
+            <S.TitleInput placeholder="제목 명" />
+          </S.TitleInputContainer>
           <S.WriteInputContainer>
             <S.NameInput placeholder="습득물 명" />
             <S.PlaceInput placeholder="습득 장소" />

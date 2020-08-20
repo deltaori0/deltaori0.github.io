@@ -16,42 +16,56 @@ export const Label = styled.ul`
   margin: 1rem;
 `;
 
-export const LabelContainer = styled.ul`
+export const TitleContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
+
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const NameContainer = styled.ul`
+  border: 0.5px solid ${THEME_COLOR.GRAYER};
+
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-// export const PlaceContainer = styled.ul`
-//   border: 0.5px solid white;
-//   flex-grow: 1;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
+export const PlaceContainer = styled.ul`
+  border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-// export const CommentContainer = styled.ul`
-//   border: 0.5px solid white;
-//   flex-grow: 1;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-// export const WriterContainer = styled.ul`
-//   border: 0.5px solid white;
-//   flex-grow: 1;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
+export const CommentContainer = styled.ul`
+  border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-// export const DateContainer = styled.ul`
-//   border: 0.5px solid white;
-//   flex-grow: 1;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
+  flex-grow: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const WriterContainer = styled.ul`
+  border: 0.5px solid ${THEME_COLOR.GRAYER};
+
+  flex-grow: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const DateContainer = styled.ul`
+  border: 0.5px solid ${THEME_COLOR.GRAYER};
+
+  flex-grow: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

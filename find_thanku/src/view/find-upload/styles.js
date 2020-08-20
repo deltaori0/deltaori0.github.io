@@ -59,6 +59,26 @@ export const WriteInputContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
+export const TitleInputContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-items: stretch;
+
+  margin-bottom: 1rem;
+`;
+export const TitleInput = styled.input`
+  width: 100%;
+
+  padding: 1rem;
+
+  font-size: 1.7rem;
+  border: none;
+  border: 1px solid ${THEME_COLOR.GRAYER};
+
+  flex-grow: 1;
+`;
+
 export const NameInput = styled.input`
   /* width: 100%; */
 
