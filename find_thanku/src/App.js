@@ -15,6 +15,9 @@ import LostUpload from "./view/lost-upload";
 import Notice from "./view/notice";
 import NoticeUpload from "./view/notice-upload";
 import JoinForm from "./view/join";
+import FindPost from "./view/find-post";
+import LostPost from "./view/lost-post";
+import NoticePost from "./view/notice-post";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
         <Route path="/notice" exact component={Notice} />
         <Route path="/notice_upload" exact component={NoticeUpload} />
         <Route path="/join" exact component={JoinForm} />
+        <Route path="/find_post" exact component={FindPost} />
+        <Route path="/lost_post" exact component={LostPost} />
+        <Route path="/notice_post" exact component={NoticePost} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
