@@ -5,24 +5,27 @@ import * as S from "./styles";
 const FindBoardItem = () => {
   return (
     <S.BoardItem>
-      <S.LabelContainer>
+      <S.TitleContainer>
+        <S.Label>제목</S.Label>
+      </S.TitleContainer>
+      <S.NameContainer>
         <S.Label>습득물 명</S.Label>
-      </S.LabelContainer>
-      <S.LabelContainer>
+      </S.NameContainer>
+      <S.LostPlaceContainer>
         <S.Label>습득 장소</S.Label>
-      </S.LabelContainer>
-      <S.LabelContainer>
+      </S.LostPlaceContainer>
+      <S.FindPlaceContainer>
         <S.Label>보관 장소</S.Label>
-      </S.LabelContainer>
-      <S.LabelContainer>
+      </S.FindPlaceContainer>
+      <S.CommentContainer>
         <S.Label>댓글 수</S.Label>
-      </S.LabelContainer>
-      <S.LabelContainer>
+      </S.CommentContainer>
+      <S.WriterContainer>
         <S.Label>작성자</S.Label>
-      </S.LabelContainer>
-      <S.LabelContainer>
+      </S.WriterContainer>
+      <S.DateContainer>
         <S.Label>작성 날짜</S.Label>
-      </S.LabelContainer>
+      </S.DateContainer>
     </S.BoardItem>
   );
 };

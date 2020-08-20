@@ -21,7 +21,7 @@ const BoardLost = () => {
         </S.BoardLostContainer>
         <S.ToolsContainer>
           <S.SearchContainer>
-            <S.SearchBox placeholder="검색" />
+            <S.SearchBox placeholder="제목 검색" />
             <S.SearchIcon>
               <img
                 src={STATIC_URL.MAGNIFYING_GLASS_ICON}

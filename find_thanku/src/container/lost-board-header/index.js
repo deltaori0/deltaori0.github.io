@@ -5,6 +5,9 @@ import * as S from "./styles";
 const FindBoardHeader = () => {
   return (
     <S.BoardHeader>
+      <S.TitleContainer>
+        <S.Label>제목</S.Label>
+      </S.TitleContainer>
       <S.NameContainer>
         <S.Label>분실물 명</S.Label>
       </S.NameContainer>
