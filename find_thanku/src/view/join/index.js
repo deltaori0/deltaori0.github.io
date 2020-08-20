@@ -9,10 +9,6 @@ const headers = { withCredentials: true };
 
 class JoinForm extends Component {
  Join = () => {
-  // const id = this.id.value;
-  // const pw = this.pw.value;
-
-
   const send_param = {
     headers,
     title: this.title.value,
@@ -47,8 +43,7 @@ class JoinForm extends Component {
               onClick={this.Join}
               type="button"
               block
-            >
-              확인
+            >확인
             </S.SubmitButton>
           </S.JoinContainer>
         </S.Join>
