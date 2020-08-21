@@ -7,6 +7,8 @@ export const STATIC_URL = {
   MAGNIFYING_GLASS_ICON: `https://user-images.githubusercontent.com/41494099/87172994-10626b80-c310-11ea-99d3-bcc2da2cdb6d.png`,
   PENCIL_ICON: `https://user-images.githubusercontent.com/50616334/88361747-0a12cb80-cdb5-11ea-9545-f5e7be8e9935.png`,
   PENCIL_ICON2: `https://user-images.githubusercontent.com/50616334/90724248-31e44900-e2f9-11ea-9fec-7068e853490a.png`,
+  PROFILE: `https://user-images.githubusercontent.com/50616334/90849381-12592900-e3aa-11ea-83f7-3b13e7938bd8.png`,
+  SUBMIT: `https://user-images.githubusercontent.com/50616334/90851306-41be6480-e3af-11ea-98b9-84c5272fcb9c.png`,
 };
 
 export const THEME_COLOR = {
@@ -15,4 +17,5 @@ export const THEME_COLOR = {
   LIGHT_YELLOW: "#F9E3BC",
   GRAY: "#F1F1F1",
   GRAYER: "#EDEDED",
+  FONT_GRAY: "#80868B",
 };

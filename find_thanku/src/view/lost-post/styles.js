@@ -1,6 +1,5 @@
 import styled from "styled-components/macro";
 
-import { Link } from "react-router-dom";
 import { THEME_COLOR } from "../../constant";
 
 export const LostPost = styled.div`
@@ -48,9 +47,18 @@ export const MetaContainer = styled.div`
 `;
 
 export const PostTitle = styled.div`
-  font-size: 2rem;
+  font-size: 2.2rem;
 
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+`;
+
+export const Date = styled.div`
+  font-size: 1.3rem;
+  color: ${THEME_COLOR.FONT_GRAY};
+
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid black;
 `;
 
 export const Label = styled.div`
@@ -84,11 +92,12 @@ export const WriteCommentContainer = styled.div`
 export const WriteComment = styled.input`
   width: 99%;
   font-size: 1.4rem;
-  height: 3rem;
-  border: none;
-  outline: none;
-  background-color: ${THEME_COLOR.GRAY};
+  height: 3.5rem;
+  /* border: none; */
+  /* outline: none; */
+  /* background-color: ${THEME_COLOR.GRAY}; */
   padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
 `;
 
 export const SubmitIcon = styled.div`
