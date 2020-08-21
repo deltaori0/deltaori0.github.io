@@ -15,6 +15,7 @@ const LostPost = () => {
         <S.LostPostContainer>
           <S.MetaContainer>
             <S.PostTitle>제목</S.PostTitle>
+            <S.Date>날짜 시간 정보</S.Date>
             <S.Label>분실물 명 : </S.Label>
             <S.Label>분실 날짜 : </S.Label>
             <S.Label>분실 장소 : </S.Label>
@@ -27,7 +28,7 @@ const LostPost = () => {
         <S.WriteCommentContainer>
           <S.WriteComment placeholder="댓글을 입력하세요." />
           <S.SubmitIcon>
-            <img src={STATIC_URL.PENCIL_ICON2} alt="pencil" />
+            <img src={STATIC_URL.SUBMIT} alt="submit_icon" />
           </S.SubmitIcon>
         </S.WriteCommentContainer>
       </S.LostPost>
