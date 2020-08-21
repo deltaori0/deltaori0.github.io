@@ -37,8 +37,8 @@ export const Title = styled.div`
 `;
 
 export const CategorySelector = styled.select`
-  border: 1px solid ${THEME_COLOR.GRAY};
-
+  border: 1px solid ${THEME_COLOR.GRAYER};
+  
   padding: 1rem;
   font-size: 1.7rem;
 
