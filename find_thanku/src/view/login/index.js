@@ -39,11 +39,11 @@ const Login = () => {
     <Layout>
       <S.Login>
         <div>
-          <img src={STATIC_URL.LOGO} width="200px" alt="logo" />
+          <img src={STATIC_URL.LOGO} width="200px" height="90px" alt="logo" />
         </div>
         <div>
           <br />
-
+          <br />
           <input
             class="input_box"
             name="id"
@@ -51,7 +51,7 @@ const Login = () => {
             onChange={onChange}
             value={id}
           />
-          <br />
+          <br /><br/>
           <input
             class="input_box"
             type="password"
@@ -60,13 +60,10 @@ const Login = () => {
             onChange={onChange}
             value={pw}
           />
-          <br />
-          <br />
-
+          <br /><br />
           <button class="login_button" onClick={onReset}>
             로그인
           </button>
-
           <div>
             id / pw:
             {id} / {pw}

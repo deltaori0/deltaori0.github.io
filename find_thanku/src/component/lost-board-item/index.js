@@ -1,8 +1,8 @@
 import React from "react";
-
 import * as S from "./styles";
+import { render } from "@testing-library/react";
 
-const FindBoardItem = () => {
+const LostBoardItem = () => {
   return (
     <S.BoardItem>
       <S.TitleContainer>
@@ -27,4 +27,4 @@ const FindBoardItem = () => {
   );
 };
 
-export default FindBoardItem;
+export default LostBoardItem;
