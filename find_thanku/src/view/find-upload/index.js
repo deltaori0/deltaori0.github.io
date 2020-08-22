@@ -24,7 +24,6 @@ class FindUpload extends Component{
       .catch(err => {
         console.log(err);
       });
-    
   }
   options =  [{ value: '중앙광장 원스탑', label: '중앙광장 원스탑' }, 
               { value: '하나스퀘어 원스탑', label: '하나스퀘어 원스탑' },
@@ -46,15 +45,14 @@ class FindUpload extends Component{
       container: base => ({
         ...base,
         padding: '2px',
-        fontSize: '15px',
+        fontSize: '18px',
         height: '30px',
         flex: 1
       }),
       option: (provided, state) => ({
         ...provided,
-        //border: '1px solid', 
-        color: state.isSelected ? 'orange' : 'grey',
-        backgroundColor: state.isSelected ? 'grey' : 'white'
+        color: state.isSelected ? 'black' : 'black',
+        backgroundColor: state.isSelected ? 'lightgrey' : 'white'
       }),
       control: (provided) => ({
         ...provided,
@@ -99,7 +97,7 @@ class FindUpload extends Component{
               <TextEditor />
             </S.TextEditorContainer>
             <Link to = '/board_find'>
-              <S.SubmitButton
+              <S.SubmitButton 
                 onClick={this.FindUpload}
                 type="button"
                 block>작성
