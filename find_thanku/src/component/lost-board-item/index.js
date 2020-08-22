@@ -2,26 +2,26 @@ import React from "react";
 import * as S from "./styles";
 import { render } from "@testing-library/react";
 
-const LostBoardItem = () => {
+const LostBoardItem = ({ post }) => {
   return (
     <S.BoardItem>
-      <S.TitleContainer>
-        <S.Label>제목</S.Label>
+      <S.TitleContainer to={"/lost_post"}>
+        <S.Label>{post.title}</S.Label>
       </S.TitleContainer>
       <S.NameContainer>
-        <S.Label>분실물 명</S.Label>
+        <S.Label>{post.name}</S.Label>
       </S.NameContainer>
       <S.PlaceContainer>
-        <S.Label>분실 장소</S.Label>
+        <S.Label>{post.place}</S.Label>
       </S.PlaceContainer>
       <S.CommentContainer>
-        <S.Label>댓글 수</S.Label>
+        <S.Label>{post.replynum}</S.Label>
       </S.CommentContainer>
       <S.WriterContainer>
-        <S.Label>작성자</S.Label>
+        <S.Label>{post.username}</S.Label>
       </S.WriterContainer>
       <S.DateContainer>
-        <S.Label>작성 날짜</S.Label>
+        <S.Label>{post.date}</S.Label>
       </S.DateContainer>
     </S.BoardItem>
   );
