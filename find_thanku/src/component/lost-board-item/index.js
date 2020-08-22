@@ -2,7 +2,7 @@ import React from "react";
 
 import * as S from "./styles";
 
-const FindBoardItem = ({ post }) => {
+const LostBoardItem = ({ post }) => {
   return (
     <S.BoardItem>
       <S.TitleContainer to={"/lost_post"}>
