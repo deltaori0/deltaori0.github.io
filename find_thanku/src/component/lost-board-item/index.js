@@ -27,4 +27,4 @@ const LostBoardItem = ({ post }) => {
   );
 };
 
-export default FindBoardItem;
+export default LostBoardItem;
