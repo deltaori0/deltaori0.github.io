@@ -1,6 +1,6 @@
 import React from "react";
-
 import * as S from "./styles";
+import { render } from "@testing-library/react";
 
 const LostBoardItem = ({ post }) => {
   return (

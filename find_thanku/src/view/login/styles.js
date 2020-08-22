@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 
 export const Login = styled.div`
-  width: 300px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
 
   position: relative; /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
   background: white;
@@ -17,12 +17,13 @@ export const Login = styled.div`
   padding-bottom: 0px;
   padding-left: 30px;
 
-  border: 8px solid #F0B957;
+  border: 2px solid #F0B957;
   text-align: center;
   display: flex;
   flex-direction: column;
 `;
 
+// border: 3px solid #F0B957;
 // export const box = styled.div`
 //     background:yellow;
 // `;
