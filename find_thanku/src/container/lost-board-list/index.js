@@ -4,14 +4,14 @@ import * as S from "./styles";
 
 import LostBoardItem from "../../component/lost-board-item";
 
-const LostBoardList = () => {
+const LostBoardList = ({ posts }) => {
+  console.log(posts);
+
   return (
     <S.BoardList>
-      <LostBoardItem />
-      <LostBoardItem />
-      <LostBoardItem />
-      <LostBoardItem />
-      <LostBoardItem />
+      {posts.map((post, idx) => {
+        return <LostBoardItem post={post} key={idx} />;
+      })}
     </S.BoardList>
   );
 };

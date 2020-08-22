@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 
 import * as S from "./styles";
 import Layout from "../../component/layout";
@@ -7,7 +7,11 @@ import BoardHeader from "../../container/lost-board-header";
 import BoardList from "../../container/lost-board-list";
 import Pagebar from "../../container/page-bar";
 
+import { useBoardLost } from "./hooks";
+
 const BoardLost = () => {
+  const { posts } = useBoardLost();
+
   return (
     <Layout>
       <S.BoardLost>
@@ -33,7 +37,7 @@ const BoardLost = () => {
         </S.ToolsContainer>
         <S.BoardListContainer>
           <BoardHeader />
-          <BoardList />
+          <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
           <Pagebar />

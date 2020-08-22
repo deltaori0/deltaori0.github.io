@@ -4,14 +4,14 @@ import * as S from "./styles";
 
 import BoardItem from "../../component/find-board-item";
 
-const BoardList = () => {
+const BoardList = ({ posts }) => {
+  console.log(posts);
+
   return (
     <S.BoardList>
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
-      <BoardItem />
+      {posts.map((post, idx) => {
+        return <BoardItem post={post} key={idx} />;
+      })}
     </S.BoardList>
   );
 };

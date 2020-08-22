@@ -7,7 +7,11 @@ import BoardHeader from "../../container/find-board-header";
 import BoardList from "../../container/find-board-list";
 import Pagebar from "../../container/page-bar";
 
+import { useBoardFind } from "./hooks";
+
 const BoardFind = () => {
+  const { posts } = useBoardFind();
+
   return (
     <Layout>
       <S.BoardFind>
@@ -33,7 +37,7 @@ const BoardFind = () => {
         </S.ToolsContainer>
         <S.BoardListContainer>
           <BoardHeader />
-          <BoardList />
+          <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
           <Pagebar />

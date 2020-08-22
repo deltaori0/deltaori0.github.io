@@ -1,4 +1,6 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
+
 import { THEME_COLOR } from "../../constant";
 
 export const BoardItem = styled.li`
@@ -15,12 +17,15 @@ export const Label = styled.ul`
   margin: 1rem;
 `;
 
-export const TitleContainer = styled.ul`
+export const TitleContainer = styled(Link)`
   flex-grow: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 0.5px solid ${THEME_COLOR.GRAYER};
+
+  text-decoration: none;
+  color: black;
 `;
 
 export const NameContainer = styled.ul`
