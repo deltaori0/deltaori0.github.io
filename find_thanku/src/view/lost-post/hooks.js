@@ -5,7 +5,8 @@ export const useBoardLost = () => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const request = await fetch("http://localhost:4000/lost_post", {
+      const url = window.location.pathname;
+      const request = await fetch('http://localhost:4000'+url, {
         method: "GET",
       });
 

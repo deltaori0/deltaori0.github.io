@@ -5,7 +5,9 @@ export const useBoardFind = () => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const request = await fetch("http://localhost:4000/find_post", {
+     // console.log(window.location.pathname);
+      const url = window.location.pathname;
+      const request = await fetch('http://localhost:4000'+url, {
         method: "GET",
       });
 

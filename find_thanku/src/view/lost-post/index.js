@@ -9,8 +9,9 @@ import { useBoardLost } from "./hooks";
 
 const LostPost = () => {
   const { posts } = useBoardLost();
+  //존재하는 _id의 게시글일 때만 화면 보이도록 설정해야함
   return (
-    <Layout>
+    <Layout> 
       <S.LostPost>
         <S.TitleContainer>
           <S.Title>분실물 게시판</S.Title>
