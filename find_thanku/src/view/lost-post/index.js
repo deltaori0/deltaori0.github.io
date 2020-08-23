@@ -5,7 +5,10 @@ import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 
+import { useBoardLost } from "./hooks";
+
 const LostPost = () => {
+  const { posts } = useBoardLost();
   return (
     <Layout>
       <S.LostPost>
@@ -14,16 +17,16 @@ const LostPost = () => {
         </S.TitleContainer>
         <S.LostPostContainer>
           <S.MetaContainer>
-            <S.PostTitle>제목</S.PostTitle>
-            <S.Date>날짜 시간 정보</S.Date>
-            <S.Label>분실물 명 : </S.Label>
-            <S.Label>분실 날짜 : </S.Label>
-            <S.Label>분실 장소 : </S.Label>
+            <S.PostTitle>{posts.title}</S.PostTitle>
+            <S.Date>{posts.date}</S.Date>
+            <S.Label>분실물 명 : {posts.name} </S.Label>
+            <S.Label>분실 장소 : {posts.place} </S.Label>
+            <S.ContentContainer>
+              <S.Content>게시글 내용이 들어갈 예정 입니다.</S.Content>
+            </S.ContentContainer>
           </S.MetaContainer>
         </S.LostPostContainer>
-        <S.ContentContainer>
-          <S.Content>게시글 내용이 들어갈 예정 입니다.</S.Content>
-        </S.ContentContainer>
+        <br/>
         <CommentList />
         <S.WriteCommentContainer>
           <S.WriteComment placeholder="댓글을 입력하세요." />

@@ -26,6 +26,7 @@ class LostUpload extends Component {
       .catch(err => {
         console.log(err);
       });
+    alert("작성 완료!");
   }
 
   render () {

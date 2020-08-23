@@ -10,7 +10,7 @@ const BoardList = ({ posts }) => {
   return (
     <S.BoardList>
       {posts.map((post, idx) => {
-        return <BoardItem post={post} key={idx} />;
+        return <BoardItem post={post} key={idx}/>;
       })}
     </S.BoardList>
   );
