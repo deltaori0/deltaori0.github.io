@@ -4,14 +4,14 @@ import * as S from "./styles";
 
 import NoticeItem from "../../component/notice-item";
 
-const NoticeList = () => {
+const NoticeList = ({ posts }) => {
+  console.log(posts);
+
   return (
     <S.BoardList>
-      <NoticeItem />
-      <NoticeItem />
-      <NoticeItem />
-      <NoticeItem />
-      <NoticeItem />
+      {posts.map((post, idx) => {
+        return <NoticeItem post={post} key={idx} />;
+      })}
     </S.BoardList>
   );
 };

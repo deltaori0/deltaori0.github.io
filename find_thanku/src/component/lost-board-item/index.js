@@ -1,10 +1,8 @@
 import React from "react";
 import * as S from "./styles";
-import { render } from "@testing-library/react";
 
-
-const LostBoardItem = ({ post,idx }) => {
-  const url = '/lost_post/'+post._id;
+const LostBoardItem = ({ post }) => {
+  const url = "/lost_post/" + post._id;
   return (
     <S.BoardItem>
       <S.TitleContainer to={url}>
@@ -23,7 +21,7 @@ const LostBoardItem = ({ post,idx }) => {
         <S.Label>{post.username}</S.Label>
       </S.WriterContainer>
       <S.DateContainer>
-        <S.Label>{post.date.slice(0,10)}</S.Label>
+        <S.Label>{post.date.slice(0, 10)}</S.Label>
       </S.DateContainer>
     </S.BoardItem>
   );
