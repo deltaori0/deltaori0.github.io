@@ -16,7 +16,7 @@ class FindUpload extends Component{
       title: this.title.value,
       name: this.name.value,
       getplace: this.getplace.value,
-      putplace: this.state.selectedOption.value,
+      putplace: this.state.selectedOption.value
     };
     axios
       .post("http://localhost:4000/find_upload", send_param)
@@ -24,6 +24,7 @@ class FindUpload extends Component{
       .catch(err => {
         console.log(err);
       });
+    alert("작성 완료!");
   }
   options =  [{ value: '중앙광장 원스탑', label: '중앙광장 원스탑' }, 
               { value: '하나스퀘어 원스탑', label: '하나스퀘어 원스탑' },

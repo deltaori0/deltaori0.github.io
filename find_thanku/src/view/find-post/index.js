@@ -4,8 +4,10 @@ import * as S from "./styles";
 import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
+import { useBoardFind } from "./hooks";
 
 const FindPost = () => {
+  const { posts } = useBoardFind();
   return (
     <Layout>
       <S.FindPost>
@@ -14,17 +16,17 @@ const FindPost = () => {
         </S.TitleContainer>
         <S.FindPostContainer>
           <S.MetaContainer>
-            <S.PostTitle>제목</S.PostTitle>
-            <S.Date>날짜 시간 정보</S.Date>
-            <S.Label>습득물 명 : </S.Label>
-            <S.Label>습득 날짜 : </S.Label>
-            <S.Label>습득 장소 : </S.Label>
-            <S.Label>보관 장소 : </S.Label>
+            <S.PostTitle>{posts.title}</S.PostTitle>
+            <S.Date>{posts.date}</S.Date>
+            <S.Label>습득물 명 : {posts.name}</S.Label>
+            <S.Label>습득 장소 : {posts.getplace} </S.Label>
+            <S.Label>보관 장소 : {posts.putplace} </S.Label>
+            <S.ContentContainer>
+              <S.Content> {posts.content} </S.Content>
+            </S.ContentContainer>
           </S.MetaContainer>
         </S.FindPostContainer>
-        <S.ContentContainer>
-          <S.Content>게시글 내용이 들어갈 예정 입니다.</S.Content>
-        </S.ContentContainer>
+        <br/>
         <CommentList />
         <S.WriteCommentContainer>
           <S.WriteComment placeholder="댓글을 입력하세요." />
