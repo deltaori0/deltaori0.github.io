@@ -2,24 +2,12 @@ import React from "react";
 import * as S from "./styles";
 import { render } from "@testing-library/react";
 
-import axios from "axios";
-const headers = { withCredentials: true };
 
 const LostBoardItem = ({ post,idx }) => {
-/*
-  const getDetail = () => {
-    const send_param = {
-      headers,
-      _id: post._id
-    };
-    axios
-      .post("http://localhost:4000/lost_board", send_param)
-      //정상 수행
-  }
-*/
+  const url = '/lost_post/'+post._id;
   return (
     <S.BoardItem>
-      <S.TitleContainer to={"/lost_post"}>
+      <S.TitleContainer to={url}>
         <S.Label>{post.title}</S.Label>
       </S.TitleContainer>
       <S.NameContainer>

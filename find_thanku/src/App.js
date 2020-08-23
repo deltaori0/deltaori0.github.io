@@ -32,8 +32,8 @@ function App() {
         <Route path="/notice" exact component={Notice} />
         <Route path="/notice_upload" exact component={NoticeUpload} />
         <Route path="/join" exact component={JoinForm} />
-        <Route path="/find_post" exact component={FindPost} />
-        <Route path="/lost_post" exact component={LostPost} />
+        <Route path="/find_post/:_id" exact component={FindPost} />
+        <Route path="/lost_post/:_id" exact component={LostPost} />
         <Route path="/notice_post" exact component={NoticePost} />
         <Redirect from="*" to="/" />
       </Switch>
