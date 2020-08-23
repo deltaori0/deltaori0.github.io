@@ -24,7 +24,7 @@ const FindBoardItem = ({ post }) => {
         <S.Label>{post.username}</S.Label>
       </S.WriterContainer>
       <S.DateContainer>
-        <S.Label>{post.date}</S.Label>
+        <S.Label>{post.date.slice(0,10)}</S.Label>
       </S.DateContainer>
     </S.BoardItem>
   );
