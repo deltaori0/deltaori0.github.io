@@ -18,7 +18,7 @@ export const Label = styled.ul`
 `;
 
 export const TitleContainer = styled(Link)`
-  flex-grow: 3;
+  flex: 2.5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,7 @@ export const TitleContainer = styled(Link)`
 
 export const NameContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,7 @@ export const NameContainer = styled.ul`
 export const FindPlaceContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@ export const FindPlaceContainer = styled.ul`
 export const LostPlaceContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +57,7 @@ export const LostPlaceContainer = styled.ul`
 export const CommentContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-  flex-grow: 0.5;
+  flex: 0.5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +66,7 @@ export const CommentContainer = styled.ul`
 export const WriterContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-  flex-grow: 0.5;
+  flex: 0.6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +75,7 @@ export const WriterContainer = styled.ul`
 export const DateContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
 
-  flex-grow: 0.5;
+  flex: 0.8;
   display: flex;
   flex-direction: column;
   align-items: center;
