@@ -7,7 +7,10 @@ import BoardHeader from "../../container/notice-header";
 import BoardList from "../../container/notice-list";
 import Pagebar from "../../container/page-bar";
 
+import { useBoardNotice } from "./hooks";
+
 const Notice = () => {
+  const { posts } = useBoardNotice();
   return (
     <Layout>
       <S.Notice>
@@ -32,7 +35,7 @@ const Notice = () => {
           </S.ToolsContainer>
           <S.BoardListContainer>
             <BoardHeader />
-            <BoardList />
+            <BoardList posts={posts} />
           </S.BoardListContainer>
           <S.PagebarContainer>
             <Pagebar />

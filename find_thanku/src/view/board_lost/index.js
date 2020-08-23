@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 
 import * as S from "./styles";
 import Layout from "../../component/layout";
@@ -40,7 +40,7 @@ const BoardLost = () => {
           <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
-          <Pagebar/>
+          <Pagebar />
         </S.PagebarContainer>
       </S.BoardLost>
     </Layout>

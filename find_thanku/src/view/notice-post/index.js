@@ -2,8 +2,10 @@ import React from "react";
 
 import * as S from "./styles";
 import Layout from "../../component/layout";
+import { useNoticePost } from "./hooks";
 
 const NoticePost = () => {
+  const { posts } = useNoticePost();
   return (
     <Layout>
       <S.NoticePost>
@@ -12,9 +14,9 @@ const NoticePost = () => {
         </S.TitleContainer>
         <S.NoticePostContainer>
           <S.MetaContainer>
-            <S.PostTitle>제목</S.PostTitle>
-            <S.Date>날짜 시간 정보</S.Date>
-            <S.Content>게시글 내용이 들어갈 예정 입니다.</S.Content>
+            <S.PostTitle>{posts.title}</S.PostTitle>
+            <S.Date>{posts.date}</S.Date>
+            <S.Content>{posts.content}</S.Content>
           </S.MetaContainer>
         </S.NoticePostContainer>
         <S.ContentContainer></S.ContentContainer>

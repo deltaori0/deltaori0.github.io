@@ -1,4 +1,6 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
+
 import { THEME_COLOR } from "../../constant";
 
 export const BoardItem = styled.li`
@@ -16,17 +18,20 @@ export const Label = styled.ul`
   margin: 1rem;
 `;
 
-export const NameContainer = styled.ul`
+export const NameContainer = styled(Link)`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
-  flex-grow: 2;
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  text-decoration: none;
+  color: black;
 `;
 
 export const DateContainer = styled.ul`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
-export const useBoardFind = () => {
+export const useNoticePost = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      // console.log(window.location.pathname);
+      console.log(window.location.pathname);
+
       const url = window.location.pathname;
       const request = await fetch("http://localhost:4000" + url, {
         method: "GET",

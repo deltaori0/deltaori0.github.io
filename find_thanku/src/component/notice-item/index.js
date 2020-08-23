@@ -2,14 +2,15 @@ import React from "react";
 
 import * as S from "./styles";
 
-const NoticeItem = () => {
+const NoticeItem = ({ post }) => {
+  const url = "/notice_post/" + post._id;
   return (
     <S.BoardItem>
-      <S.NameContainer>
-        <S.Label>제목</S.Label>
+      <S.NameContainer to={url}>
+        <S.Label>{post.title}</S.Label>
       </S.NameContainer>
       <S.DateContainer>
-        <S.Label>작성 날짜</S.Label>
+        <S.Label>{post.date.slice(0, 10)}</S.Label>
       </S.DateContainer>
     </S.BoardItem>
   );

@@ -23,7 +23,7 @@ export const Label = styled.ul`
 
 export const NameContainer = styled.ul`
   border: 0.5px solid white;
-  flex-grow: 2;
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ export const NameContainer = styled.ul`
 
 export const DateContainer = styled.ul`
   border: 0.5px solid white;
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;

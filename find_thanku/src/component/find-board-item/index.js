@@ -1,10 +1,9 @@
 import React from "react";
 
 import * as S from "./styles";
-import { FindPost } from "../../view/find-post/styles";
 
 const FindBoardItem = ({ post }) => {
-  const url = '/find_post/'+post._id;
+  const url = "/find_post/" + post._id;
   return (
     <S.BoardItem>
       <S.TitleContainer to={url}>
@@ -26,7 +25,7 @@ const FindBoardItem = ({ post }) => {
         <S.Label>{post.username}</S.Label>
       </S.WriterContainer>
       <S.DateContainer>
-        <S.Label>{post.date.slice(0,10)}</S.Label>
+        <S.Label>{post.date.slice(0, 10)}</S.Label>
       </S.DateContainer>
     </S.BoardItem>
   );

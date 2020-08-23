@@ -26,7 +26,7 @@ const FindPost = () => {
             </S.ContentContainer>
           </S.MetaContainer>
         </S.FindPostContainer>
-        <br/>
+        <br />
         <CommentList />
         <S.WriteCommentContainer>
           <S.WriteComment placeholder="댓글을 입력하세요." />
