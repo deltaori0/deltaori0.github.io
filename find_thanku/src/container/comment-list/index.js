@@ -3,14 +3,13 @@ import React from "react";
 import * as S from "./styles";
 import Comment from "../../component/comment";
 
-const CommentList = () => {
+const CommentList = ({comments}) => {
+  console.log(comments);
   return (
     <S.CommentList>
-      <S.CommentsContainer>
-        <Comment />
-        <Comment />
-        <Comment />
-      </S.CommentsContainer>
+      {comments.map((comment, idx) => {
+        return <Comment comment={comment} key={idx}/>;
+      })}
     </S.CommentList>
   );
 };
