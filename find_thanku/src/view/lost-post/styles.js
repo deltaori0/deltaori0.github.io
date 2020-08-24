@@ -83,7 +83,7 @@ export const Content = styled.div`
 `;
 
 export const CommentsContainer = styled.div`
-  width: 100%;
+  width: 99%;
 `;
 
 export const WriteCommentContainer = styled.div`
@@ -94,7 +94,7 @@ export const WriteCommentContainer = styled.div`
 `;
 
 export const WriteComment = styled.input`
-  width: 99%;
+  width: 97%;
   font-size: 1.4rem;
   height: 3.5rem;
   /* border: none; */
