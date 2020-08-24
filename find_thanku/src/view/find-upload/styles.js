@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import { THEME_COLOR } from "../../constant";
+import { Link } from "react-router-dom";
 
 export const Upload = styled.div`
   width: 100%;
@@ -122,7 +123,7 @@ export const ButtonsContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled(Link)`
   font-size: 1.4rem;
   text-decoration: none;
 

@@ -3,7 +3,7 @@ import React from "react";
 import * as S from "./styles";
 
 const NoticeItem = ({ post }) => {
-  const url = "/notice_post/" + post._id;
+  const url = "/notice/post/" + post._id;
   return (
     <S.BoardItem>
       <S.NameContainer to={url}>

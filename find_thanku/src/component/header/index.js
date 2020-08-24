@@ -11,11 +11,14 @@ const Header = () => {
         <S.Logo src={STATIC_URL.LOGO} alt="Logo"></S.Logo>
       </S.DesktopLink>
       <S.Buttons>
-        <S.DesktopLink to="/board_lost">
+        <S.DesktopLink to="/lost/board">
           <S.Button>분실물</S.Button>
         </S.DesktopLink>
-        <S.DesktopLink to="/board_find">
+        <S.DesktopLink to="/find/board">
           <S.Button>습득물</S.Button>
+        </S.DesktopLink>
+        <S.DesktopLink to="/notice">
+          <S.Button>공지사항</S.Button>
         </S.DesktopLink>
         <S.DesktopLink to="/login">
           <S.Button>로그인</S.Button>

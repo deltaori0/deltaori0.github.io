@@ -33,7 +33,7 @@ const BoardLost = () => {
               />
             </S.SearchIcon>
           </S.SearchContainer>
-          <S.WriteButton to="lost_upload">글 작성</S.WriteButton>
+          <S.WriteButton to="/lost/upload">글 작성</S.WriteButton>
         </S.ToolsContainer>
         <S.BoardListContainer>
           <BoardHeader />

@@ -14,7 +14,7 @@ class NoticeUpload extends Component{
       //content: this.name.value,
     };
     axios
-      .post("http://localhost:4000/notice_upload", send_param)
+      .post("http://localhost:4000/notice/upload", send_param)
       //정상 수행
       //에러
       .catch(err => {
