@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 
 const LostBoardItem = ({ post }) => {
-  const url = "/lost_post/" + post._id;
+  const url = "/lost/post/" + post._id;
   return (
     <S.BoardItem>
       <S.TitleContainer to={url}>

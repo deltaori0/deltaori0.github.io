@@ -24,18 +24,17 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact component={Main} />
-        <Route path="/board_lost" exact component={BoardLost} />
-        <Route path="/board_find" exact component={BoardFind} />
+        <Route path="/lost/board" exact component={BoardLost} />
+        <Route path="/find/board" exact component={BoardFind} />
         <Route path="/login" exact component={Login} />
-        <Route path="/find_upload" exact component={FindUpload} />
-        <Route path="/lost_upload" exact component={LostUpload} />
+        <Route path="/find/upload" exact component={FindUpload} />
+        <Route path="/lost/upload" exact component={LostUpload} />
         <Route path="/notice" exact component={Notice} />
-        <Route path="/notice_upload" exact component={NoticeUpload} />
+        <Route path="/notice/upload" exact component={NoticeUpload} />
         <Route path="/join" exact component={JoinForm} />
-        <Route path="/find_post/:_id" exact component={FindPost} />
-        <Route path="/lost_post/:_id" exact component={LostPost} />
-        <Route path="/notice_post/:_id" exact component={NoticePost} />
-
+        <Route path="/find/post/:_id" exact component={FindPost} />
+        <Route path="/lost/post/:_id" exact component={LostPost} />
+        <Route path="/notice/post/:_id" exact component={NoticePost} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

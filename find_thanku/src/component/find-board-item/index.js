@@ -3,7 +3,7 @@ import React from "react";
 import * as S from "./styles";
 
 const FindBoardItem = ({ post }) => {
-  const url = "/find_post/" + post._id;
+  const url = "/find/post/" + post._id;
   return (
     <S.BoardItem>
       <S.TitleContainer to={url}>

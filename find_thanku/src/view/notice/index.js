@@ -31,7 +31,7 @@ const Notice = () => {
                 />
               </S.SearchIcon>
             </S.SearchContainer>
-            <S.WriteButton to="notice_upload">글 작성</S.WriteButton>
+            <S.WriteButton to="/notice/upload">글 작성</S.WriteButton>
           </S.ToolsContainer>
           <S.BoardListContainer>
             <BoardHeader />

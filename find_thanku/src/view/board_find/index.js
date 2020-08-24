@@ -33,7 +33,7 @@ const BoardFind = () => {
               />
             </S.SearchIcon>
           </S.SearchContainer>
-          <S.WriteButton to="find_upload">글 작성</S.WriteButton>
+          <S.WriteButton to="/find/upload">글 작성</S.WriteButton>
         </S.ToolsContainer>
         <S.BoardListContainer>
           <BoardHeader />

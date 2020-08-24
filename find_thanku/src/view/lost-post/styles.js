@@ -82,6 +82,10 @@ export const Content = styled.div`
   margin-bottom: 1rem;
 `;
 
+export const CommentsContainer = styled.div`
+  width: 99%;
+`;
+
 export const WriteCommentContainer = styled.div`
   width: 100%;
   display: flex;
@@ -90,7 +94,7 @@ export const WriteCommentContainer = styled.div`
 `;
 
 export const WriteComment = styled.input`
-  width: 99%;
+  width: 97%;
   font-size: 1.4rem;
   height: 3.5rem;
   /* border: none; */

@@ -18,7 +18,7 @@ class FindUpload extends Component {
       putplace: this.state.selectedOption.value,
     };
     axios
-      .post("http://localhost:4000/find_upload", send_param)
+      .post("http://localhost:4000/find/upload", send_param)
       //에러
       .catch((err) => {
         console.log(err);
@@ -100,11 +100,12 @@ class FindUpload extends Component {
             <S.TextEditorContainer>
               <TextEditor />
             </S.TextEditorContainer>
-            <Link to="/board_find">
-              <S.SubmitButton onClick={this.FindUpload} type="button" block>
-                작성
-              </S.SubmitButton>
-            </Link>
+            <S.SubmitButton 
+              to="/find/board"
+              onClick={this.FindUpload} 
+              type="button" block>
+              작성
+            </S.SubmitButton>
             {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}
           </S.UploadContainer>
         </S.Upload>
