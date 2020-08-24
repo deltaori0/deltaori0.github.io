@@ -87,7 +87,7 @@ const Login = () => {
         <S.Container>
           <GoogleLogin
             clientId="920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com"
-            buttonText="Google"
+            buttonText="Google 계정으로 로그인"
             onSuccess={responseGoogle}
             onFailure={responseFail}
           />
