@@ -17,10 +17,15 @@ export const Login = styled.div`
   padding-bottom: 0px;
   padding-left: 30px;
 
-  border: 2px solid #F0B957;
+  border: 2px solid #f0b957;
   text-align: center;
   display: flex;
   flex-direction: column;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-flow: column wrap;
 `;
 
 // border: 3px solid #F0B957;

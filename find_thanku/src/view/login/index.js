@@ -4,6 +4,9 @@ import Layout from "../../component/layout";
 import * as S from "./styles";
 import "./login.scss";
 import axios from "axios";
+
+import { GoogleLogin } from "react-google-login";
+
 axios.defaults.withCredentials = true;
 
 //로그인 페이지
@@ -35,6 +38,16 @@ const Login = () => {
     });
   };
 
+  // Google Login
+  const responseGoogle = (res) => {
+    console.log(res);
+  };
+
+  // Login Fail
+  const responseFail = (err) => {
+    console.error(err);
+  };
+
   return (
     <Layout>
       <S.Login>
@@ -51,7 +64,8 @@ const Login = () => {
             onChange={onChange}
             value={id}
           />
-          <br /><br/>
+          <br />
+          <br />
           <input
             class="input_box"
             type="password"
@@ -60,7 +74,8 @@ const Login = () => {
             onChange={onChange}
             value={pw}
           />
-          <br /><br />
+          <br />
+          <br />
           <button class="login_button" onClick={onReset}>
             로그인
           </button>
@@ -69,6 +84,14 @@ const Login = () => {
             {id} / {pw}
           </div>
         </div>
+        <S.Container>
+          <GoogleLogin
+            clientId="920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com"
+            buttonText="Google"
+            onSuccess={responseGoogle}
+            onFailure={responseFail}
+          />
+        </S.Container>
       </S.Login>
     </Layout>
   );

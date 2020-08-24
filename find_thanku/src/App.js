@@ -35,6 +35,7 @@ function App() {
         <Route path="/find_post/:_id" exact component={FindPost} />
         <Route path="/lost_post/:_id" exact component={LostPost} />
         <Route path="/notice_post/:_id" exact component={NoticePost} />
+
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
