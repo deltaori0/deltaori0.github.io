@@ -82,6 +82,10 @@ export const Content = styled.div`
   margin-bottom: 1rem;
 `;
 
+export const CommentsContainer = styled.div`
+  width: 100%;
+`;
+
 export const WriteCommentContainer = styled.div`
   width: 100%;
   display: flex;
