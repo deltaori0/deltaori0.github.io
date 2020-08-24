@@ -53,7 +53,7 @@ const LostPost = () => {
         </S.LostPostContainer>
         <br/><br/>
         <S.MetaContainer>
-          <S.Label>{<img src={STATIC_URL.PENCIL_ICON} alt="pencil" width='15px'/>} 댓글</S.Label>
+          <S.Label>{<img src={STATIC_URL.CHAT} alt="chat" width='15px'/>} 댓글</S.Label>
           <S.CommentsContainer>
             <CommentList comments = {comments}/>
           </S.CommentsContainer>
@@ -63,7 +63,7 @@ const LostPost = () => {
               ref={ref => (content = ref)}
               placeholder="댓글을 입력하세요." />
             <S.SubmitIcon onClick={CommentUpload}>
-              <img src={STATIC_URL.SUBMIT} alt="submit_icon" />
+              {<img src={STATIC_URL.SUBMIT} alt="submit_icon" />}
             </S.SubmitIcon>
           </S.WriteCommentContainer>
         </S.MetaContainer>

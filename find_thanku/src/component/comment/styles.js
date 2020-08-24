@@ -24,6 +24,8 @@ export const Writer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
   padding: 1rem;
 `;
@@ -35,6 +37,15 @@ export const Content = styled.div`
 export const ProfileIcon = styled.div`
   margin-right: 1rem;
 
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
+`;
+
+export const CommentIcon = styled.div`
+  margin-right: 1rem;
+  
   img {
     width: 2rem;
     height: 2rem;

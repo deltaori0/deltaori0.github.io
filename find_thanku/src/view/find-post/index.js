@@ -53,7 +53,7 @@ const FindPost = () => {
         </S.FindPostContainer>
         <br/><br/>
         <S.MetaContainer>
-          <S.Label>{<img src={STATIC_URL.PENCIL_ICON} alt="pencil" width='15px'/>} 댓글</S.Label>
+          <S.Label>{<img src={STATIC_URL.CHAT} alt="chat" width='15x'/>} 댓글</S.Label>
           <S.CommentsContainer>
             <CommentList comments = {comments}/>
           </S.CommentsContainer>
