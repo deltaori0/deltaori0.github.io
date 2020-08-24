@@ -3,7 +3,6 @@ import * as S from "./styles";
 import TextEditor from "../../component/find-text-editor";
 import Layout from "../../component/layout";
 // import { STATIC_URL } from "../../constant";
-import {Link} from 'react-router-dom';
 import axios from "axios";
 const headers = { withCredentials: true };
 
@@ -19,7 +18,7 @@ class LostUpload extends Component {
       // replynum: this.replynum.value,
       // username: this.username.value
     axios
-      .post("http://localhost:4000/lost_upload", send_param)
+      .post("http://localhost:4000/lost/upload", send_param)
       //정상 수행
     
       //에러
@@ -56,13 +55,12 @@ class LostUpload extends Component {
             <S.TextEditorContainer>
               <TextEditor/>
             </S.TextEditorContainer>
-            <Link to = '/board_lost'>
-              <S.SubmitButton
-                onClick={this.LostUpload}
-                type="button"
-                block>작성
-              </S.SubmitButton>
-            </Link>
+            <S.SubmitButton
+              to = '/lost/board'
+              onClick={this.LostUpload}
+              type="button"
+              block>작성
+            </S.SubmitButton>
             {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}
           </S.UploadContainer>
         </S.Upload>

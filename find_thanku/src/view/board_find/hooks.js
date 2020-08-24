@@ -5,7 +5,7 @@ export const useBoardFind = () => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const request = await fetch("http://localhost:4000/board_find", {
+      const request = await fetch("http://localhost:4000/find/board", {
         method: "GET",
       });
 
