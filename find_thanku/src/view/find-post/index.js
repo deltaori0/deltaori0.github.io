@@ -1,14 +1,13 @@
 import React from "react";
-
 import * as S from "./styles";
 import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardFind } from "./hooks";
 import { useCommentFind } from "./hooks2";
+import { PostDelete, SetReplynum } from "./function";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { PostDelete } from "./function";
 
 const headers = { withCredentials: true };
 
@@ -32,15 +31,14 @@ const FindPost = () => {
       .catch((err) => {
         console.log(err);
       });
+    SetReplynum(1); //댓글수 +1
     alert("댓글 작성 완료!");
     window.location.reload(true); //새로고침
   };
-  const username = posts.username;
   const Delete = () => {
-    PostDelete(username);
+    PostDelete(posts.username);
   }
-  
-  
+
   return (
     <Layout>
       <S.FindPost>
@@ -60,7 +58,7 @@ const FindPost = () => {
             <S.Label>습득 장소 : {posts.getplace} </S.Label>
             <S.Label>보관 장소 : {posts.putplace} </S.Label>
             <S.ContentContainer>
-              <S.Content> {posts.content} </S.Content>
+              <S.Content>{posts.content}</S.Content>
             </S.ContentContainer>
           </S.MetaContainer>
         </S.FindPostContainer>

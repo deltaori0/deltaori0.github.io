@@ -5,7 +5,7 @@ import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardLost } from "./hooks";
-import { PostDelete } from "./function";
+import { PostDelete, SetReplynum } from "./function";
 import { useCommentLost } from "./hooks2";
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,8 @@ const LostPost = () => {
   //var username;
   var content;
   const url = window.location.pathname;  //localhost:4000/lost_post/게시글 id정보/  
-
+  
+  //댓글 저장(업로드)
   const CommentUpload = () => {  
     const send_param = {
       headers,
@@ -33,10 +34,11 @@ const LostPost = () => {
       .catch((err) => {
         console.log(err);
       });
+    SetReplynum(1); //댓글수 +1
     alert("댓글 작성 완료!");
     window.location.reload(true); //새로고침
   };
-
+  //게시글 삭제
   const Delete = () => {
     PostDelete(posts.username);
   }

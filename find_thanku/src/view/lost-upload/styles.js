@@ -112,6 +112,8 @@ export const TextEditorContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
+export const TextEditor = styled.div``;
+
 export const ButtonsContainer = styled.div`
   padding: 0rem 1rem;
   width: 100%;

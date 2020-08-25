@@ -8,7 +8,7 @@ const Comment = ({comment}) => {
   const username = comment.username;
   const content = comment.content;
   const id = comment._id;
-
+  
   const Delete = () => {
     PostDelete(username,id);
   }

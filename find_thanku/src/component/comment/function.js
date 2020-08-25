@@ -1,4 +1,18 @@
     
+  //댓글수 조정
+  const SetReplynum = async (num) => {
+    const url = window.location.pathname;
+    const request = await fetch('http://localhost:4000'+url+'/replynum/'+(num), {
+      method: "PATCH",
+    });
+    console.log('http://localhost:4000'+url+'/replynum/'+(-1));
+    if (!request.ok) {
+      alert("서버 죽음");
+      return;
+    }
+    await request.json();
+  }
+
   export const PostDelete = async (username,id) => {
     const url = window.location.pathname;
     var bool = window.confirm('정말 삭제하시겠습니까?');
@@ -15,7 +29,8 @@
         alert("댓글 삭제 실패");
         return;
       }
-      await request.json();      
+      await request.json(); 
+      SetReplynum(-1); //댓글수 -1     
       alert('댓글이 삭제되었습니다!'); 
       window.location.reload(true); //새로고침
     }

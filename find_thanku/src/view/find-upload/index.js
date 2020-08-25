@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+
 import * as S from "./styles";
-import TextEditor from "../../component/find-text-editor";
+//import TextEditor from "../../component/find-text-editor";
+import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
-import { Link } from "react-router-dom";
 // import { STATIC_URL } from "../../constant";
 import Select from "react-select";
 import axios from "axios";
 const headers = { withCredentials: true };
 
-class FindUpload extends Component {
+class FindUpload extends Component { 
   FindUpload = () => {
     const send_param = {
       headers,
@@ -16,6 +17,7 @@ class FindUpload extends Component {
       name: this.name.value,
       getplace: this.getplace.value,
       putplace: this.state.selectedOption.value,
+      content: this.content,
     };
     axios
       .post("http://localhost:4000/find/upload", send_param)
@@ -25,6 +27,12 @@ class FindUpload extends Component {
       });
     alert("작성 완료!");
   };
+  //texteditor 관련
+  handleEditorChange = (e) => {
+    console.log(e.target.getContent());
+    this.content = e.target.getContent();
+  };
+  //Select 관련
   options = [
     { value: "중앙광장 원스탑", label: "중앙광장 원스탑" },
     { value: "하나스퀘어 원스탑", label: "하나스퀘어 원스탑" },
@@ -39,8 +47,9 @@ class FindUpload extends Component {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
   };
-
+  //render
   render() {
+    //select 관련
     const { selectedOption } = this.state;
 
     const styles = {
@@ -61,7 +70,7 @@ class FindUpload extends Component {
         marginTop: "1%",
       }),
     };
-
+    //return
     return (
       <Layout>
         <S.Upload>
@@ -87,7 +96,6 @@ class FindUpload extends Component {
                 ref={(ref) => (this.getplace = ref)}
                 placeholder="습득 장소"
               />
-
               <Select
                 styles={styles}
                 placeholder="보관 장소"
@@ -97,9 +105,34 @@ class FindUpload extends Component {
                 value={selectedOption}
               />
             </S.WriteInputContainer>
+
             <S.TextEditorContainer>
-              <TextEditor />
+              <S.TextEditor>
+                <Editor
+                  initialValue=""
+                  init={{
+                    height: 500,
+                    menubar: false,
+                    placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                    plugins: [
+                      "advlist autolink lists link image",
+                      "charmap print preview anchor help",
+                      "searchreplace visualblocks code",
+                      "insertdatetime media table paste wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | formatselect | bold italic | image | alignleft aligncenter alignright | bullist numlist outdent indent | help",
+                    mobile: {
+                      theme: "mobile",
+                      placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                      plugins: ["autosave", "lists", "autolink", "placeholder"],
+                    },
+                  }}
+                  onChange={this.handleEditorChange}
+                />
+              </S.TextEditor>
             </S.TextEditorContainer>
+
             <S.SubmitButton 
               to="/find/board"
               onClick={this.FindUpload} 
