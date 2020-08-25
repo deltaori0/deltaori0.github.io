@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-
+import { Link } from "react-router-dom";
 import { THEME_COLOR } from "../../constant";
 
 export const LostPost = styled.div`
@@ -111,5 +111,14 @@ export const SubmitIcon = styled.div`
     width: 2rem;
     height: 100%;
     cursor: pointer;
+  }
+`;
+
+export const Icon = styled(Link)`
+  margin-right: 1rem;
+  
+  img {
+    width: 2rem;
+    height: 2rem;
   }
 `;

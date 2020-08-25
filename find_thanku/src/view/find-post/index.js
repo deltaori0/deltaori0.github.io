@@ -5,7 +5,7 @@ import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardFind } from "./hooks";
 import { useCommentFind } from "./hooks2";
-import { PostDelete, SetReplynum } from "./function";
+import { PostDelete, PostEdit, SetReplynum } from "./function";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -35,10 +35,14 @@ const FindPost = () => {
     alert("댓글 작성 완료!");
     window.location.reload(true); //새로고침
   };
+  //게시글 삭제
   const Delete = () => {
     PostDelete(posts.username);
   }
-
+  //게시글 수정
+  const Edit = () => {
+    PostEdit(posts.username,posts.content);
+  }
   return (
     <Layout>
       <S.FindPost>
@@ -50,9 +54,8 @@ const FindPost = () => {
             <S.PostTitle>{posts.title}</S.PostTitle>
             <S.Date>
               {posts.date}
-              <Link to='/find/board'>
-                {<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}
-              </Link>
+              <S.Icon to='/find/board'>{<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}</S.Icon>
+              <S.Icon>{<img src={STATIC_URL.EDIT} alt="edit" width='20x' align='right' onClick={Edit}/>}</S.Icon>
             </S.Date>
             <S.Label>습득물 명 : {posts.name}</S.Label>
             <S.Label>습득 장소 : {posts.getplace} </S.Label>

@@ -13,7 +13,7 @@ const Main = () => {
             <S.MainLabel>고려대학교 구성원을 위한 스마트 분실물센터</S.MainLabel>
           </S.MainContent>
           <S.SubContent>
-            <S.SubLabel>찾아주셔서(FIN:D) 고맙습니다(THANKU)의 의미를 가지는 FIN:D THANKU는 고려대학교 구성원을 위한 분실물센터로,</S.SubLabel>
+            <S.SubLabel>찾아주셔서(FIN:D) 고맙습니다(THANKU)의 의미를 가지는 FIN:D THANKU는 고려대학교 구성원을 위한 분실물센터입니다.</S.SubLabel>
             <S.SubLabel>구성원 누구나 잃어버린 물건을 쉽게 찾을 수 있도록 하는 것이 목표입니다.(멘트 수정)</S.SubLabel>
           </S.SubContent>
         </S.ContentContainer>

@@ -39,7 +39,7 @@
       alert('삭제 권한 없음');
     }
   }
- 
+ //댓글 수정
   export const PostEdit = async (username,content,id) => {
     const url = window.location.pathname;
     //작성자 == 현재 접속자의 username(sohee(temp))

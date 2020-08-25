@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-
+import { Link } from "react-router-dom";
 import { THEME_COLOR } from "../../constant";
 
 export const NoticePost = styled.div`
@@ -75,4 +75,12 @@ export const Date = styled.div`
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 0.1rem solid black;
+`;
+export const Icon = styled(Link)`
+  margin-right: 1rem;
+  
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
 `;

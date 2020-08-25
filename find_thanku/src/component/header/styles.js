@@ -10,7 +10,7 @@ export const Header = styled.div`
   height: 10rem;
   padding: 0rem 2rem;
 
-  border-bottom: 4px solid ${THEME_COLOR.YELLOW};
+  border-bottom: 3px solid ${THEME_COLOR.YELLOW};
 `;
 
 export const Logo = styled.img`
