@@ -5,7 +5,8 @@ import * as S from "./styles";
 import "./login.scss";
 import axios from "axios";
 
-import { GoogleLogin } from "react-google-login";
+import { GoogleLogin} from "react-google-login";
+import {GoogleBtn} from "../google_login/googlebtn";
 
 axios.defaults.withCredentials = true;
 
@@ -54,6 +55,30 @@ const Login = () => {
         <div>
           <img src={STATIC_URL.LOGO} width="200px" height="90px" alt="logo" />
         </div>
+        <br /><br />  
+        <S.Container>
+          <GoogleLogin
+            clientId="920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com"
+            buttonText="Google 계정으로 로그인"
+            onSuccess={responseGoogle}
+            onFailure={responseFail}
+          />
+        </S.Container>
+        <br /><br />  
+        <S.Container>
+          <GoogleBtn/>sohee's 시도
+        </S.Container>
+      </S.Login>
+    </Layout>
+  );
+};
+
+export default Login;
+
+/*임시저장
+     <div>
+          <img src={STATIC_URL.LOGO} width="200px" height="90px" alt="logo" />
+        </div>
         <div>
           <br />
           <br />
@@ -84,17 +109,4 @@ const Login = () => {
             {id} / {pw}
           </div>
         </div>
-        <S.Container>
-          <GoogleLogin
-            clientId="920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com"
-            buttonText="Google 계정으로 로그인"
-            onSuccess={responseGoogle}
-            onFailure={responseFail}
-          />
-        </S.Container>
-      </S.Login>
-    </Layout>
-  );
-};
-
-export default Login;
+        */

@@ -5,7 +5,7 @@ import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardLost } from "./hooks";
-import { PostDelete, SetReplynum } from "./function";
+import { PostDelete, PostEdit, SetReplynum } from "./function";
 import { useCommentLost } from "./hooks2";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const LostPost = () => {
   var content;
   const url = window.location.pathname;  //localhost:4000/lost_post/게시글 id정보/  
   
-  //댓글 저장(업로드)
+  //댓글 업로드(신규)
   const CommentUpload = () => {  
     const send_param = {
       headers,
@@ -42,7 +42,10 @@ const LostPost = () => {
   const Delete = () => {
     PostDelete(posts.username);
   }
- 
+  //게시글 수정
+  const Edit = () => {
+    PostEdit(posts.username,posts.content);
+  }
   return (
     <Layout> 
       <S.LostPost>
@@ -54,9 +57,8 @@ const LostPost = () => {
             <S.PostTitle>{posts.title}</S.PostTitle>
             <S.Date>
               {posts.date}
-              <Link to='/lost/board'>
-                {<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}
-              </Link>
+              <S.Icon to='/lost/board'>{<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}</S.Icon>
+              <S.Icon>{<img src={STATIC_URL.EDIT} alt="edit" width='20x' align='right' onClick={Edit}/>}</S.Icon>
             </S.Date>
             <S.Label>분실물 명 : {posts.name} </S.Label>
             <S.Label>분실 장소 : {posts.place} </S.Label>

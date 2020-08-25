@@ -66,7 +66,7 @@ export const BlockContainer = styled.div`
 
   align-items: center;
 
-  background-color: ${THEME_COLOR.LIGHT_YELLOW};
+  background-color: ${THEME_COLOR.LIGHT_GRAY};
   text-decoration: none;
 `;
 

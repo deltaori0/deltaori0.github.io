@@ -21,4 +21,5 @@ export const THEME_COLOR = {
   GRAY: "#F1F1F1",
   GRAYER: "#EDEDED",
   FONT_GRAY: "#80868B",
+  LIGHT_GRAY: "#E5E5E3",
 };
