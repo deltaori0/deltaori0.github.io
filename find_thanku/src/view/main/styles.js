@@ -9,26 +9,57 @@ export const Main = styled.div`
   margin-top: 1rem;
 `;
 
-export const MainContainer = styled.div`
+export const ContentContainer = styled.div`
   width: 100%;
   height: 100%;
 
   display: flex;
+  flex-direction: column;
+`;
+export const MainContent = styled.div`
+  margin: 8rem;
+  margin-bottom: 0rem;
+  margin-top: 4rem;
+`;
+export const MainLabel = styled.div`
+  padding: 1rem;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #85092A;
+  text-decoration: underline ${THEME_COLOR.LIGHT_YELLOW};
+`;
+export const SubContent = styled.div`
+  margin: 4rem 9rem;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+`;
+export const SubLabel = styled.div`
+  padding: 0.8rem;
+  font-size: 2rem;
+  color: chacol;
+`;
+export const MainContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
   flex-direction: row;
 
+  margin-left: 6rem;
+
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 `;
 
 export const BlockContainer = styled.div`
-  width: 30rem;
-  height: 30rem;
+  width: 28rem;
+  height: 28rem;
 
   display: flex;
   flex-direction: column;
 
   padding: 1.5rem;
-  margin: 7rem 7rem;
+  margin: 8rem 4rem;
 
   border: 1px solid ${THEME_COLOR.GRAYER};
   border-radius: 0.5rem;
