@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import * as S from "./styles";
 import TextEditor from "../../component/find-text-editor";
+import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
 // import { STATIC_URL } from "../../constant";
 import axios from "axios";
@@ -12,23 +13,27 @@ class LostUpload extends Component {
       headers,
       title: this.title.value,
       name: this.name.value,
-      place: this.place.value
-      // content: this.content.value
+      place: this.place.value,
+      content: this.content,
     };
       // replynum: this.replynum.value,
       // username: this.username.value
     axios
       .post("http://localhost:4000/lost/upload", send_param)
-      //정상 수행
-    
-      //에러
-      .catch(err => {
+       //에러
+      .catch((err) => {
         console.log(err);
       });
     alert("작성 완료!");
-  }
-
+  };
+  //texteditor 관련
+  handleEditorChange = (e) => {
+    console.log(e.target.getContent());
+    this.content = e.target.getContent();
+  };
+  //render
   render () {
+    //return
     return (
       <Layout>
         <S.Upload>
@@ -39,22 +44,47 @@ class LostUpload extends Component {
             <S.TitleInputContainer>
               <S.TitleInput 
                 type="text"
-                ref={ref => (this.title = ref)}
+                ref={(ref) => (this.title = ref)}
                 placeholder="제목 명" />
             </S.TitleInputContainer>
             <S.WriteInputContainer>
               <S.NameInput 
                 type="text"
-                ref={ref => (this.name = ref)}
+                ref={(ref) => (this.name = ref)}
                 placeholder="분실물 명" />
               <S.PlaceInput
                 type="text"
-                ref={ref => (this.place = ref)}
+                ref={(ref) => (this.place = ref)}
                 placeholder="분실 장소" />
             </S.WriteInputContainer>
+
             <S.TextEditorContainer>
-              <TextEditor/>
+              <S.TextEditor>
+                <Editor
+                  initialValue=""
+                  init={{
+                    height: 500,
+                    menubar: false,
+                    placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                    plugins: [
+                      "advlist autolink lists link image",
+                      "charmap print preview anchor help",
+                      "searchreplace visualblocks code",
+                      "insertdatetime media table paste wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | formatselect | bold italic | image | alignleft aligncenter alignright | bullist numlist outdent indent | help",
+                    mobile: {
+                      theme: "mobile",
+                      placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                      plugins: ["autosave", "lists", "autolink", "placeholder"],
+                    },
+                  }}
+                  onChange={this.handleEditorChange}
+                />
+              </S.TextEditor> 
             </S.TextEditorContainer>
+            
             <S.SubmitButton
               to = '/lost/board'
               onClick={this.LostUpload}

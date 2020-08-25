@@ -1,13 +1,12 @@
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
-
 import * as S from "./styles";
 
-const FindTextEditor = () => {
+export const FindTextEditor = () => {
   const handleEditorChange = (e) => {
     console.log(e.target.getContent());
   };
-
+  
   return (
     <S.TextEditor>
       <Editor

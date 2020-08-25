@@ -5,35 +5,44 @@ import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardLost } from "./hooks";
+import { PostDelete, SetReplynum } from "./function";
 import { useCommentLost } from "./hooks2";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 const headers = { withCredentials: true };
 
 const LostPost = () => {
   const { posts } = useBoardLost();
-  //존재하는 _id의 게시글일 때만 화면 보이도록 설정해야함
   const { comments } = useCommentLost();
   //var username;
   var content;
-
+  const url = window.location.pathname;  //localhost:4000/lost_post/게시글 id정보/  
+  
+  //댓글 저장(업로드)
   const CommentUpload = () => {  
     const send_param = {
       headers,
       //username: username.value,
       content: content.value,
-      postid: posts._id
+      postid: posts._id,
+      postkind: "lost",
     };
-    const url = window.location.pathname;  //localhost:4000/find_post/게시글 id정보/  
     axios
       .post("http://localhost:4000"+url+"/comment", send_param)
       //에러
       .catch((err) => {
         console.log(err);
       });
+    SetReplynum(1); //댓글수 +1
     alert("댓글 작성 완료!");
     window.location.reload(true); //새로고침
   };
-
+  //게시글 삭제
+  const Delete = () => {
+    PostDelete(posts.username);
+  }
+ 
   return (
     <Layout> 
       <S.LostPost>
@@ -43,7 +52,12 @@ const LostPost = () => {
         <S.LostPostContainer>
           <S.MetaContainer>
             <S.PostTitle>{posts.title}</S.PostTitle>
-            <S.Date>{posts.date}</S.Date>
+            <S.Date>
+              {posts.date}
+              <Link to='/lost/board'>
+                {<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}
+              </Link>
+            </S.Date>
             <S.Label>분실물 명 : {posts.name} </S.Label>
             <S.Label>분실 장소 : {posts.place} </S.Label>
             <S.ContentContainer>

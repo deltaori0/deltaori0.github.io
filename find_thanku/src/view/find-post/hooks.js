@@ -10,12 +10,10 @@ export const useBoardFind = () => {
       const request = await fetch("http://localhost:4000" + url, {
         method: "GET",
       });
-
       if (!request.ok) {
         alert("서버 죽음");
         return;
       }
-
       const data = await request.json();
 
       setPosts(data);

@@ -1,12 +1,14 @@
 import React from "react";
-
 import * as S from "./styles";
 import Layout from "../../component/layout";
 import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardFind } from "./hooks";
 import { useCommentFind } from "./hooks2";
+import { PostDelete, SetReplynum } from "./function";
+import { Link } from "react-router-dom";
 import axios from "axios";
+
 const headers = { withCredentials: true };
 
 const FindPost = () => {
@@ -14,24 +16,28 @@ const FindPost = () => {
   const { comments } = useCommentFind();
   //var username;
   var content;
-
+  const url = window.location.pathname; 
   const CommentUpload = () => {  
     const send_param = {
       headers,
       //username: username.value,
       content: content.value,
-      postid: posts._id
+      postid: posts._id,
+      postkind: "find",
     };
-    const url = window.location.pathname;  //localhost:4000/find_post/게시글 id정보/  
     axios
       .post("http://localhost:4000"+url+"/comment", send_param)
       //에러
       .catch((err) => {
         console.log(err);
       });
+    SetReplynum(1); //댓글수 +1
     alert("댓글 작성 완료!");
     window.location.reload(true); //새로고침
   };
+  const Delete = () => {
+    PostDelete(posts.username);
+  }
 
   return (
     <Layout>
@@ -42,12 +48,17 @@ const FindPost = () => {
         <S.FindPostContainer>
           <S.MetaContainer>
             <S.PostTitle>{posts.title}</S.PostTitle>
-            <S.Date>{posts.date}</S.Date>
+            <S.Date>
+              {posts.date}
+              <Link to='/find/board'>
+                {<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}
+              </Link>
+            </S.Date>
             <S.Label>습득물 명 : {posts.name}</S.Label>
             <S.Label>습득 장소 : {posts.getplace} </S.Label>
             <S.Label>보관 장소 : {posts.putplace} </S.Label>
             <S.ContentContainer>
-              <S.Content> {posts.content} </S.Content>
+              <S.Content>{posts.content}</S.Content>
             </S.ContentContainer>
           </S.MetaContainer>
         </S.FindPostContainer>
