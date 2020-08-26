@@ -21,7 +21,8 @@ export const ArrowBlock = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  /* border: none;
+  outline: none; */
 `;
 
 export const Arrow = styled.div`

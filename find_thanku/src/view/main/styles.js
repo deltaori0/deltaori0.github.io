@@ -51,7 +51,7 @@ export const MainContainer = styled.div`
   justify-content: left;
 `;
 
-export const BlockContainer = styled.div`
+export const BlockContainer = styled(Link)`
   width: 28rem;
   height: 28rem;
 
@@ -65,21 +65,24 @@ export const BlockContainer = styled.div`
   border-radius: 0.5rem;
 
   align-items: center;
+  justify-content: center;
 
   background-color: ${THEME_COLOR.LIGHT_GRAY};
   text-decoration: none;
+  color: black;
+  &:hover {
+    background-color: ${THEME_COLOR.YELLOW};
+    cursor: pointer;
+  }
 `;
 
 export const Title = styled.div`
-  width: 100%;
   font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0rem 1.5rem 0rem;
 `;
 
 export const Description = styled.div`
-  width: 100%;
-  height: 20rem;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 `;
@@ -100,4 +103,12 @@ export const GoButton = styled(Link)`
   border: none;
   outline: none;
   border-radius: 0.5rem;
+`;
+
+export const Icon = styled.div`
+  img {
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
+  }
 `;

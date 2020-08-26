@@ -19,6 +19,7 @@ import FindPost from "./view/find-post";
 import LostPost from "./view/lost-post";
 import NoticePost from "./view/notice-post";
 import EditUpload from "./view/find-upload/edit";
+import MyPage from "./view/mypage";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/find/post/:_id/edit" exact component={EditUpload} />
         <Route path="/lost/post/:_id" exact component={LostPost} />
         <Route path="/notice/post/:_id" exact component={NoticePost} />
+        <Route path="/mypage" exact component={MyPage} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
