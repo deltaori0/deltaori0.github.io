@@ -4,6 +4,7 @@ import TextEditor from "../../component/find-text-editor";
 import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
 // import { STATIC_URL } from "../../constant";
+import { storage } from '../google_login/storage';
 import axios from "axios";
 const headers = { withCredentials: true };
 
@@ -15,9 +16,8 @@ class LostUpload extends Component {
       name: this.name.value,
       place: this.place.value,
       content: this.content,
+      username: storage.get('loggedInfo').email.split('@')[0],
     };
-      // replynum: this.replynum.value,
-      // username: this.username.value
     axios
       .post("http://localhost:4000/lost/upload", send_param)
        //에러

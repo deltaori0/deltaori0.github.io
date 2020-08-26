@@ -3,6 +3,7 @@ import React from "react";
 import * as S from "./styles";
 import { STATIC_URL } from "../../constant";
 import { PostDelete, PostEdit } from "./function";
+import { storage } from '../../view/google_login/storage';
 
 const Comment = ({ comment }) => {
   const username = comment.username;
@@ -20,9 +21,7 @@ const Comment = ({ comment }) => {
   return (
     <S.Comment>
       <S.WriterContainer>
-        <S.ProfileIcon>
-          <img src={STATIC_URL.PROFILE} alt="profile" />
-        </S.ProfileIcon>
+        <S.ProfileIcon><img src={STATIC_URL.PROFILE} alt="profile" /></S.ProfileIcon>
         <S.Writer>{username} </S.Writer>
         <S.Date>{date.slice(0, 10)}</S.Date>
       </S.WriterContainer>

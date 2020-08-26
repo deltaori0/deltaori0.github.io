@@ -8,6 +8,7 @@ import { useBoardLost } from "./hooks";
 import { PostDelete, PostEdit, SetReplynum } from "./function";
 import { useCommentLost } from "./hooks2";
 import { Link } from "react-router-dom";
+import {storage} from "../google_login/storage";
 
 import axios from "axios";
 import { MetaContainer } from "../find-post/styles";
@@ -16,6 +17,7 @@ const headers = { withCredentials: true };
 const LostPost = () => {
   const { posts } = useBoardLost();
   const { comments } = useCommentLost();
+  console.log(posts);
   //var username;
   var content;
   const url = window.location.pathname; //localhost:4000/lost_post/게시글 id정보/
@@ -24,7 +26,7 @@ const LostPost = () => {
   const CommentUpload = () => {
     const send_param = {
       headers,
-      //username: username.value,
+      username: storage.get('loggedInfo').email.split('@')[0],
       content: content.value,
       postid: posts._id,
       postkind: "lost",

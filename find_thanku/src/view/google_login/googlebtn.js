@@ -20,8 +20,8 @@ export class GoogleBtn extends Component {
       }));
     }
     this.UserLogin(); //upload into userdb
-   // window.location.href = '/'; // 홈페이지로 새로고침
-   console.log(response);
+    window.location.href = '/'; // 홈페이지로 새로고침
+    console.log(response);
   }
      //로그인
      UserLogin = () => {
@@ -48,7 +48,6 @@ export class GoogleBtn extends Component {
     };
   //로그아웃(onclick)
   logout (response) {
-    alert('들어왔다');
     this.setState(state => ({
       isLogined: false,
       accessToken: '',
