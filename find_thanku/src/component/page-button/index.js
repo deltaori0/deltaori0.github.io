@@ -4,7 +4,7 @@ import * as S from "./styles";
 
 const PageButton = ({ board_type }) => {
   let url = "/";
-  console.log(board_type);
+ // console.log(board_type);
   if (board_type === "find") url = "/find/board/";
   else if (board_type === "lost") url = "/lost/board/";
   else if (board_type === "notice") url = "/notice/";

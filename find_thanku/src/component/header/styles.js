@@ -41,8 +41,9 @@ export const Button = styled.button`
   }
 
   img {
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4rem;
   }
 
   /* height: 8rem; */
@@ -55,4 +56,9 @@ export const DesktopLink = styled(Link)`
   color: inherit;
 
   display: block;
+`;
+
+export const TempContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
