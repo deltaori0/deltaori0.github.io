@@ -9,3 +9,8 @@ export const MyPage = styled.div`
   padding: 2rem;
   margin-top: 1rem;
 `;
+
+export const BoardListContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
