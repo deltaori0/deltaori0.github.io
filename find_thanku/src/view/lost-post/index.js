@@ -10,6 +10,7 @@ import { useCommentLost } from "./hooks2";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
+import { MetaContainer } from "../find-post/styles";
 const headers = { withCredentials: true };
 
 const LostPost = () => {
@@ -17,10 +18,10 @@ const LostPost = () => {
   const { comments } = useCommentLost();
   //var username;
   var content;
-  const url = window.location.pathname;  //localhost:4000/lost_post/게시글 id정보/  
-  
+  const url = window.location.pathname; //localhost:4000/lost_post/게시글 id정보/
+
   //댓글 업로드(신규)
-  const CommentUpload = () => {  
+  const CommentUpload = () => {
     const send_param = {
       headers,
       //username: username.value,
@@ -29,7 +30,7 @@ const LostPost = () => {
       postkind: "lost",
     };
     axios
-      .post("http://localhost:4000"+url+"/comment", send_param)
+      .post("http://localhost:4000" + url + "/comment", send_param)
       //에러
       .catch((err) => {
         console.log(err);
@@ -41,48 +42,64 @@ const LostPost = () => {
   //게시글 삭제
   const Delete = () => {
     PostDelete(posts.username);
-  }
+  };
   //게시글 수정
   const Edit = () => {
-    PostEdit(posts.username,posts.content);
-  }
+    PostEdit(posts.username, posts.content);
+  };
+
+  const post_content = posts.content;
   return (
-    <Layout> 
+    <Layout>
       <S.LostPost>
         <S.TitleContainer>
           <S.Title>분실물 게시판</S.Title>
         </S.TitleContainer>
         <S.LostPostContainer>
-          <S.MetaContainer>
+          <S.PostContainer>
             <S.PostTitle>{posts.title}</S.PostTitle>
-            <S.Date>
-              {posts.date}
-              <S.Icon to='/lost/board'>{<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}</S.Icon>
-              <S.Icon>{<img src={STATIC_URL.EDIT} alt="edit" width='20x' align='right' onClick={Edit}/>}</S.Icon>
-            </S.Date>
+            <MetaContainer>
+              <S.Date>{posts.date}</S.Date>
+              <S.IconContainer>
+                <S.Icon onClick={Edit}>
+                  <img src={STATIC_URL.EDIT} alt="edit" />
+                </S.Icon>
+                <S.Icon to="/lost/board" onClick={Delete}>
+                  <img src={STATIC_URL.DELETE} alt="delete" />
+                </S.Icon>
+              </S.IconContainer>
+            </MetaContainer>
+
             <S.Label>분실물 명 : {posts.name} </S.Label>
             <S.Label>분실 장소 : {posts.place} </S.Label>
             <S.ContentContainer>
-              <S.Content>{posts.content}</S.Content>
+              {/* <S.Content>{posts.content}</S.Content> */}
+              <S.Content>
+                <div dangerouslySetInnerHTML={{ __html: post_content }} />
+              </S.Content>
             </S.ContentContainer>
-          </S.MetaContainer>
+          </S.PostContainer>
         </S.LostPostContainer>
-        <br/><br/>
-        <S.MetaContainer>
-          <S.Label>{<img src={STATIC_URL.CHAT} alt="chat" width='15px'/>} 댓글</S.Label>
+        <br />
+        <br />
+        <S.PostContainer>
+          <S.Label>
+            {<img src={STATIC_URL.CHAT} alt="chat" width="15px" />} 댓글
+          </S.Label>
           <S.CommentsContainer>
-            <CommentList comments = {comments}/>
+            <CommentList comments={comments} />
           </S.CommentsContainer>
           <S.WriteCommentContainer>
-            <S.WriteComment 
+            <S.WriteComment
               type="text"
-              ref={ref => (content = ref)}
-              placeholder="댓글을 입력하세요." />
+              ref={(ref) => (content = ref)}
+              placeholder="댓글을 입력하세요."
+            />
             <S.SubmitIcon onClick={CommentUpload}>
               {<img src={STATIC_URL.SUBMIT} alt="submit_icon" />}
             </S.SubmitIcon>
           </S.WriteCommentContainer>
-        </S.MetaContainer>
+        </S.PostContainer>
       </S.LostPost>
     </Layout>
   );

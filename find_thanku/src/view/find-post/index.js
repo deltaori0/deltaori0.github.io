@@ -17,9 +17,11 @@ const FindPost = () => {
 
   //var username;
   var content;
+
   const url = window.location.pathname; 
   const editurl = url + '/edit';
   const CommentUpload = () => {  
+
     const send_param = {
       headers,
       //username: username.value,
@@ -28,7 +30,7 @@ const FindPost = () => {
       postkind: "find",
     };
     axios
-      .post("http://localhost:4000"+url+"/comment", send_param)
+      .post("http://localhost:4000" + url + "/comment", send_param)
       //에러
       .catch((err) => {
         console.log(err);
@@ -40,7 +42,7 @@ const FindPost = () => {
   //게시글 삭제
   const Delete = () => {
     PostDelete(posts.username);
-  }
+  };
   //게시글 수정
   const Edit = () => {
     PostEdit(posts.username);
@@ -53,37 +55,47 @@ const FindPost = () => {
           <S.Title>습득물 게시판</S.Title>
         </S.TitleContainer>
         <S.FindPostContainer>
-          <S.MetaContainer>
+          <S.PostContainer>
             <S.PostTitle>{posts.title}</S.PostTitle>
-            <S.Date>
-              {posts.date}
-              <S.Icon to='/find/board'>{<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}</S.Icon>
-              <S.Icon to = {editurl}>{<img src={STATIC_URL.EDIT} alt="edit" width='20x' align='right' />}</S.Icon>
-            </S.Date>
+            <S.MetaContainer>
+              <S.Date>{posts.date}</S.Date>
+              <S.IconContainer>
+                <S.Icon to={editurl} onClick={Edit}>
+                  <img src={STATIC_URL.EDIT} alt="edit" />
+                </S.Icon>
+                <S.Icon to="find/board" onClick={Delete}>
+                  <img src={STATIC_URL.DELETE} alt="delete" />
+                </S.Icon>
+              </S.IconContainer>
+            </S.MetaContainer>
             <S.Label>습득물 명 : {posts.name}</S.Label>
             <S.Label>습득 장소 : {posts.getplace} </S.Label>
             <S.Label>보관 장소 : {posts.putplace} </S.Label>
             <S.ContentContainer>
               <S.Content>{posts.content}</S.Content>
             </S.ContentContainer>
-          </S.MetaContainer>
+          </S.PostContainer>
         </S.FindPostContainer>
-        <br/><br/>
-        <S.MetaContainer>
-          <S.Label>{<img src={STATIC_URL.CHAT} alt="chat" width='15x'/>} 댓글</S.Label>
+        <br />
+        <br />
+        <S.PostContainer>
+          <S.Label>
+            {<img src={STATIC_URL.CHAT} alt="chat" width="15x" />} 댓글
+          </S.Label>
           <S.CommentsContainer>
-            <CommentList comments = {comments}/>
+            <CommentList comments={comments} />
           </S.CommentsContainer>
           <S.WriteCommentContainer>
-            <S.WriteComment 
+            <S.WriteComment
               type="text"
-              ref={ref => (content = ref)}
-              placeholder="댓글을 입력하세요." />
+              ref={(ref) => (content = ref)}
+              placeholder="댓글을 입력하세요."
+            />
             <S.SubmitIcon onClick={CommentUpload}>
               <img src={STATIC_URL.SUBMIT} alt="submit_icon" />
             </S.SubmitIcon>
           </S.WriteCommentContainer>
-        </S.MetaContainer>
+        </S.PostContainer>
       </S.FindPost>
     </Layout>
   );

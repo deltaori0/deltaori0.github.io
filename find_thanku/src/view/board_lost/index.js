@@ -40,7 +40,7 @@ const BoardLost = () => {
           <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
-          <Pagebar />
+          <Pagebar board_type="lost" />
         </S.PagebarContainer>
       </S.BoardLost>
     </Layout>
