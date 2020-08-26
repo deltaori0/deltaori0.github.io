@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 import { THEME_COLOR } from "../../constant";
 
@@ -16,18 +17,25 @@ export const WriterContainer = styled.div`
   flex-direction: row;
   align-items: center;
 
-  padding: 1rem;
+  padding: 1rem 1rem 0.5rem 1rem;
 `;
 
 export const Writer = styled.div`
   font-size: 1.3rem;
+  margin-right: 1rem;
 `;
-
+export const Date = styled.div`
+  font-size: 1.3rem;
+  color: ${THEME_COLOR.FONT_GRAY};
+`;
 export const ContentContainer = styled.div`
+  width: 100%;
+
   display: flex;
   flex-direction: row;
-  width: 100%;
-  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem 1rem 1rem;
 `;
 
 export const Content = styled.div`
@@ -45,9 +53,25 @@ export const ProfileIcon = styled.div`
 
 export const CommentIcon = styled.div`
   margin-right: 1rem;
-  
+
   img {
     width: 2rem;
     height: 2rem;
+  }
+`;
+
+export const IconContainer = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Icon = styled.div`
+  margin-right: 1rem;
+  padding-bottom: 0.5rem;
+  img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
   }
 `;

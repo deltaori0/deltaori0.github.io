@@ -37,13 +37,13 @@ export const Title = styled.div`
   margin-bottom: 0.3rem;
 `;
 
-export const MetaContainer = styled.div`
+export const PostContainer = styled.div`
   width: 100%;
 
   display: flex;
   flex-direction: column;
 
-  padding: 1rem;
+  padding: 1.6rem;
 `;
 
 export const PostTitle = styled.div`
@@ -52,13 +52,36 @@ export const PostTitle = styled.div`
   margin-bottom: 1rem;
 `;
 
+export const MetaContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid black;
+  margin-bottom: 0.5rem;
+`;
+
 export const Date = styled.div`
   font-size: 1.3rem;
   color: ${THEME_COLOR.FONT_GRAY};
+  padding-bottom: 0.5rem;
+`;
 
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 0.1rem solid black;
+export const IconContainer = styled(Link)`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Icon = styled.div`
+  margin-right: 1rem;
+  padding-bottom: 0.5rem;
+  img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
 `;
 
 export const Label = styled.div`
@@ -72,14 +95,10 @@ export const ContentContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-
-  padding: 1rem;
 `;
 
 export const Content = styled.div`
   font-size: 1.6rem;
-
-  margin-bottom: 1rem;
 `;
 
 export const CommentsContainer = styled.div`
@@ -111,14 +130,5 @@ export const SubmitIcon = styled.div`
     width: 2rem;
     height: 100%;
     cursor: pointer;
-  }
-`;
-
-export const Icon = styled(Link)`
-  margin-right: 1rem;
-  
-  img {
-    width: 2rem;
-    height: 2rem;
   }
 `;

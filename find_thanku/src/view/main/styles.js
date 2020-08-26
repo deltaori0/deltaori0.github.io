@@ -25,7 +25,7 @@ export const MainLabel = styled.div`
   padding: 1rem;
   font-size: 4rem;
   font-weight: bold;
-  color: #85092A;
+  color: #85092a;
   text-decoration: underline ${THEME_COLOR.LIGHT_YELLOW};
 `;
 export const SubContent = styled.div`
@@ -41,7 +41,7 @@ export const SubLabel = styled.div`
 export const MainContainer = styled.div`
   width: 100%;
   height: 100%;
-  
+
   display: flex;
   flex-direction: row;
 

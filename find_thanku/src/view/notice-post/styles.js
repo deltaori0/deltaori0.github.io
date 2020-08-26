@@ -37,13 +37,24 @@ export const Title = styled.div`
   margin-bottom: 0.3rem;
 `;
 
-export const MetaContainer = styled.div`
+export const PostContainer = styled.div`
   width: 100%;
 
   display: flex;
   flex-direction: column;
 
   padding: 1rem;
+`;
+
+export const MetaContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid black;
+  margin-bottom: 0.5rem;
 `;
 
 export const PostTitle = styled.div`
@@ -71,16 +82,20 @@ export const Content = styled.div`
 export const Date = styled.div`
   font-size: 1.3rem;
   color: ${THEME_COLOR.FONT_GRAY};
-
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 0.1rem solid black;
+  padding-bottom: 0.5rem;
 `;
-export const Icon = styled(Link)`
+
+export const IconContainer = styled(Link)`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Icon = styled.div`
   margin-right: 1rem;
-  
+  padding-bottom: 0.5rem;
   img {
     width: 2rem;
     height: 2rem;
+    cursor: pointer;
   }
 `;
