@@ -36,6 +36,7 @@ const BoardFind = () => {
   console.log("startPage", startPage);
   console.log("endPage", endPage);
 
+
   return (
     <Layout>
       <S.BoardFind>

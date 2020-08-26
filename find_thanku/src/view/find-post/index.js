@@ -42,6 +42,7 @@ const FindPost = () => {
   const Delete = () => {
     PostDelete(posts.username);
   };
+
   //게시글 수정
   // const Edit = () => {
   //   PostEdit(posts.username);
