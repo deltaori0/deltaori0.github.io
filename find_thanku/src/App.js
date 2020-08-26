@@ -25,11 +25,14 @@ function App() {
       <Switch>
         <Route path="/" exact component={Main} />
         <Route path="/lost/board" exact component={BoardLost} />
+        <Route path="/lost/board/:page_number" exact component={BoardLost} />
         <Route path="/find/board" exact component={BoardFind} />
+        <Route path="/find/board/:page_number" exact component={BoardFind} />
         <Route path="/login" exact component={Login} />
         <Route path="/find/upload" exact component={FindUpload} />
         <Route path="/lost/upload" exact component={LostUpload} />
         <Route path="/notice" exact component={Notice} />
+        <Route path="/notice/:page_number" exact component={Notice} />
         <Route path="/notice/upload" exact component={NoticeUpload} />
         <Route path="/join" exact component={JoinForm} />
         <Route path="/find/post/:_id" exact component={FindPost} />

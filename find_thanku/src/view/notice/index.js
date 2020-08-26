@@ -38,7 +38,7 @@ const Notice = () => {
             <BoardList posts={posts} />
           </S.BoardListContainer>
           <S.PagebarContainer>
-            <Pagebar />
+            <Pagebar board_type="notice" />
           </S.PagebarContainer>
         </S.NoticeContainer>
       </S.Notice>
