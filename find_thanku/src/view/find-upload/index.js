@@ -7,6 +7,7 @@ import Layout from "../../component/layout";
 // import { STATIC_URL } from "../../constant";
 import Select from "react-select";
 import axios from "axios";
+import { storage } from '../google_login/storage';
 
 const headers = { withCredentials: true };
 
@@ -19,6 +20,7 @@ class FindUpload extends Component {
       getplace: this.getplace.value,
       putplace: this.state.selectedOption.value,
       content: this.content,
+      username: storage.get('loggedInfo').email.split('@')[0],
     };
     axios
       .post("http://localhost:4000/find/upload", send_param)

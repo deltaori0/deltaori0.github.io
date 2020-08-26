@@ -8,6 +8,7 @@ import { useCommentFind } from "./hooks2";
 import { PostDelete, PostEdit, SetReplynum } from "./function";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {storage} from "../google_login/storage";
 
 const headers = { withCredentials: true };
 
@@ -23,7 +24,7 @@ const FindPost = () => {
   const CommentUpload = () => {
     const send_param = {
       headers,
-      //username: username.value,
+      username: storage.get('loggedInfo').email.split('@')[0],
       content: content.value,
       postid: posts._id,
       postkind: "find",
