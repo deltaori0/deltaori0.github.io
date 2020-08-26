@@ -6,11 +6,18 @@ import { STATIC_URL } from "../../constant";
 import BoardHeader from "../../container/notice-header";
 import BoardList from "../../container/notice-list";
 import Pagebar from "../../container/page-bar";
+import { storage } from "../google_login/storage";
 
 import { useBoardNotice } from "./hooks";
 
 const Notice = () => {
   const { posts } = useBoardNotice();
+  const authentication = () => {
+    var admin = ['eunsoo googleId','115049392299918823209'];//[eunsoo,sohee]
+    var auth = admin.includes(storage.get("loggedInfo").googleId);
+    return auth;
+  }
+  var auth = authentication();
   return (
     <Layout>
       <S.Notice>
@@ -31,7 +38,9 @@ const Notice = () => {
                 />
               </S.SearchIcon>
             </S.SearchContainer>
-            <S.WriteButton to="/notice/upload">글 작성</S.WriteButton>
+            {auth?
+            <S.WriteButton to="/notice/upload">글 작성</S.WriteButton>:
+            <div></div>}            
           </S.ToolsContainer>
           <S.BoardListContainer>
             <BoardHeader />

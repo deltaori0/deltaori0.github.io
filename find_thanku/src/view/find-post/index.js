@@ -6,7 +6,6 @@ import { STATIC_URL } from "../../constant";
 import { useBoardFind } from "./hooks";
 import { useCommentFind } from "./hooks2";
 import { PostDelete, PostEdit, SetReplynum } from "./function";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import {storage} from "../google_login/storage";
 
@@ -15,9 +14,20 @@ const headers = { withCredentials: true };
 const FindPost = () => {
   const { posts } = useBoardFind();
   const { comments } = useCommentFind();
+  const currentId = storage.get('loggedInfo').googleId;
 
   //var username;
-  var content;
+  var content; 
+  //삭제,수정 권한
+  var editauth; var delauth;
+  if(currentId === posts.googleId){
+    editauth = true;
+    delauth = true;
+  }
+  else{
+    editauth = false;
+    delauth = false;
+  }
 
   const url = window.location.pathname;
   const editurl = url + "/edit";
@@ -25,6 +35,7 @@ const FindPost = () => {
     const send_param = {
       headers,
       username: storage.get('loggedInfo').email.split('@')[0],
+      googleId: storage.get('loggedInfo').googleId,
       content: content.value,
       postid: posts._id,
       postkind: "find",
@@ -41,15 +52,16 @@ const FindPost = () => {
   };
   //게시글 삭제
   const Delete = () => {
-    PostDelete(posts.username);
+    PostDelete(delauth);
   };
-
+ 
   //게시글 수정
   // const Edit = () => {
   //   PostEdit(posts.username);
   //   // EditPlaceholder(posts);
   // };
   const post_content = posts.content;
+
 
   return (
     <Layout>
@@ -63,12 +75,14 @@ const FindPost = () => {
             <S.MetaContainer>
               <S.Date>{posts.date}</S.Date>
               <S.IconContainer>
+               {editauth?
                 <S.Icon to={editurl}>
                   <img src={STATIC_URL.EDIT} alt="edit" />
-                </S.Icon>
+                </S.Icon>:<div></div>}
+                {delauth?
                 <S.Icon to="find/board" onClick={Delete}>
                   <img src={STATIC_URL.DELETE} alt="delete" />
-                </S.Icon>
+                </S.Icon>:<div></div>}
               </S.IconContainer>
             </S.MetaContainer>
             <S.Label>습득물 명 : {posts.name}</S.Label>

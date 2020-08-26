@@ -5,6 +5,8 @@ import Layout from "../../component/layout";
 import axios from "axios";
 import { render } from "@testing-library/react";
 import { Editor } from "@tinymce/tinymce-react";
+import { storage } from "../google_login/storage";
+
 const headers = { withCredentials: true };
 
 class NoticeUpload extends Component{
@@ -13,6 +15,7 @@ class NoticeUpload extends Component{
       headers,
       title: this.title.value,
       content: this.content,
+      googleId: storage.get('loggedInfo').googleId,
     };
     axios
       .post("http://localhost:4000/notice/upload", send_param)

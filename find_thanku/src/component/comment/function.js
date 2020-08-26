@@ -1,4 +1,3 @@
-    
   //댓글수 조정
   const SetReplynum = async (num) => {
     const url = window.location.pathname;
@@ -13,15 +12,16 @@
     await request.json();
   }
 
-  export const PostDelete = async (username,id) => {
+  export const PostDelete = async (delauth, id) => {
     const url = window.location.pathname;
-    var bool = window.confirm('정말 삭제하시겠습니까?');
-    //삭제 안함
-    if(!bool){
-      return; 
-    }
-    //삭제함 && 작성자 == 현재 접속자의 username(sohee(temp))
-    if(bool && username === "sohee(temp)"){
+    //삭제함 && 작성자 == 현재 접속자의 googleId
+    if(delauth){
+      var bool = window.confirm('정말 삭제하시겠습니까?');
+      //삭제 안함
+      if(!bool){
+        return; 
+      }
+      //삭제함
       const request = await fetch("http://localhost:4000" + url + "/comment/" + id, {
         method: "DELETE",
       });
@@ -40,10 +40,10 @@
     }
   }
  //댓글 수정
-  export const PostEdit = async (username,content,id) => {
+  export const PostEdit = async (editauth, content, id) => {
     const url = window.location.pathname;
-    //작성자 == 현재 접속자의 username(sohee(temp))
-    if(username === "sohee(temp)"){
+    //작성자 == 현재 접속자의 googleId
+    if(editauth){
       var input = prompt('새로운 내용을 입력하세요',content);
       if(!input) {
           input=content; //input==null(취소 클릭시)

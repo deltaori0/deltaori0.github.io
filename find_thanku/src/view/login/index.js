@@ -3,42 +3,9 @@ import { STATIC_URL } from "../../constant";
 import Layout from "../../component/layout";
 import * as S from "./styles";
 import "./login.scss";
-import axios from "axios";
-
-import { GoogleLogin} from "react-google-login";
 import {GoogleBtn} from "../google_login/googlebtn";
 
-axios.defaults.withCredentials = true;
-
-//로그인 페이지
-const idbox = "Google 계정";
-const pwbox = "Password";
-
 const Login = () => {
-  const [inputs, setInputs] = useState({
-    id: "",
-    pw: "",
-  });
-
-  const { id, pw } = inputs; //여기에 값이 저장됨
-
-  const onChange = (e) => {
-    //입력시
-    const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
-
-  const onReset = () => {
-    //버튼클릭시
-    setInputs({
-      id: "",
-      pw: "",
-    });
-  };
-
   // Google Login
   const responseGoogle = (res) => {
     console.log(res);

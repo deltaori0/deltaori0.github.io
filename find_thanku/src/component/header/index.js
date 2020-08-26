@@ -1,7 +1,7 @@
 import React from "react";
 
 import { STATIC_URL } from "../../constant";
-import { GoogleBtn } from "../../view/google_login/googlebtn";
+// import { GoogleBtn } from "../../view/google_login/googlebtn";
 import { storage } from "../../view/google_login/storage";
 
 import * as S from "./styles";
