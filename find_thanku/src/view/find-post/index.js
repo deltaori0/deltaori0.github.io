@@ -14,9 +14,11 @@ const headers = { withCredentials: true };
 const FindPost = () => {
   const { posts } = useBoardFind();
   const { comments } = useCommentFind();
+
   //var username;
   var content;
   const url = window.location.pathname; 
+  const editurl = url + '/edit';
   const CommentUpload = () => {  
     const send_param = {
       headers,
@@ -41,7 +43,8 @@ const FindPost = () => {
   }
   //게시글 수정
   const Edit = () => {
-    PostEdit(posts.username,posts.content);
+    PostEdit(posts.username);
+   // EditPlaceholder(posts);
   }
   return (
     <Layout>
@@ -55,7 +58,7 @@ const FindPost = () => {
             <S.Date>
               {posts.date}
               <S.Icon to='/find/board'>{<img src={STATIC_URL.DELETE} alt="delete" width='20x' align='right' onClick={Delete}/>}</S.Icon>
-              <S.Icon>{<img src={STATIC_URL.EDIT} alt="edit" width='20x' align='right' onClick={Edit}/>}</S.Icon>
+              <S.Icon to = {editurl}>{<img src={STATIC_URL.EDIT} alt="edit" width='20x' align='right' />}</S.Icon>
             </S.Date>
             <S.Label>습득물 명 : {posts.name}</S.Label>
             <S.Label>습득 장소 : {posts.getplace} </S.Label>
