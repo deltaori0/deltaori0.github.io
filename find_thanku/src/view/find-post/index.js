@@ -18,10 +18,9 @@ const FindPost = () => {
   //var username;
   var content;
 
-  const url = window.location.pathname; 
-  const editurl = url + '/edit';
-  const CommentUpload = () => {  
-
+  const url = window.location.pathname;
+  const editurl = url + "/edit";
+  const CommentUpload = () => {
     const send_param = {
       headers,
       //username: username.value,
@@ -44,10 +43,12 @@ const FindPost = () => {
     PostDelete(posts.username);
   };
   //게시글 수정
-  const Edit = () => {
-    PostEdit(posts.username);
-   // EditPlaceholder(posts);
-  }
+  // const Edit = () => {
+  //   PostEdit(posts.username);
+  //   // EditPlaceholder(posts);
+  // };
+  const post_content = posts.content;
+
   return (
     <Layout>
       <S.FindPost>
@@ -60,7 +61,7 @@ const FindPost = () => {
             <S.MetaContainer>
               <S.Date>{posts.date}</S.Date>
               <S.IconContainer>
-                <S.Icon to={editurl} onClick={Edit}>
+                <S.Icon to={editurl}>
                   <img src={STATIC_URL.EDIT} alt="edit" />
                 </S.Icon>
                 <S.Icon to="find/board" onClick={Delete}>
@@ -72,7 +73,9 @@ const FindPost = () => {
             <S.Label>습득 장소 : {posts.getplace} </S.Label>
             <S.Label>보관 장소 : {posts.putplace} </S.Label>
             <S.ContentContainer>
-              <S.Content>{posts.content}</S.Content>
+              <S.Content>
+                <div dangerouslySetInnerHTML={{ __html: post_content }} />
+              </S.Content>
             </S.ContentContainer>
           </S.PostContainer>
         </S.FindPostContainer>

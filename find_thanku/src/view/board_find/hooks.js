@@ -16,8 +16,8 @@ export const useBoardFind = () => {
 
       const data = await request.json();
 
-      setPosts(data);
-      console.log(data);
+      setPosts(data.slice(0, 10));
+      console.log(data.slice(0, 10));
     };
 
     getInitialPosts();

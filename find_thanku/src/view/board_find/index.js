@@ -10,7 +10,14 @@ import Pagebar from "../../container/page-bar";
 import { useBoardFind } from "./hooks";
 
 const BoardFind = () => {
+  console.log("Hello BoardFind");
+  console.log("url : ", window.location.pathname);
+  let url_string = window.location.pathname.split("/");
   let page = 1; // 나중에 url 맨 뒷부분 보고 현재 보고 있는 페이지 추출 (근데 맨 처음 클릭했을 때 값은 1 뒤 url이 없으므로)
+  if (url_string.length == 3) page = 1;
+  else page = parseInt(url_string[3]);
+  console.log(url_string);
+  console.log("page: ", page);
   const { posts } = useBoardFind();
   const totalCount = posts.length;
   const listCount = 10;
@@ -57,7 +64,14 @@ const BoardFind = () => {
           <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
-          <Pagebar board_type="find" />
+          <Pagebar
+            board_type="find"
+            page={page}
+            start_page={startPage}
+            end_page={endPage}
+            page_count={pageCount}
+            total_page={totalPage}
+          />
         </S.PagebarContainer>
       </S.BoardFind>
     </Layout>
