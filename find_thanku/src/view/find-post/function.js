@@ -32,7 +32,6 @@ export const PostDelete = async (username) => {
     if(username === "nonamed"){
 
       new EditUpload //현재 post정보 넘겨줌
-      alert('수정되었습니다!');
       window.location.reload(true); //새로고침
     }
     //작성자!= 접속자 -> 수정 안함

@@ -2,6 +2,7 @@ import React from "react";
 
 import { STATIC_URL } from "../../constant";
 import {GoogleBtn} from "../../view/google_login/googlebtn";
+import { storage } from '../../view/google_login/storage';
 
 import * as S from "./styles";
 
@@ -21,9 +22,19 @@ const Header = () => {
         <S.DesktopLink to="/notice">
           <S.Button>공지사항</S.Button>
         </S.DesktopLink>
+        {storage.get('isLogged')?
+        <S.TempContainer>
+          <S.DesktopLink to='/login'>
+            <S.Button>로그아웃</S.Button>
+          </S.DesktopLink>
+          <S.DesktopLink>
+            <S.Button>{<img src={storage.get('loggedInfo').imgUrl} alt="image"/>}</S.Button>
+          </S.DesktopLink>
+        </S.TempContainer>:
         <S.DesktopLink to='/login'>
           <S.Button>로그인</S.Button>
         </S.DesktopLink>
+        } 
       </S.Buttons>
     </S.Header>
   );

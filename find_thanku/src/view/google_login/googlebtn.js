@@ -1,69 +1,12 @@
 import React, { Component } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { storage } from './storage';
 import axios from "axios";
 const headers = { withCredentials: true };
 
 const CLIENT_ID = "920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com";
 
 export class GoogleBtn extends Component {
-    //로그인
-    UserLogin = () => {
-        console.log(this.state.googleId);
-        const send_param = {
-          headers,
-          accessToken: this.state.accessToken,
-          username: this.state.username,
-          email: this.state.email,
-          googleId: this.state.googleId,
-        };
-        axios
-          .post("http://localhost:4000/user/login", send_param)
-          //에러
-          .catch((err) => {
-            console.log(err);
-          });
-        alert("로그인 완료!");
-    };
-    //로그아웃
-    UserLogout = async () => {
-        const request = await fetch("http://localhost:4000/user/logout/" + this.state.googleId, {
-            method: "DELETE",
-        });
-        if (!request.ok) {
-        alert("서버 죽음");
-        return;
-        }
-        await request.json();
-    };
-    //로그인상태 유지
-    Maintain = () => {
-        localStorage.setItem(
-            "state",
-            JSON.stringify({
-                accessToken: this.state.accessToken,
-                username: this.state.username,
-                email: this.state.email,
-                googleId: this.state.googleId,
-            })
-        );
-        //window.location.reload(true);
-    };
-   constructor(props) {
-    super(props);
-
-    this.state = {
-      isLogined: false,
-      accessToken: '',
-      username: '',
-      email: '',
-      googleId: '',
-    };
-
-    this.login = this.login.bind(this);
-    this.handleLoginFailure = this.handleLoginFailure.bind(this);
-    this.logout = this.logout.bind(this);
-    this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
-  }
 //로그인(onclick)
   login (response) {
     if(response.accessToken){
@@ -73,27 +16,85 @@ export class GoogleBtn extends Component {
         username: response.profileObj.name,
         email: response.profileObj.email,
         googleId: response.googleId,
+        imgUrl: response.profileObj.imageUrl,
       }));
     }
-    console.log(response);
-    console.log(response.profileObj.name);
-    console.log(response.profileObj.email);
     this.UserLogin(); //upload into userdb
-    this.Maintain();
+   // window.location.href = '/'; // 홈페이지로 새로고침
+   console.log(response);
   }
-//로그아웃(onclick)
+     //로그인
+     UserLogin = () => {
+      console.log(this.state.googleId);
+      console.log(this.state.imgUrl);
+      // const send_param = {
+      //   headers,
+      //   accessToken: this.state.accessToken,
+      //   username: this.state.username,
+      //   email: this.state.email,
+      //   googleId: this.state.googleId,
+      // };
+      // axios
+      //   .post("http://localhost:4000/user/login", send_param)
+      //   //에러
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+      //local storage에 저장
+      storage.set('loggedInfo',this.state);
+      storage.set('isLogged',true);
+      console.log(storage.get('loggedInfo'));
+      alert("로그인 완료!");
+    };
+  //로그아웃(onclick)
   logout (response) {
-    this.UserLogout();
+    alert('들어왔다');
     this.setState(state => ({
       isLogined: false,
       accessToken: '',
       username: '',
       email: '',
       googleId: '',
+      imgUrl: '',
     }));
+    this.UserLogout();
     alert("로그아웃 완료!");
+    window.location.href = '/'; // 홈페이지로 새로고침
   }
+    //로그아웃
+    UserLogout = async () => {
+      // const request = await fetch("http://localhost:4000/user/logout/" + this.state.googleId, {
+      //     method: "DELETE",
+      // });
+      // if (!request.ok) {
+      // alert("서버 죽음");
+      // return;
+      // }
+      // await request.json();
+      
+      //localstorage에서 user데이터 삭제
+      storage.remove('loggedInfo');
+      storage.set('isLogged',false);
+      //console.log(storage.get('loggedInfo'));
+    };
+  
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      isLogined: false,
+      accessToken: '',
+      username: '',
+      email: '',
+      googleId: '',
+      imgUrl: '',
+    };
+
+  this.login = this.login.bind(this);
+  this.handleLoginFailure = this.handleLoginFailure.bind(this);
+  this.logout = this.logout.bind(this);
+  this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
+}
   handleLoginFailure (response) {
     alert('Failed to log in')
   }
@@ -105,14 +106,14 @@ export class GoogleBtn extends Component {
   render() {
     return (
     <div>
-      { this.state.isLogined ?
+      { storage.get('isLogged')==true ?
         <GoogleLogout
           clientId={ CLIENT_ID }
           buttonText='로그아웃'
           onLogoutSuccess={ this.logout }
           onFailure={ this.handleLogoutFailure }
-        >
-        </GoogleLogout>: <GoogleLogin
+        />: 
+        <GoogleLogin
           clientId={ CLIENT_ID }
           buttonText='로그인'
           onSuccess={ this.login}

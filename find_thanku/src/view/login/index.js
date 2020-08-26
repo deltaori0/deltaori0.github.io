@@ -55,18 +55,9 @@ const Login = () => {
         <div>
           <img src={STATIC_URL.LOGO} width="200px" height="90px" alt="logo" />
         </div>
-        <br /><br />  
+        <br /><br /><br /><br />  
         <S.Container>
-          <GoogleLogin
-            clientId="920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com"
-            buttonText="Google 계정으로 로그인"
-            onSuccess={responseGoogle}
-            onFailure={responseFail}
-          />
-        </S.Container>
-        <br /><br />  
-        <S.Container>
-          <GoogleBtn/>sohee's 시도
+          <GoogleBtn/>
         </S.Container>
       </S.Login>
     </Layout>
