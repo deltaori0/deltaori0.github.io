@@ -18,6 +18,7 @@ import JoinForm from "./view/join";
 import FindPost from "./view/find-post";
 import LostPost from "./view/lost-post";
 import NoticePost from "./view/notice-post";
+import EditUpload from "./view/find-upload/edit";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/notice/upload" exact component={NoticeUpload} />
         <Route path="/join" exact component={JoinForm} />
         <Route path="/find/post/:_id" exact component={FindPost} />
+        <Route path="/find/post/:_id/edit" exact component={EditUpload} />
         <Route path="/lost/post/:_id" exact component={LostPost} />
         <Route path="/notice/post/:_id" exact component={NoticePost} />
         <Redirect from="*" to="/" />

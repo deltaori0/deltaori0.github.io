@@ -6,28 +6,33 @@ import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
 // import { STATIC_URL } from "../../constant";
 import Select from "react-select";
-import axios from "axios";
+import { render } from "@testing-library/react";
 
-const headers = { withCredentials: true };
 
-class FindUpload extends Component { 
-  FindUpload = () => {
-    const send_param = {
-      headers,
-      title: this.title.value,
-      name: this.name.value,
-      getplace: this.getplace.value,
-      putplace: this.state.selectedOption.value,
-      content: this.content,
-    };
-    axios
-      .post("http://localhost:4000/find/upload", send_param)
-      //에러
-      .catch((err) => {
-        console.log(err);
-      });
-    alert("작성 완료!");
-  };
+export class EditUpload extends Component{
+//placeholder
+placeholder = {
+    title: 'g',
+    name: 'g',
+    getplace: 'g',
+    putplace: 'g',
+    content: 'g',
+};
+SetPlaceholder = async () => {
+    const url = window.location.pathname;
+    const newurl = url.slice(0,-5);
+    const request = await fetch("http://localhost:4000" + newurl, {
+    method: "GET",
+    });
+    if (!request.ok) {
+    alert("서버 죽음");
+    return;
+    }
+    this.placeholder = await request.json();
+    console.log(this.placeholder);
+    //return this.placeholder;
+};
+placeholder=this.SetPlaceholder();
   //texteditor 관련
   handleEditorChange = (e) => {
     console.log(e.target.getContent());
@@ -45,15 +50,40 @@ class FindUpload extends Component {
   };
 
   handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+      this.setState({ selectedOption });
+      console.log(`Option selected:`, selectedOption);
   };
-
+  //게시글 수정 시
+ EditPost = async () => {
+    const newcontent = {
+        title: this.title.value,
+        name: this.name.value,
+        getplace: this.getplace.value,
+        putplace: this.state.selectedOption.value,
+        content: this.content,
+    }
+    console.log(newcontent);
+    const url = window.location.pathname;
+    const fetchurl = "http://localhost:4000" + url + "/"+(newcontent.title)+"/"+(newcontent.name) + 
+            "/"+(newcontent.getplace) + "/"+(newcontent.putplace) + "/"+toString(newcontent.content);
+    const request = await fetch(fetchurl, {
+        method: "PATCH",
+    });
+    console.log(fetchurl);
+   
+    if (!request.ok) {
+        alert("게시글 수정 실패");
+        return;
+    }
+    await request.json();
+    console.log(newcontent.title.value);
+    alert('수정되었습니다!');
+ }
   //render
-  render() {
+  render(){
     //select 관련
+    //this.SetPlaceholder();
     const { selectedOption } = this.state;
-
     const styles = {
       container: (base) => ({
         ...base,
@@ -78,30 +108,30 @@ class FindUpload extends Component {
         <S.Upload>
           <S.UploadContainer>
             <S.TitleContainer>
-              <S.Title>글 작성</S.Title>
+              <S.Title>글 수정</S.Title>
             </S.TitleContainer>
             <S.TitleInputContainer>
               <S.TitleInput
                 type="text"
                 ref={(ref) => (this.title = ref)}
-                placeholder="제목 명"
+                defaultValue = {this.placeholder.title}
               />
             </S.TitleInputContainer>
             <S.WriteInputContainer>
               <S.NameInput
                 type="text"
                 ref={(ref) => (this.name = ref)}
-                placeholder="습득물 명"
+                defaultValue = {this.placeholder.name}
               />
               <S.PlaceInput
                 type="text"
                 ref={(ref) => (this.getplace = ref)}
-                placeholder="습득 장소"
+                defaultValue= {this.placeholder.getplace}
               />
               <Select
                 styles={styles}
-                placeholder="보관 장소"
                 options={this.options}
+                placeholder="보관 장소"
                 onChange={this.handleChange}
                 autoFocus={true}
                 value={selectedOption}
@@ -115,7 +145,7 @@ class FindUpload extends Component {
                   init={{
                     height: 500,
                     menubar: false,
-                    placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                    defaultValue: this.placeholder.content,
                     plugins: [
                       "advlist autolink lists link image",
                       "charmap print preview anchor help",
@@ -126,7 +156,7 @@ class FindUpload extends Component {
                       "undo redo | formatselect | bold italic | image | alignleft aligncenter alignright | bullist numlist outdent indent | help",
                     mobile: {
                       theme: "mobile",
-                      placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                      defaultValue: this.placeholder.content,
                       plugins: ["autosave", "lists", "autolink", "placeholder"],
                     },
                   }}
@@ -137,7 +167,7 @@ class FindUpload extends Component {
 
             <S.SubmitButton 
               to="/find/board"
-              onClick={this.FindUpload} 
+              onClick = {this.EditPost}
               type="button" block>
               작성
             </S.SubmitButton>
@@ -149,4 +179,4 @@ class FindUpload extends Component {
   }
 }
 
-export default FindUpload;
+export default EditUpload;
