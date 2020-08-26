@@ -74,7 +74,7 @@ export const IconContainer = styled(Link)`
   flex-direction: row;
 `;
 
-export const Icon = styled.div`
+export const Icon = styled(Link)`
   margin-right: 1rem;
   padding-bottom: 0.5rem;
   img {

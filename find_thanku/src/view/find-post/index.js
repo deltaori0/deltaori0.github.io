@@ -43,6 +43,7 @@ const FindPost = () => {
   const Delete = () => {
     PostDelete(posts.username);
   };
+
   //게시글 수정
   const Edit = () => {
     PostEdit(posts.username);
@@ -60,7 +61,7 @@ const FindPost = () => {
             <S.MetaContainer>
               <S.Date>{posts.date}</S.Date>
               <S.IconContainer>
-                <S.Icon to={editurl} onClick={Edit}>
+                <S.Icon to={editurl}>
                   <img src={STATIC_URL.EDIT} alt="edit" />
                 </S.Icon>
                 <S.Icon to="find/board" onClick={Delete}>
