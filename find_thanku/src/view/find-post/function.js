@@ -1,14 +1,15 @@
 import {EditUpload} from "../find-upload/edit";
 
-export const PostDelete = async (username) => {
+export const PostDelete = async (delauth) => {
     const url = window.location.pathname;  //localhost:4000/find_post/게시글 id정보/  
-    var bool = window.confirm('정말 삭제하시겠습니까?');
-    //삭제 안함
-    if(!bool){
-      return; 
-    }
     //삭제함 && 작성자 == 현재 접속자의 username (temp:nonamed)
-    if(bool && username === "nonamed"){
+    if(delauth){
+      var bool = window.confirm('정말 삭제하시겠습니까?');
+      //삭제 안함
+      if(!bool){
+        return; 
+      }
+      //삭제함
       const request = await fetch("http://localhost:4000" + url, {
         method: "DELETE",
       });
@@ -25,20 +26,20 @@ export const PostDelete = async (username) => {
     }
   }
 
-  //게시글 수정
-  export const PostEdit = async (username) => {
-    const url = window.location.pathname;
-    //작성자 == 현재 접속자의 username(nonamed)
-    if(username === "nonamed"){
+  // //게시글 수정
+  // export const PostEdit = async (username) => {
+  //   const url = window.location.pathname;
+  //   //작성자 == 현재 접속자의 username(nonamed)
+  //   if(username === "nonamed"){
 
-      new EditUpload //현재 post정보 넘겨줌
-      window.location.reload(true); //새로고침
-    }
-    //작성자!= 접속자 -> 수정 안함
-    else{
-      alert('수정 권한 없음');
-    }
-  }
+  //     new EditUpload() //현재 post정보 넘겨줌
+  //     window.location.reload(true); //새로고침
+  //   }
+  //   //작성자!= 접속자 -> 수정 안함
+  //   else{
+  //     alert('수정 권한 없음');
+  //   }
+  // }
   /*
   //현재 게시글 넘겨주기(placeholder)
   export const EditPlaceholder = async (post) => {

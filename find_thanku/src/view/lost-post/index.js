@@ -7,7 +7,6 @@ import { STATIC_URL } from "../../constant";
 import { useBoardLost } from "./hooks";
 import { PostDelete, PostEdit, SetReplynum } from "./function";
 import { useCommentLost } from "./hooks2";
-import { Link } from "react-router-dom";
 import {storage} from "../google_login/storage";
 
 import axios from "axios";
@@ -21,12 +20,24 @@ const LostPost = () => {
   //var username;
   var content;
   const url = window.location.pathname; //localhost:4000/lost_post/게시글 id정보/
+  const currentId = storage.get('loggedInfo').googleId;
+   //삭제,수정 권한
+   var editauth; var delauth;
+   if(currentId === posts.googleId){
+     editauth = true;
+     delauth = true;
+   }
+   else{
+     editauth = false;
+     delauth = false;
+   }
 
   //댓글 업로드(신규)
   const CommentUpload = () => {
     const send_param = {
       headers,
       username: storage.get('loggedInfo').email.split('@')[0],
+      googleId: storage.get('loggedInfo').googleId,
       content: content.value,
       postid: posts._id,
       postkind: "lost",
@@ -43,11 +54,11 @@ const LostPost = () => {
   };
   //게시글 삭제
   const Delete = () => {
-    PostDelete(posts.username);
+    PostDelete(delauth);
   };
   //게시글 수정
   const Edit = () => {
-    PostEdit(posts.username, posts.content);
+    PostEdit(editauth, posts.content);
   };
 
   const post_content = posts.content;
@@ -63,15 +74,16 @@ const LostPost = () => {
             <MetaContainer>
               <S.Date>{posts.date}</S.Date>
               <S.IconContainer>
+                {editauth?
                 <S.Icon onClick={Edit}>
-                  <img src={STATIC_URL.EDIT} alt="edit" />
-                </S.Icon>
+                 <div><img src={STATIC_URL.EDIT} alt="edit" /></div>
+                </S.Icon>: <div></div>}
+                {delauth?              
                 <S.Icon to="/lost/board" onClick={Delete}>
                   <img src={STATIC_URL.DELETE} alt="delete" />
-                </S.Icon>
+                </S.Icon>: <div></div>}
               </S.IconContainer>
             </MetaContainer>
-
             <S.Label>분실물 명 : {posts.name} </S.Label>
             <S.Label>분실 장소 : {posts.place} </S.Label>
             <S.ContentContainer>

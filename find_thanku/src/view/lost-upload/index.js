@@ -14,6 +14,7 @@ class LostUpload extends Component {
       headers,
       title: this.title.value,
       name: this.name.value,
+      googleId: storage.get("loggedInfo").googleId,
       place: this.place.value,
       content: this.content,
       username: storage.get('loggedInfo').email.split('@')[0],

@@ -17,6 +17,7 @@ class FindUpload extends Component {
       headers,
       title: this.title.value,
       name: this.name.value,
+      googleId: storage.get('loggedInfo').googleId,
       getplace: this.getplace.value,
       putplace: this.state.selectedOption.value,
       content: this.content,

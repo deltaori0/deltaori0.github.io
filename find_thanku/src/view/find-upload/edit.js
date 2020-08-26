@@ -6,8 +6,8 @@ import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
 // import { STATIC_URL } from "../../constant";
 import Select from "react-select";
-import { render } from "@testing-library/react";
-
+// import { render } from "@testing-library/react";
+import { storage } from '../google_login/storage';
 
 export class EditUpload extends Component{
 //placeholder
@@ -64,7 +64,7 @@ placeholder=this.SetPlaceholder();
     }
     console.log(newcontent);
     const url = window.location.pathname;
-    const fetchurl = "http://localhost:4000" + url + "/"+(newcontent.title)+"/"+(newcontent.name) + 
+    const fetchurl = "http://localhost:4000" + url + "/"+(newcontent.title)+"/"+(newcontent.name) +
             "/"+(newcontent.getplace) + "/"+(newcontent.putplace) + "/"+toString(newcontent.content);
     const request = await fetch(fetchurl, {
         method: "PATCH",

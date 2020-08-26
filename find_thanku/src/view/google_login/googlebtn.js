@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { storage } from './storage';
-import axios from "axios";
-const headers = { withCredentials: true };
+// import axios from "axios";
+// const headers = { withCredentials: true };
 
 const CLIENT_ID = "920956368020-sk2d48e21kq4rrbl83kc4g5jedclnkom.apps.googleusercontent.com";
 
@@ -46,20 +46,20 @@ export class GoogleBtn extends Component {
       console.log(storage.get('loggedInfo'));
       alert("로그인 완료!");
     };
-  //로그아웃(onclick)
-  logout (response) {
-    this.setState(state => ({
-      isLogined: false,
-      accessToken: '',
-      username: '',
-      email: '',
-      googleId: '',
-      imgUrl: '',
-    }));
-    this.UserLogout();
-    alert("로그아웃 완료!");
-    window.location.href = '/'; // 홈페이지로 새로고침
-  }
+    //로그아웃(onclick)
+    logout (response) {
+      this.setState(state => ({
+        isLogined: false,
+        accessToken: '',
+        username: '',
+        email: '',
+        googleId: '',
+        imgUrl: '',
+      }));
+      this.UserLogout();
+      alert("로그아웃 완료!");
+      window.location.href = '/'; // 홈페이지로 새로고침
+    }
     //로그아웃
     UserLogout = async () => {
       // const request = await fetch("http://localhost:4000/user/logout/" + this.state.googleId, {
@@ -105,7 +105,7 @@ export class GoogleBtn extends Component {
   render() {
     return (
     <div>
-      { storage.get('isLogged')==true ?
+      { storage.get('isLogged') ?
         <GoogleLogout
           clientId={ CLIENT_ID }
           buttonText='로그아웃'
