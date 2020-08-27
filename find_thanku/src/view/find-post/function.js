@@ -1,5 +1,4 @@
-import {EditUpload} from "../find-upload/edit";
-
+//게시글 삭제
 export const PostDelete = async (delauth) => {
     const url = window.location.pathname;  //localhost:4000/find_post/게시글 id정보/  
     //삭제함 && 작성자 == 현재 접속자의 username (temp:nonamed)
@@ -26,26 +25,6 @@ export const PostDelete = async (delauth) => {
     }
   }
 
-  // //게시글 수정
-  // export const PostEdit = async (username) => {
-  //   const url = window.location.pathname;
-  //   //작성자 == 현재 접속자의 username(nonamed)
-  //   if(username === "nonamed"){
-
-  //     new EditUpload() //현재 post정보 넘겨줌
-  //     window.location.reload(true); //새로고침
-  //   }
-  //   //작성자!= 접속자 -> 수정 안함
-  //   else{
-  //     alert('수정 권한 없음');
-  //   }
-  // }
-  /*
-  //현재 게시글 넘겨주기(placeholder)
-  export const EditPlaceholder = async (post) => {
-    return post;
-  }
-  */
   //댓글수 조정
   export const SetReplynum = async (num) => {
     const url = window.location.pathname;

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
 import * as S from "./styles";
-//import TextEditor from "../../component/find-text-editor";
 import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
-// import { STATIC_URL } from "../../constant";
 import Select from "react-select";
 import axios from "axios";
 import { storage } from '../google_login/storage';
