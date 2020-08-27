@@ -5,7 +5,7 @@ import CommentList from "../../container/comment-list";
 import { STATIC_URL } from "../../constant";
 import { useBoardFind } from "./hooks";
 import { useCommentFind } from "./hooks2";
-import { PostDelete, PostEdit, SetReplynum } from "./function";
+import { PostDelete, SetReplynum } from "./function";
 import axios from "axios";
 import {storage} from "../google_login/storage";
 
@@ -29,8 +29,6 @@ const FindPost = () => {
     delauth = false;
   }
 
-  const url = window.location.pathname;
-  const editurl = url + "/edit";
   const CommentUpload = () => {
     const send_param = {
       headers,
@@ -54,14 +52,27 @@ const FindPost = () => {
   const Delete = () => {
     PostDelete(delauth);
   };
- 
   //게시글 수정
-  // const Edit = () => {
-  //   PostEdit(posts.username);
-  //   // EditPlaceholder(posts);
-  // };
+  const url = window.location.href; //window.location.pathname;
+  const editurl = url + "/edit";
+  const Edit = () => {
+    if(editauth){
+      const placeholder = {
+        title: posts.title,
+        name: posts.name,
+        getplace: posts.getplace,
+        putplace: posts.putplace,
+        content: posts.content,
+      };
+      storage.set('editval', placeholder);
+      window.location.href = editurl; //editurl로 이동
+    }
+    else{
+      alert('수정 권한 없음');
+      return;
+    }
+  }
   const post_content = posts.content;
-
 
   return (
     <Layout>
@@ -76,11 +87,11 @@ const FindPost = () => {
               <S.Date>{posts.date}</S.Date>
               <S.IconContainer>
                {editauth?
-                <S.Icon to={editurl}>
+                <S.Icon onClick={Edit}>
                   <img src={STATIC_URL.EDIT} alt="edit" />
                 </S.Icon>:<div></div>}
                 {delauth?
-                <S.Icon to="find/board" onClick={Delete}>
+                <S.Icon to='/find/board' onClick={Delete}>
                   <img src={STATIC_URL.DELETE} alt="delete" />
                 </S.Icon>:<div></div>}
               </S.IconContainer>

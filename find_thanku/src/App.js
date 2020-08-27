@@ -18,7 +18,8 @@ import JoinForm from "./view/join";
 import FindPost from "./view/find-post";
 import LostPost from "./view/lost-post";
 import NoticePost from "./view/notice-post";
-import EditUpload from "./view/find-upload/edit";
+import FindEdit from "./view/find-upload/edit";
+import LostEdit from "./view/lost-upload/edit";
 import MyPage from "./view/mypage";
 
 function App() {
@@ -38,8 +39,9 @@ function App() {
         <Route path="/notice/upload" exact component={NoticeUpload} />
         <Route path="/join" exact component={JoinForm} />
         <Route path="/find/post/:_id" exact component={FindPost} />
-        <Route path="/find/post/:_id/edit" exact component={EditUpload} />
+        <Route path="/find/post/:_id/edit" exact component={FindEdit} />
         <Route path="/lost/post/:_id" exact component={LostPost} />
+        <Route path="/lost/post/:_id/edit" exact component={LostEdit} />
         <Route path="/notice/post/:_id" exact component={NoticePost} />
         <Route path="/mypage" exact component={MyPage} />
         <Redirect from="*" to="/" />
