@@ -19,10 +19,8 @@ const NoticeSearch = () => {
           <S.TitleContainer>
             <S.Title>공지사항</S.Title>
           </S.TitleContainer>
-          <S.DescContainer>
-            <S.Description>검색 결과</S.Description>
-          </S.DescContainer>
           <S.ToolsContainer>
+            <S.Description>검색 결과</S.Description>
             <S.WriteButton to="/notice/upload">목록으로</S.WriteButton>
           </S.ToolsContainer>
           <S.BoardListContainer>
