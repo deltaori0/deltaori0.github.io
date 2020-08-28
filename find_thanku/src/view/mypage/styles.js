@@ -14,3 +14,24 @@ export const BoardListContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+export const TitleContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+
+  margin-bottom: 2rem;
+`;
+
+export const Title = styled.div`
+  font-size: 2.2rem;
+  font-weight: bold;
+
+  margin-bottom: 0.3rem;
+`;
+export const Label = styled.div`
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  margin-bottom: 0.3rem;
+`;
