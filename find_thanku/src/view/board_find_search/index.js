@@ -7,13 +7,10 @@ import BoardHeader from "../../container/find-board-header";
 import BoardList from "../../container/find-board-list";
 import Pagebar from "../../container/page-bar";
 
-import { useBoardFind } from "./hooks";
+import { useBoardSearch } from "./hooks";
 
-const BoardFind = () => {
-  const { posts } = useBoardFind();
-
-  // console.log("Hello BoardFind");
-  // console.log("url : ", window.location.pathname);
+const BoardFindSearch = () => {
+  const { posts } = useBoardSearch();
   let url_string = window.location.pathname.split("/");
   let page = 1; // 나중에 url 맨 뒷부분 보고 현재 보고 있는 페이지 추출 (근데 맨 처음 클릭했을 때 값은 1 뒤 url이 없으므로)
   if (url_string.length === 3) { 
@@ -37,26 +34,6 @@ const BoardFind = () => {
   if (endPage > totalPage) {
     endPage = totalPage;
   }
-  // console.log("totalCount:", totalCount);
-  // console.log("listCount:", listCount);
-  // console.log("totalPage:", totalPage);
-  // console.log("page", page);
-  // console.log("pageCount", pageCount);
-  // console.log("startPage", startPage);
-  // console.log("endPage", endPage);
-  
-  //게시글 검색
-  var searchval;
-  const Search = () => {
-    console.log(searchval.value);
-    if(searchval.value.length<2){
-      alert('두 글자 이상 입력해주세요.');
-      return;
-    }
-    const currenturl = window.location.href;
-    window.location.href = currenturl + "/search/" + searchval.value;
-  };
-  
   return (
     <Layout>
       <S.BoardFind>
@@ -65,23 +42,11 @@ const BoardFind = () => {
             <S.Title>습득물 게시판</S.Title>
           </S.TitleContainer>
           <S.DescContainer>
-            <S.Description>습득물 게시판에 대한 간단한 설명</S.Description>
+            <S.Description>검색 결과</S.Description>
           </S.DescContainer>
         </S.BoardFindContainer>
         <S.ToolsContainer>
-          <S.SearchContainer>
-            <S.SearchBox 
-              placeholder="검색" 
-              type="text"
-              ref={(ref) => (searchval = ref)}/>
-            <S.SearchIcon onClick = {Search}>
-              <img
-                src={STATIC_URL.MAGNIFYING_GLASS_ICON}
-                alt="magnifying-glass"
-              />
-            </S.SearchIcon>
-          </S.SearchContainer>
-          <S.WriteButton to="/find/upload">글 작성</S.WriteButton>
+          <S.WriteButton to="/find/board">목록으로</S.WriteButton>
         </S.ToolsContainer>
         <S.BoardListContainer>
           <BoardHeader />
@@ -102,4 +67,4 @@ const BoardFind = () => {
   );
 };
 
-export default BoardFind;
+export default BoardFindSearch;

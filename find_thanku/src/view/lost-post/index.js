@@ -31,6 +31,7 @@ const LostPost = () => {
 
 //댓글 업로드(신규)
 const CommentUpload = () => {
+  const url = window.location.pathname;
   const send_param = {
     headers,
     username: storage.get('loggedInfo').email.split('@')[0],
@@ -52,11 +53,12 @@ const CommentUpload = () => {
   //게시글 삭제
   const Delete = () => {
     PostDelete(delauth);
+    window.location.pathname = '/lost/board';
   };
   //게시글 수정
-  const url = window.location.href; //window.location.pathname;
-  const editurl = url + "/edit";
   const Edit = () => {
+    const url = window.location.href; //window.location.pathname;
+    const editurl = url + "/edit";
     if(editauth){
       const placeholder = {
         title: posts.title,
@@ -91,7 +93,7 @@ const CommentUpload = () => {
                  <div><img src={STATIC_URL.EDIT} alt="edit" /></div>
                 </S.Icon>: <div></div>}
                 {delauth?              
-                <S.Icon to = "/lost/board" onClick={Delete}>
+                <S.Icon onClick={Delete}>
                   <img src={STATIC_URL.DELETE} alt="delete" />
                 </S.Icon>: <div></div>}
               </S.IconContainer>
