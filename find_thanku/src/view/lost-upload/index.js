@@ -87,7 +87,7 @@ class LostUpload extends Component {
             </S.TextEditorContainer>
             
             <S.SubmitButton
-              to = '/lost/board'
+              to ="/lost/board"
               onClick={this.LostUpload}
               type="button"
               block>작성

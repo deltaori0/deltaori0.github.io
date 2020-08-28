@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-export const useMyPage = (googleId) => {
+export const useMyPage2 = (googleId) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const boardkind = "lost"
+      const boardkind = "find"
       const request = await fetch("http://localhost:4000/mypage/"+boardkind+"/"+googleId, {
         method: "GET",
       });

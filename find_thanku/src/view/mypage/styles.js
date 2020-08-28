@@ -35,3 +35,18 @@ export const Label = styled.div`
 
   margin-bottom: 0.3rem;
 `;
+
+export const ImageContainer = styled.div`
+img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 8rem;
+}
+`;
+
+export const Temp = styled.div`
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  margin-bottom: 0.3rem;
+`;
