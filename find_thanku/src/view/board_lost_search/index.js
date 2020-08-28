@@ -19,11 +19,9 @@ const BoardLostSearch = () => {
           <S.TitleContainer>
             <S.Title>분실물 게시판</S.Title>
           </S.TitleContainer>
-          <S.DescContainer>
-            <S.Description>검색 결과</S.Description>
-          </S.DescContainer>
         </S.BoardLostContainer>
         <S.ToolsContainer>
+          <S.Description>검색 결과</S.Description>
           <S.WriteButton to="/lost/board">목록으로</S.WriteButton>
         </S.ToolsContainer>
         <S.BoardListContainer>
