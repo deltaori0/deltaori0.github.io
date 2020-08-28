@@ -30,6 +30,7 @@ const FindPost = () => {
   }
 
   const CommentUpload = () => {
+    const url = window.location.pathname;
     const send_param = {
       headers,
       username: storage.get('loggedInfo').email.split('@')[0],
@@ -53,9 +54,9 @@ const FindPost = () => {
     PostDelete(delauth);
   };
   //게시글 수정
-  const url = window.location.href; //window.location.pathname;
-  const editurl = url + "/edit";
   const Edit = () => {
+    const url = window.location.href; //window.location.pathname;
+    const editurl = url + "/edit";
     if(editauth){
       const placeholder = {
         title: posts.title,

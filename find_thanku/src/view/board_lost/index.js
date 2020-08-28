@@ -11,7 +11,17 @@ import { useBoardLost } from "./hooks";
 
 const BoardLost = () => {
   const { posts } = useBoardLost();
-
+  var searchval;
+  const Search = () => {
+    console.log(searchval.value);
+    if(searchval.value.length<2){
+      alert('두 글자 이상 입력해주세요.');
+      return;
+    }
+    const currenturl = window.location.href;
+    window.location.href = currenturl + "/search/" + searchval.value;
+  };
+  
   return (
     <Layout>
       <S.BoardLost>
@@ -25,8 +35,11 @@ const BoardLost = () => {
         </S.BoardLostContainer>
         <S.ToolsContainer>
           <S.SearchContainer>
-            <S.SearchBox placeholder="제목 검색" />
-            <S.SearchIcon>
+            <S.SearchBox 
+              placeholder="검색"
+              type="text"
+              ref={(ref) => (searchval = ref)} />
+            <S.SearchIcon onClick = {Search}>
               <img
                 src={STATIC_URL.MAGNIFYING_GLASS_ICON}
                 alt="magnifying-glass"
