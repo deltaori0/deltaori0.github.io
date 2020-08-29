@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "34ce9b86267d1e9641467c459ddaa495",
+    "revision": "09ceab339e812aab4a257c99b7c7e454",
     "url": "/KU_Lost_and_Found/index.html"
   },
   {
-    "revision": "4893ee679baf6b9a674b",
+    "revision": "a9f68f95131cbbc0ad91",
     "url": "/KU_Lost_and_Found/static/css/main.176858f2.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/KU_Lost_and_Found/static/js/2.449ac3d0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4893ee679baf6b9a674b",
-    "url": "/KU_Lost_and_Found/static/js/main.57ee9dcd.chunk.js"
+    "revision": "a9f68f95131cbbc0ad91",
+    "url": "/KU_Lost_and_Found/static/js/main.e6a70e51.chunk.js"
   },
   {
     "revision": "d77daca42bd0ef3bf76e",
