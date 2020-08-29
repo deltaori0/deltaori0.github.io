@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-
+import { PORT } from "../../constant";
 export const useBoardLost = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const request = await fetch("http://localhost:4000/lost/board", {
-        method: "GET",
-      });
+      const request = await fetch(
+        "https://find-thanku.herokuapp.com/lost/board",
+        {
+          method: "GET",
+        }
+      );
 
       if (!request.ok) {
         alert("서버 죽음");

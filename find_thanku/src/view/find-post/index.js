@@ -7,24 +7,25 @@ import { useBoardFind } from "./hooks";
 import { useCommentFind } from "./hooks2";
 import { PostDelete, SetReplynum } from "./function";
 import axios from "axios";
-import {storage} from "../google_login/storage";
+import { storage } from "../google_login/storage";
+import { SubLabel } from "../main/styles";
 
 const headers = { withCredentials: true };
 
 const FindPost = () => {
   const { posts } = useBoardFind();
   const { comments } = useCommentFind();
-  const currentId = storage.get('loggedInfo').googleId;
+  const currentId = storage.get("loggedInfo").googleId;
 
   //var username;
-  var content; 
+  var content;
   //삭제,수정 권한
-  var editauth; var delauth;
-  if(currentId === posts.googleId){
+  var editauth;
+  var delauth;
+  if (currentId === posts.googleId) {
     editauth = true;
     delauth = true;
-  }
-  else{
+  } else {
     editauth = false;
     delauth = false;
   }
@@ -33,31 +34,39 @@ const FindPost = () => {
     const url = window.location.pathname;
     const send_param = {
       headers,
-      username: storage.get('loggedInfo').email.split('@')[0],
-      googleId: storage.get('loggedInfo').googleId,
+      username: storage.get("loggedInfo").email.split("@")[0],
+      googleId: storage.get("loggedInfo").googleId,
       content: content.value,
       postid: posts._id,
       postkind: "find",
     };
     axios
-      .post("http://localhost:4000" + url + "/comment", send_param)
+      .post("https://find-thanku.herokuapp.com" + url + "/comment", send_param)
       //에러
       .catch((err) => {
         console.log(err);
       });
+    console.log("url: ", url);
+    console.log("https://find-thanku.herokuapp.com" + url + "/comment");
     SetReplynum(1); //댓글수 +1
     alert("댓글 작성 완료!");
-    window.location.reload(true); //새로고침
+    //새로고침
+    setTimeout(function () {
+      window.location.reload(true);
+    }, 1000);
   };
   //게시글 삭제
   const Delete = () => {
     PostDelete(delauth);
+    setTimeout(function () {
+      window.location.pathname = "/find/board";
+    }, 1000);
   };
   //게시글 수정
   const Edit = () => {
     const url = window.location.href; //window.location.pathname;
     const editurl = url + "/edit";
-    if(editauth){
+    if (editauth) {
       const placeholder = {
         title: posts.title,
         name: posts.name,
@@ -65,14 +74,13 @@ const FindPost = () => {
         putplace: posts.putplace,
         content: posts.content,
       };
-      storage.set('editval', placeholder);
+      storage.set("editval", placeholder);
       window.location.href = editurl; //editurl로 이동
-    }
-    else{
-      alert('수정 권한 없음');
+    } else {
+      alert("수정 권한 없음");
       return;
     }
-  }
+  };
   const post_content = posts.content;
 
   return (
@@ -87,14 +95,20 @@ const FindPost = () => {
             <S.MetaContainer>
               <S.Date>{posts.date}</S.Date>
               <S.IconContainer>
-               {editauth?
-                <S.Icon onClick={Edit}>
-                  <img src={STATIC_URL.EDIT} alt="edit" />
-                </S.Icon>:<div></div>}
-                {delauth?
-                <S.Icon to='/find/board' onClick={Delete}>
-                  <img src={STATIC_URL.DELETE} alt="delete" />
-                </S.Icon>:<div></div>}
+                {editauth ? (
+                  <S.Icon onClick={Edit}>
+                    <img src={STATIC_URL.EDIT} alt="edit" />
+                  </S.Icon>
+                ) : (
+                  <div></div>
+                )}
+                {delauth ? (
+                  <S.Icon onClick={Delete}>
+                    <img src={STATIC_URL.DELETE} alt="delete" />
+                  </S.Icon>
+                ) : (
+                  <div></div>
+                )}
               </S.IconContainer>
             </S.MetaContainer>
             <S.Label>습득물 명 : {posts.name}</S.Label>

@@ -5,7 +5,7 @@ export const useBoardNotice = () => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const request = await fetch("http://localhost:4000/notice", {
+      const request = await fetch("https://find-thanku.herokuapp.com/notice", {
         method: "GET",
       });
 

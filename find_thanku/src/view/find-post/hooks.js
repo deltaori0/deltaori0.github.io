@@ -7,14 +7,17 @@ export const useBoardFind = () => {
     const getInitialPosts = async () => {
       // console.log(window.location.pathname);
       const url = window.location.pathname;
-      const request = await fetch("http://localhost:4000" + url, {
+      const request = await fetch("https://find-thanku.herokuapp.com" + url, {
         method: "GET",
       });
       if (!request.ok) {
-        const request2 = await fetch("http://localhost:4000" + url + "/edit", {
-        method: "GET",
-        });
-        if (!request2.ok){
+        const request2 = await fetch(
+          "https://find-thanku.herokuapp.com" + url + "/edit",
+          {
+            method: "GET",
+          }
+        );
+        if (!request2.ok) {
           alert("서버 죽음");
           return;
         }

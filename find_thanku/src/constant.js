@@ -26,3 +26,5 @@ export const THEME_COLOR = {
   FONT_GRAY: "#80868B",
   LIGHT_GRAY: "#E5E5E3",
 };
+
+export const PORT = process.env.PORT || 4000;

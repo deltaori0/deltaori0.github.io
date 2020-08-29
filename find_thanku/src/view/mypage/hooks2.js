@@ -7,12 +7,17 @@ export const useMyPage2 = (googleId) => {
     const getInitialPosts = async () => {
       const boardkind = "find";
       const request = await fetch(
-        "http://localhost:4000/mypage/" + boardkind + "/" + googleId,
+        "https://find-thanku.herokuapp.com/mypage/" +
+          boardkind +
+          "/" +
+          googleId,
         {
           method: "GET",
         }
       );
-      console.log("http://localhost:4000/mypage/" + boardkind + "/" + googleId);
+      console.log(
+        "https://find-thanku.herokuapp.com/mypage/" + boardkind + "/" + googleId
+      );
       if (!request.ok) {
         alert("서버 죽음");
         return;

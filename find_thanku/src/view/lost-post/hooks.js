@@ -6,7 +6,7 @@ export const useBoardLost = () => {
   useEffect(() => {
     const getInitialPosts = async () => {
       const url = window.location.pathname;
-      const request = await fetch("http://localhost:4000" + url, {
+      const request = await fetch("https://find-thanku.herokuapp.com" + url, {
         method: "GET",
       });
 
