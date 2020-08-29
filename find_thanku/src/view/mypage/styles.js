@@ -1,6 +1,4 @@
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
-import { THEME_COLOR } from "../../constant";
 
 export const MyPage = styled.div`
   width: 100%;

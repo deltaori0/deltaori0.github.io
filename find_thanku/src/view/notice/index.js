@@ -14,11 +14,7 @@ const Notice = () => {
   const { posts } = useBoardNotice();
   const authentication = () => {
     var admin = ["eunsoo googleId", "115049392299918823209"]; //[eunsoo,sohee]
-    try {
-      var auth = admin.includes(storage.get("loggedInfo").googleId);
-    } catch {
-      alert("로그인 하세요!");
-    }
+    var auth = admin.includes(storage.get("loggedInfo").googleId);
     return auth;
   };
   var auth = authentication();

@@ -13,15 +13,15 @@ const Pagebar = ({
   total_page,
 }) => {
   function beforePage() {
-    console.log("이전 버튼 누름!!!!");
-    if (start_page - page_count > 0) start_page -= page_count;
-    console.log("이전페이지 누름 - start_page :", start_page); // 눌렀을 때 start_page에 바로 반영되어서 PageButton으로 넘겨줘야 함 (미완)
+    // console.log("이전 버튼 누름!!!!");
+    // if (start_page - page_count > 0) start_page -= page_count;
+    // console.log("이전페이지 누름 - start_page :", start_page); // 눌렀을 때 start_page에 바로 반영되어서 PageButton으로 넘겨줘야 함 (미완)
     // window.location.reload(true);
   }
   function nextPage() {
-    console.log("다음 버튼 누름!!! !");
-    if (start_page + page_count < total_page) start_page += page_count;
-    console.log("다음페이지 누름 - start_page :", start_page);
+    // console.log("다음 버튼 누름!!! !");
+    // if (start_page + page_count < total_page) start_page += page_count;
+    // console.log("다음페이지 누름 - start_page :", start_page);
     // window.location.reload(true);
   }
   return (

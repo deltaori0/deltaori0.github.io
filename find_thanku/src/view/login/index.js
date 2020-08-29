@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { STATIC_URL } from "../../constant";
 import Layout from "../../component/layout";
 import * as S from "./styles";
 import "./login.scss";
-import {GoogleBtn} from "../google_login/googlebtn";
+import { GoogleBtn } from "../google_login/googlebtn";
 
 const Login = () => {
-  // Google Login
-  const responseGoogle = (res) => {
-    console.log(res);
-  };
+  // // Google Login
+  // const responseGoogle = (res) => {
+  //   console.log(res);
+  // };
 
-  // Login Fail
-  const responseFail = (err) => {
-    console.error(err);
-  };
+  // // Login Fail
+  // const responseFail = (err) => {
+  //   console.error(err);
+  // };
 
   return (
     <Layout>
@@ -22,9 +22,12 @@ const Login = () => {
         <div>
           <img src={STATIC_URL.LOGO} width="200px" height="90px" alt="logo" />
         </div>
-        <br /><br /><br /><br />  
+        <br />
+        <br />
+        <br />
+        <br />
         <S.Container>
-          <GoogleBtn/>
+          <GoogleBtn />
         </S.Container>
       </S.Login>
     </Layout>

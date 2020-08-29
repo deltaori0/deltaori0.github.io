@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { PORT } from "../../constant";
 export const useBoardLost = () => {
   const [posts, setPosts] = useState([]);
 

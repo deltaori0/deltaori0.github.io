@@ -15,20 +15,18 @@ const PageButton = ({ board_type, page, start_page, end_page }) => {
 
   return (
     <S.PageButton>
-      <S.PageButtonContainer to={url + start_page}>
-        {start_page}
-      </S.PageButtonContainer>
+      <S.PageButtonContainer to={url + start_page}>1</S.PageButtonContainer>
       <S.PageButtonContainer to={url + (start_page + 1)}>
-        {start_page + 1}
+        2
       </S.PageButtonContainer>
       <S.PageButtonContainer to={url + (start_page + 2)}>
-        {start_page + 2}
+        3
       </S.PageButtonContainer>
       <S.PageButtonContainer to={url + (start_page + 3)}>
-        {start_page + 3}
+        4
       </S.PageButtonContainer>
       <S.PageButtonContainer to={url + (start_page + 4)}>
-        {start_page + 4}
+        5
       </S.PageButtonContainer>
     </S.PageButton>
   );

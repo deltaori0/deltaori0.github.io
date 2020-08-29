@@ -102,6 +102,7 @@ export class GoogleBtn extends Component {
 
   handleLogoutFailure(response) {
     alert("Failed to log out");
+    console.log(response);
   }
 
   render() {

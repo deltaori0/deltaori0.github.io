@@ -1,4 +1,3 @@
-import { PORT } from "../../constant";
 //댓글수 조정
 const SetReplynum = async (num) => {
   const url = window.location.pathname;
