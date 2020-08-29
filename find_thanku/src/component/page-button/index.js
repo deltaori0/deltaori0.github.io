@@ -4,14 +4,14 @@ import * as S from "./styles";
 
 const PageButton = ({ board_type, page, start_page, end_page }) => {
   let url = "/";
- // console.log(board_type);
+  // console.log(board_type);
   if (board_type === "find") url = "/find/board/";
   else if (board_type === "lost") url = "/lost/board/";
   else if (board_type === "notice") url = "/notice/";
 
-  console.log("현재 페이지:", page);
-  console.log("시작 페이지:", start_page);
-  console.log("끝 페이지:", end_page);
+  // console.log("현재 페이지:", page);
+  // console.log("시작 페이지:", start_page);
+  // console.log("끝 페이지:", end_page);
 
   return (
     <S.PageButton>
