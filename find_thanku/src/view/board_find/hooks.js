@@ -5,9 +5,12 @@ export const useBoardFind = () => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const request = await fetch("http://localhost:4000/find/board", {
-        method: "GET",
-      });
+      const request = await fetch(
+        "https://find-thanku.herokuapp.com/find/board",
+        {
+          method: "GET",
+        }
+      );
 
       if (!request.ok) {
         alert("서버 죽음");

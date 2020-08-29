@@ -5,11 +5,19 @@ export const useMyPage = (googleId) => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
-      const boardkind = "lost"
-      const request = await fetch("http://localhost:4000/mypage/"+boardkind+"/"+googleId, {
-        method: "GET",
-      });
-      console.log("http://localhost:4000/mypage/"+boardkind+"/"+googleId);
+      const boardkind = "lost";
+      const request = await fetch(
+        "https://find-thanku.herokuapp.com/mypage/" +
+          boardkind +
+          "/" +
+          googleId,
+        {
+          method: "GET",
+        }
+      );
+      console.log(
+        "https://find-thanku.herokuapp.com/mypage/" + boardkind + "/" + googleId
+      );
       if (!request.ok) {
         alert("서버 죽음");
         return;

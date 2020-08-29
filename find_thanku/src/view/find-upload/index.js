@@ -5,29 +5,32 @@ import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
 import Select from "react-select";
 import axios from "axios";
-import { storage } from '../google_login/storage';
+import { storage } from "../google_login/storage";
 
 const headers = { withCredentials: true };
 
-class FindUpload extends Component { 
+class FindUpload extends Component {
   FindUpload = () => {
     const send_param = {
       headers,
       title: this.title.value,
       name: this.name.value,
-      googleId: storage.get('loggedInfo').googleId,
+      googleId: storage.get("loggedInfo").googleId,
       getplace: this.getplace.value,
       putplace: this.state.selectedOption.value,
       content: this.content,
-      username: storage.get('loggedInfo').email.split('@')[0],
+      username: storage.get("loggedInfo").email.split("@")[0],
     };
     axios
-      .post("http://localhost:4000/find/upload", send_param)
+      .post("https://find-thanku.herokuapp.com/find/upload", send_param)
       //에러
       .catch((err) => {
         console.log(err);
       });
     alert("작성 완료!");
+    setTimeout(function () {
+      window.location.pathname = "/find/board";
+    }, 1000);
   };
   //texteditor 관련
   handleEditorChange = (e) => {
@@ -116,7 +119,8 @@ class FindUpload extends Component {
                   init={{
                     height: 500,
                     menubar: false,
-                    placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                    placeholder:
+                      "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
                     plugins: [
                       "advlist autolink lists link image",
                       "charmap print preview anchor help",
@@ -127,7 +131,8 @@ class FindUpload extends Component {
                       "undo redo | formatselect | bold italic | image | alignleft aligncenter alignright | bullist numlist outdent indent | help",
                     mobile: {
                       theme: "mobile",
-                      placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                      placeholder:
+                        "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
                       plugins: ["autosave", "lists", "autolink", "placeholder"],
                     },
                   }}
@@ -136,10 +141,7 @@ class FindUpload extends Component {
               </S.TextEditor>
             </S.TextEditorContainer>
 
-            <S.SubmitButton 
-              to="/find/board"
-              onClick={this.FindUpload} 
-              type="button" block>
+            <S.SubmitButton onClick={this.FindUpload} type="button" block>
               작성
             </S.SubmitButton>
             {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}

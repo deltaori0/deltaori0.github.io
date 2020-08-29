@@ -7,12 +7,15 @@ export const useCommentLost = () => {
 
   useEffect(() => {
     const getInitialComments = async () => {
-      const url = window.location.pathname;  //localhost:4000/lost_post/게시글 id정보/
-      
-      console.log("http://localhost:4000" + url + "/comment")
-      const request = await fetch("http://localhost:4000" + url + "/comment", {
-        method: "GET",
-      });
+      const url = window.location.pathname; //localhost:4000/lost_post/게시글 id정보/
+
+      console.log("https://find-thanku.herokuapp.com" + url + "/comment");
+      const request = await fetch(
+        "https://find-thanku.herokuapp.com" + url + "/comment",
+        {
+          method: "GET",
+        }
+      );
 
       if (!request.ok) {
         alert("서버 죽음");

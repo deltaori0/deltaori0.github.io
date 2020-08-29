@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 
 import * as S from "./styles";
@@ -8,22 +7,22 @@ import axios from "axios";
 const headers = { withCredentials: true };
 
 class JoinForm extends Component {
- Join = () => {
-  const send_param = {
-    headers,
-    title: this.title.value,
-    description: this.description.value,
+  Join = () => {
+    const send_param = {
+      headers,
+      title: this.title.value,
+      description: this.description.value,
+    };
+    axios
+      .post("https://find-thanku.herokuapp.com/join", send_param)
+      //정상 수행
+
+      //에러
+      .catch((err) => {
+        console.log(err);
+      });
   };
-  axios
-    .post("http://localhost:4000/join", send_param)
-    //정상 수행
-  
-    //에러
-    .catch(err => {
-      console.log(err);
-    });
-  }
-  render(){
+  render() {
     return (
       <Layout>
         <S.Join>
@@ -31,26 +30,24 @@ class JoinForm extends Component {
             <S.IDInputBox
               type="text"
               maxLength="20"
-              ref={ref => (this.title = ref)}
-              placeholder="id"/>
-            <S.PWInputBox 
+              ref={(ref) => (this.title = ref)}
+              placeholder="id"
+            />
+            <S.PWInputBox
               type="text"
               maxLength="20"
-              ref={ref => (this.description = ref)}
-              placeholder="pw"/>
+              ref={(ref) => (this.description = ref)}
+              placeholder="pw"
+            />
             <S.PWConfirmInputBox />
-            <S.SubmitButton
-              onClick={this.Join}
-              type="button"
-              block
-            >확인
+            <S.SubmitButton onClick={this.Join} type="button" block>
+              확인
             </S.SubmitButton>
           </S.JoinContainer>
         </S.Join>
       </Layout>
     );
+  }
 }
-
-};
 
 export default JoinForm;

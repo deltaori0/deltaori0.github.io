@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import * as S from "./styles";
 import TextEditor from "../../component/find-text-editor";
 import Layout from "../../component/layout";
@@ -9,19 +9,19 @@ import { storage } from "../google_login/storage";
 
 const headers = { withCredentials: true };
 
-class NoticeUpload extends Component{
+class NoticeUpload extends Component {
   Upload = () => {
     const send_param = {
       headers,
       title: this.title.value,
       content: this.content,
-      googleId: storage.get('loggedInfo').googleId,
+      googleId: storage.get("loggedInfo").googleId,
     };
     axios
-      .post("http://localhost:4000/notice/upload", send_param)
+      .post("https://find-thanku.herokuapp.com/notice/upload", send_param)
       //정상 수행
       //에러
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
     alert("작성 완료!");
@@ -31,7 +31,7 @@ class NoticeUpload extends Component{
     console.log(e.target.getContent());
     this.content = e.target.getContent();
   };
-  render (){
+  render() {
     return (
       <Layout>
         <S.Upload>
@@ -40,10 +40,11 @@ class NoticeUpload extends Component{
               <S.Title>글 작성</S.Title>
             </S.TitleContainer>
             <S.WriteInputContainer>
-              <S.NameInput 
+              <S.NameInput
                 type="text"
                 ref={(ref) => (this.title = ref)}
-                placeholder="제목" />
+                placeholder="제목"
+              />
             </S.WriteInputContainer>
 
             <S.TextEditorContainer>
@@ -53,7 +54,8 @@ class NoticeUpload extends Component{
                   init={{
                     height: 500,
                     menubar: false,
-                    placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                    placeholder:
+                      "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
                     plugins: [
                       "advlist autolink lists link image",
                       "charmap print preview anchor help",
@@ -64,23 +66,24 @@ class NoticeUpload extends Component{
                       "undo redo | formatselect | bold italic | image | alignleft aligncenter alignright | bullist numlist outdent indent | help",
                     mobile: {
                       theme: "mobile",
-                      placeholder: "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                      placeholder:
+                        "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
                       plugins: ["autosave", "lists", "autolink", "placeholder"],
                     },
                   }}
                   onChange={this.handleEditorChange}
                 />
-              </S.TextEditor> 
+              </S.TextEditor>
             </S.TextEditorContainer>
 
-            <S.SubmitButton 
-              to = '/notice'
-              onClick = {this.Upload}>작성</S.SubmitButton>
+            <S.SubmitButton to="/notice" onClick={this.Upload}>
+              작성
+            </S.SubmitButton>
           </S.UploadContainer>
         </S.Upload>
       </Layout>
     );
   }
-};
+}
 
 export default NoticeUpload;
