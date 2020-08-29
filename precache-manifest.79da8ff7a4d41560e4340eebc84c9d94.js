@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6ecb8f1beaeb074d5ef5e7cef5d92f2e",
+    "revision": "42deb01b969e26c80df7156bffc1da05",
     "url": "/KU_Lost_and_Found/index.html"
   },
   {
-    "revision": "ecbd249d5586f00064f4",
+    "revision": "87897eff69c770bc833a",
     "url": "/KU_Lost_and_Found/static/css/main.176858f2.chunk.css"
   },
   {
-    "revision": "4110f387bc48e24bbb86",
-    "url": "/KU_Lost_and_Found/static/js/2.5c463e24.chunk.js"
+    "revision": "6534e9d57ebdb2588da6",
+    "url": "/KU_Lost_and_Found/static/js/2.b70a6ea2.chunk.js"
   },
   {
     "revision": "dd207babaeb913476be46155cc504ef5",
-    "url": "/KU_Lost_and_Found/static/js/2.5c463e24.chunk.js.LICENSE.txt"
+    "url": "/KU_Lost_and_Found/static/js/2.b70a6ea2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ecbd249d5586f00064f4",
-    "url": "/KU_Lost_and_Found/static/js/main.4da356c4.chunk.js"
+    "revision": "87897eff69c770bc833a",
+    "url": "/KU_Lost_and_Found/static/js/main.e54cb914.chunk.js"
   },
   {
     "revision": "d77daca42bd0ef3bf76e",
