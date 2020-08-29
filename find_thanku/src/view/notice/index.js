@@ -13,17 +13,21 @@ import { useBoardNotice } from "./hooks";
 const Notice = () => {
   const { posts } = useBoardNotice();
   const authentication = () => {
-    var admin = ['eunsoo googleId','115049392299918823209'];//[eunsoo,sohee]
-    var auth = admin.includes(storage.get("loggedInfo").googleId);
+    var admin = ["eunsoo googleId", "115049392299918823209"]; //[eunsoo,sohee]
+    try {
+      var auth = admin.includes(storage.get("loggedInfo").googleId);
+    } catch {
+      alert("로그인 하세요!");
+    }
     return auth;
-  }
+  };
   var auth = authentication();
   //검색기능
   var searchval;
   const Search = () => {
     console.log(searchval.value);
-    if(searchval.value.length<2){
-      alert('두 글자 이상 입력해주세요.');
+    if (searchval.value.length < 2) {
+      alert("두 글자 이상 입력해주세요.");
       return;
     }
     const currenturl = window.location.href;
@@ -41,10 +45,11 @@ const Notice = () => {
           </S.DescContainer>
           <S.ToolsContainer>
             <S.SearchContainer>
-              <S.SearchBox 
+              <S.SearchBox
                 placeholder="검색"
                 type="text"
-                ref={(ref) => (searchval = ref)} />
+                ref={(ref) => (searchval = ref)}
+              />
               <S.SearchIcon onClick={Search}>
                 <img
                   src={STATIC_URL.MAGNIFYING_GLASS_ICON}
@@ -52,9 +57,11 @@ const Notice = () => {
                 />
               </S.SearchIcon>
             </S.SearchContainer>
-            {auth?
-            <S.WriteButton to="/notice/upload">글 작성</S.WriteButton>:
-            <div></div>}            
+            {auth ? (
+              <S.WriteButton to="/notice/upload">글 작성</S.WriteButton>
+            ) : (
+              <div></div>
+            )}
           </S.ToolsContainer>
           <S.BoardListContainer>
             <BoardHeader />
