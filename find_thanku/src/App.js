@@ -29,7 +29,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/KU_Lost_and_Found" exact component={Main} />
+        <Route path="/" exact component={Main} />
         <Route path="/lost/board" exact component={BoardLost} />
         <Route path="/lost/board/:page_number" exact component={BoardLost} />
         <Route
@@ -62,7 +62,7 @@ function App() {
         <Route path="/lost/post/:_id/edit" exact component={LostEdit} />
         <Route path="/notice/post/:_id" exact component={NoticePost} />
         <Route path="/mypage" exact component={MyPage} />
-        <Redirect from="*" to="/KU_Lost_and_Found" />
+        <Redirect from="*" to="/" />
       </Switch>
     </Router>
   );
