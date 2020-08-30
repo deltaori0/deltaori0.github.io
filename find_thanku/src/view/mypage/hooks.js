@@ -30,7 +30,7 @@ export const useMyPage = (googleId) => {
     };
 
     getInitialPosts();
-  }, []);
+  }, [googleId]);
 
   return {
     posts,

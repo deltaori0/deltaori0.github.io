@@ -8,7 +8,7 @@ import { useCommentFind } from "./hooks2";
 import { PostDelete, SetReplynum } from "./function";
 import axios from "axios";
 import { storage } from "../google_login/storage";
-import { SubLabel } from "../main/styles";
+// import { SubLabel } from "../main/styles";
 
 const headers = { withCredentials: true };
 

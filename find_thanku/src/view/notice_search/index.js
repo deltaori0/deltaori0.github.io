@@ -2,11 +2,9 @@ import React from "react";
 
 import * as S from "./styles";
 import Layout from "../../component/layout";
-import { STATIC_URL } from "../../constant";
 import BoardHeader from "../../container/notice-header";
 import BoardList from "../../container/notice-list";
 import Pagebar from "../../container/page-bar";
-import { storage } from "../google_login/storage";
 
 import { useBoardSearch } from "./hooks";
 

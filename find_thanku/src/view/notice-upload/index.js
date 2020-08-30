@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import * as S from "./styles";
-import TextEditor from "../../component/find-text-editor";
+// import TextEditor from "../../component/find-text-editor";
 import Layout from "../../component/layout";
 import axios from "axios";
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 import { Editor } from "@tinymce/tinymce-react";
 import { storage } from "../google_login/storage";
 

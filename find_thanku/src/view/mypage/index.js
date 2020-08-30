@@ -35,7 +35,7 @@ const MyPage = () => {
           <S.Title>내 정보</S.Title>
           <S.MyInfo>
             <S.ImageContainer>
-              <img src={imageurl} alt="image" />
+              <img src={imageurl} alt="profile" />
             </S.ImageContainer>
             <S.MetaContainer>
               <S.Meta>이름: {username}</S.Meta>

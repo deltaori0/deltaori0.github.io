@@ -29,7 +29,7 @@ const Header = () => {
             </S.DesktopLink>
             <S.DesktopLink to="/mypage">
               <S.Button>
-                {<img src={storage.get("loggedInfo").imgUrl} alt="image" />}
+                {<img src={storage.get("loggedInfo").imgUrl} alt="profile" />}
               </S.Button>
             </S.DesktopLink>
           </S.TempContainer>
