@@ -16,7 +16,6 @@ const LostPost = () => {
   const { posts } = useBoardLost();
   const { comments } = useCommentLost();
   const currentId = storage.get("loggedInfo").googleId;
-  //var username;
   var content;
   //삭제,수정 권한
   var editauth;
@@ -40,6 +39,7 @@ const LostPost = () => {
       postid: posts._id,
       postkind: "lost",
     };
+    // POST https://find-thanku.herokuapp.com/lost/post/:_id/comment
     axios
       .post("https://find-thanku.herokuapp.com" + url + "/comment", send_param)
       //에러
@@ -113,7 +113,6 @@ const LostPost = () => {
             <S.Label>분실물 명 : {posts.name} </S.Label>
             <S.Label>분실 장소 : {posts.place} </S.Label>
             <S.ContentContainer>
-              {/* <S.Content>{posts.content}</S.Content> */}
               <S.Content>
                 <div dangerouslySetInnerHTML={{ __html: post_content }} />
               </S.Content>

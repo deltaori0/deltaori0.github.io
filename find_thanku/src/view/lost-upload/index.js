@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import * as S from "./styles";
-// import TextEditor from "../../component/find-text-editor";
 import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
-// import { STATIC_URL } from "../../constant";
 import { storage } from "../google_login/storage";
 import axios from "axios";
 const headers = { withCredentials: true };
@@ -32,12 +30,9 @@ class LostUpload extends Component {
   };
   //texteditor 관련
   handleEditorChange = (e) => {
-    console.log(e.target.getContent());
     this.content = e.target.getContent();
   };
-  //render
   render() {
-    //return
     return (
       <Layout>
         <S.Upload>
@@ -97,7 +92,6 @@ class LostUpload extends Component {
             <S.SubmitButton onClick={this.LostUpload} type="button" block>
               작성
             </S.SubmitButton>
-            {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}
           </S.UploadContainer>
         </S.Upload>
       </Layout>

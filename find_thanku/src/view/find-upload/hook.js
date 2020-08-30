@@ -4,11 +4,10 @@ export const useBoardFind = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    console.log("hi");
     const getInitialPosts = async () => {
-      // console.log(window.location.pathname);
       const url = window.location.pathname;
       const newurl = url.slice(0, -5);
+      console.log("eunsoo's test", newurl);
       const request = await fetch(
         "https://find-thanku.herokuapp.com" + newurl,
         {
@@ -16,13 +15,12 @@ export const useBoardFind = () => {
         }
       );
       if (!request.ok) {
-        alert("서버 죽음");
+        alert("Server not responding");
         return;
       }
       const data = await request.json();
 
       setPosts(data);
-      console.log(data);
     };
 
     getInitialPosts();

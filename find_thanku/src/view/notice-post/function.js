@@ -1,4 +1,4 @@
-//공지사항 게시글 삭제
+//공지사항 게시글 삭제 함수
 export const PostDelete = async (auth) => {
   const url = window.location.pathname;
   //삭제함 && 접속자 id가 관리자의 username과 같으면 (temp:admin)
@@ -9,6 +9,7 @@ export const PostDelete = async (auth) => {
       return;
     }
     //삭제함
+    // DELETE https://find-thanku.herokuapp.com/notice/post/:_id
     const request = await fetch("https://find-thanku.herokuapp.com" + url, {
       method: "DELETE",
     });
@@ -30,7 +31,8 @@ export const PostEdit = async (auth, content) => {
   const url = window.location.pathname;
   //작성자 == 관리자 id (admin)
   if (auth) {
-    var newcontent = "content수정됨"; //upload 페이지 다시 열어야할듯? find_edit view 새로 만들어서 newcont 받아오기
+    var newcontent = "content 수정됨";
+    // PATCH https://find-thanku.herokuapp.com/notice/post/:_id/content/:content
     const request = await fetch(
       "https://find-thanku.herokuapp.com" + url + "/content/" + newcontent,
       {

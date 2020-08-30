@@ -14,9 +14,11 @@ const NoticePost = () => {
     return auth;
   };
   var auth = authentication(); //admin 권한
+  // 게시글 삭제
   const Delete = () => {
     PostDelete(auth);
   };
+  // 게시글 수정
   const Edit = () => {
     PostEdit(auth, posts.content);
   };

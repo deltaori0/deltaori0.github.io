@@ -1,6 +1,6 @@
 //게시글 삭제
 export const PostDelete = async (delauth) => {
-  const url = window.location.pathname; //localhost:4000/lost_post/게시글 id정보/
+  const url = window.location.pathname; ///lost/post/게시글 id정보/
   //삭제함 && 작성자 == 현재 접속자의 username (temp:nonamed)
   if (delauth) {
     var bool = window.confirm("정말 삭제하시겠습니까?");
@@ -9,6 +9,7 @@ export const PostDelete = async (delauth) => {
       return;
     }
     //삭제함
+    // DELETE https://find-thanku.herokuapp.com/lost/post/:_id
     const request = await fetch("https://find-thanku.herokuapp.com" + url, {
       method: "DELETE",
     });
@@ -28,15 +29,15 @@ export const PostDelete = async (delauth) => {
 //댓글수 조정
 export const SetReplynum = async (num) => {
   const url = window.location.pathname;
+  // PATCH https://find-thanku.herokuapp.com/lost/post/:_id/replynum/:num
   const request = await fetch(
     "https://find-thanku.herokuapp.com" + url + "/replynum/" + num,
     {
       method: "PATCH",
     }
   );
-  console.log("https://find-thanku.herokuapp.com" + url + "/replynum/" + 1);
   if (!request.ok) {
-    alert("서버 죽음");
+    alert("Server not responding");
     return;
   }
   await request.json();

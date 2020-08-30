@@ -8,25 +8,20 @@ import LostBoardHeader from "../../container/lost-board-header";
 import FindBoardList from "../../container/find-board-list";
 import LostBoardList from "../../container/lost-board-list";
 
-import { useMyPage } from "./hooks"; //분실물
-import { useMyPage2 } from "./hooks2"; //습득물
+import { useMyPage } from "./hooks"; // 분실물 게시판 Hook
+import { useMyPage2 } from "./hooks2"; //습득물 게시판 Hook
 import { storage } from "../google_login/storage";
 
 const MyPage = () => {
-  //뭘 쓸지 몰라서 다 준비해봤어...ㅎㅎㅎ
-  const googleId = storage.get("loggedInfo").googleId; //숫자 형식
+  const googleId = storage.get("loggedInfo").googleId; //숫자 형식의 구글 아이디
   const imageurl = storage.get("loggedInfo").imgUrl;
   const username = storage.get("loggedInfo").username; //ex: 정소희[학부재학/컴퓨터학과]
   const email = storage.get("loggedInfo").email; //ex: wjdthgmlgo@korea.ac.kr
   const emailname = email.split("@")[0]; //ex: wjdthgmlgo
-  console.log(emailname);
 
   //각 게시판 posts 설정
   const { posts } = useMyPage(googleId); //분실물 post
   const { posts2 } = useMyPage2(googleId); //습득물 post
-
-  // console.log("posts", posts);
-  console.log("posts2", posts2);
 
   return (
     <Layout>

@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 
 import * as S from "./styles";
-//import TextEditor from "../../component/find-text-editor";
 import { Editor } from "@tinymce/tinymce-react";
 import Layout from "../../component/layout";
-// import { STATIC_URL } from "../../constant";
 import Select from "react-select";
-// import { render } from "@testing-library/react";
 import { storage } from "../google_login/storage";
 
 export class FindEdit extends Component {
-  //texteditor 관련
+  // texteditor에 작성된 내용을 content 변수에 넣음
   handleEditorChange = (e) => {
-    console.log(e.target.getContent());
     this.content = e.target.getContent();
   };
-  //Select 관련
+  // Select option 지정
   options = [
     { value: "중앙광장 원스탑", label: "중앙광장 원스탑" },
     { value: "하나스퀘어 원스탑", label: "하나스퀘어 원스탑" },
@@ -26,12 +22,14 @@ export class FindEdit extends Component {
     selectedOption: "",
   };
 
+  // 선택한 옵션이 바뀌면 state 바꿈
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
   };
-  //게시글 수정 시
+
+  // 게시글 수정 함수
   EditPost = async () => {
+    // 새 게시글
     const newcontent = {
       title: this.title.value,
       name: this.name.value,
@@ -39,13 +37,13 @@ export class FindEdit extends Component {
       putplace: this.state.selectedOption.value,
       content: "this.content",
     };
-    console.log(newcontent.content);
+    // 페이지가 업로드 시 기존에 작성한 내용이 들어감 - 습득 장소
     if (!newcontent.putplace) {
-      newcontent.putplace = storage.get("editval").putplace;
-      console.log("진입");
+      newcontent.putplace = storage.get("editval").putplace; // local storage에 저장되어 있던 내용으로 업데이트
     }
 
     const url = window.location.pathname;
+
     const fetchurl =
       "https://find-thanku.herokuapp.com" +
       url +
@@ -59,28 +57,25 @@ export class FindEdit extends Component {
       newcontent.putplace +
       "/" +
       newcontent.content;
+    // PATCH https://find-thanku.herokuapp.com/find/post/:_id/edit/:title/:name/:getplace/:putplace/:content
     const request = await fetch(fetchurl, {
       method: "PATCH",
     });
-    console.log(fetchurl);
     const previousurl = window.location.href.slice(0, -5);
     if (!request.ok) {
       alert("게시글 수정 실패");
-      storage.remove("editval");
+      storage.remove("editval"); // local storage에 저장된 내용 삭제
       window.location.href = previousurl;
       return;
     }
     await request.json();
-    console.log(newcontent.title.value);
     storage.remove("editval");
     alert("수정되었습니다!");
     window.location.href = previousurl;
   };
 
-  //render
   render() {
-    //select 관련
-    //this.SetPlaceholder();
+    // select 스타일 지정
     const { selectedOption } = this.state;
     const styles = {
       container: (base) => ({
@@ -100,7 +95,6 @@ export class FindEdit extends Component {
         marginTop: "1%",
       }),
     };
-    //return
     return (
       <Layout>
         <S.Upload>
@@ -164,7 +158,6 @@ export class FindEdit extends Component {
             <S.SubmitButton onClick={this.EditPost} type="button" block>
               작성
             </S.SubmitButton>
-            {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}
           </S.UploadContainer>
         </S.Upload>
       </Layout>

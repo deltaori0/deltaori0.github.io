@@ -12,51 +12,18 @@ import { useBoardFind } from "./hooks";
 const BoardFind = () => {
   const { posts } = useBoardFind();
 
-  // console.log("Hello BoardFind");
-  // console.log("url : ", window.location.pathname);
-  let url_string = window.location.pathname.split("/");
-  let page = 1; // 나중에 url 맨 뒷부분 보고 현재 보고 있는 페이지 추출 (근데 맨 처음 클릭했을 때 값은 1 뒤 url이 없으므로)
-  if (url_string.length === 3) { 
-    page = 1;
-  }
-  else{ 
-    page = parseInt(url_string[3]);
-  }
-  const totalCount = posts.length;
-  const listCount = 10;
-  let totalPage = parseInt(totalCount / listCount);
-  if (totalCount % listCount > 0){
-    totalPage += 1;
-  } 
-  if (totalPage < page) {
-    page = totalPage; // 사용자가 임의로 페이지 수 바꿀 수 있으므로
-  }
-  const pageCount = 5;
-  let startPage = parseInt((page - 1) / pageCount + 1);
-  let endPage = startPage + pageCount - 1;
-  if (endPage > totalPage) {
-    endPage = totalPage;
-  }
-  // console.log("totalCount:", totalCount);
-  // console.log("listCount:", listCount);
-  // console.log("totalPage:", totalPage);
-  // console.log("page", page);
-  // console.log("pageCount", pageCount);
-  // console.log("startPage", startPage);
-  // console.log("endPage", endPage);
-  
   //게시글 검색
   var searchval;
   const Search = () => {
-    console.log(searchval.value);
-    if(searchval.value.length<2){
-      alert('두 글자 이상 입력해주세요.');
+    if (searchval.value.length < 2) {
+      alert("두 글자 이상 입력해주세요.");
       return;
     }
     const currenturl = window.location.href;
+    // 검색한 내용을 포함하여 수정된 url로 페이지를 이동
     window.location.href = currenturl + "/search/" + searchval.value;
   };
-  
+
   return (
     <Layout>
       <S.BoardFind>
@@ -70,11 +37,12 @@ const BoardFind = () => {
         </S.BoardFindContainer>
         <S.ToolsContainer>
           <S.SearchContainer>
-            <S.SearchBox 
-              placeholder="검색" 
+            <S.SearchBox
+              placeholder="제목 검색"
               type="text"
-              ref={(ref) => (searchval = ref)}/>
-            <S.SearchIcon onClick = {Search}>
+              ref={(ref) => (searchval = ref)}
+            />
+            <S.SearchIcon onClick={Search}>
               <img
                 src={STATIC_URL.MAGNIFYING_GLASS_ICON}
                 alt="magnifying-glass"
@@ -88,14 +56,7 @@ const BoardFind = () => {
           <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
-          <Pagebar
-            board_type="find"
-            page={page}
-            start_page={startPage}
-            end_page={endPage}
-            page_count={pageCount}
-            total_page={totalPage}
-          />
+          <Pagebar />
         </S.PagebarContainer>
       </S.BoardFind>
     </Layout>
