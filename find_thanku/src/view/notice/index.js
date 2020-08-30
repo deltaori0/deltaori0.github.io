@@ -13,7 +13,7 @@ import { useBoardNotice } from "./hooks";
 const Notice = () => {
   const { posts } = useBoardNotice();
   const authentication = () => {
-    var admin = ["eunsoo googleId", "115049392299918823209"]; //[eunsoo,sohee]
+    var admin = ["112743772853536234615", "115049392299918823209"]; //[eunsoo,sohee]
     try {
       var auth = admin.includes(storage.get("loggedInfo").googleId);
     } catch {
