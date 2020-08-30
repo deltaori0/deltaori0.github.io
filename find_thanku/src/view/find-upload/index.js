@@ -11,6 +11,7 @@ const headers = { withCredentials: true };
 
 class FindUpload extends Component {
   FindUpload = () => {
+    // 데이터베이스로 보낼 JSON 형식 지정
     const send_param = {
       headers,
       title: this.title.value,
@@ -22,22 +23,23 @@ class FindUpload extends Component {
       username: storage.get("loggedInfo").email.split("@")[0],
     };
     axios
+      // 데이터베이스에 데이터 업로드
+      // POST https://find-thanku.herokuapp.com/find/upload
       .post("https://find-thanku.herokuapp.com/find/upload", send_param)
-      //에러
       .catch((err) => {
         console.log(err);
       });
     alert("작성 완료!");
+    // 1초 sleep
     setTimeout(function () {
       window.location.pathname = "/find/board";
     }, 1000);
   };
-  //texteditor 관련
+  //texteditor 안의 내용이 바뀌면 content 변수 해당 값으로 업데이트
   handleEditorChange = (e) => {
-    console.log(e.target.getContent());
     this.content = e.target.getContent();
   };
-  //Select 관련
+  //Select 옵션 지정
   options = [
     { value: "중앙광장 원스탑", label: "중앙광장 원스탑" },
     { value: "하나스퀘어 원스탑", label: "하나스퀘어 원스탑" },
@@ -50,14 +52,13 @@ class FindUpload extends Component {
 
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
   };
 
-  //render
   render() {
-    //select 관련
+    // select state
     const { selectedOption } = this.state;
 
+    // Select 옵션 스타일 지정
     const styles = {
       container: (base) => ({
         ...base,
@@ -76,7 +77,6 @@ class FindUpload extends Component {
         marginTop: "1%",
       }),
     };
-    //return
     return (
       <Layout>
         <S.Upload>
@@ -144,7 +144,6 @@ class FindUpload extends Component {
             <S.SubmitButton onClick={this.FindUpload} type="button" block>
               작성
             </S.SubmitButton>
-            {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}
           </S.UploadContainer>
         </S.Upload>
       </Layout>

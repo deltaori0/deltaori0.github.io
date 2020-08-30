@@ -18,7 +18,6 @@ export const UploadContainer = styled.div`
   flex-direction: column;
 
   align-items: center;
-  /* padding: 0rem 2rem; */
 `;
 
 export const TitleContainer = styled.div`
@@ -43,7 +42,6 @@ export const CategorySelector = styled.select`
   padding: 1rem;
   font-size: 1.7rem;
 
-  /* height: 3rem; */
   flex-grow: 1;
 `;
 
@@ -61,8 +59,6 @@ export const WriteInputContainer = styled.div`
 `;
 
 export const NameInput = styled.input`
-  /* width: 100%; */
-
   padding: 1rem;
   margin-right: 1rem;
 
@@ -74,7 +70,6 @@ export const NameInput = styled.input`
 `;
 
 export const TextEditorContainer = styled.div`
-  /* padding: 0rem 1rem; */
   width: 100%;
 
   margin-bottom: 2rem;

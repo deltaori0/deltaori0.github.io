@@ -7,9 +7,9 @@ export const useCommentFind = () => {
 
   useEffect(() => {
     const getInitialComments = async () => {
-      const url = window.location.pathname; //localhost:4000/find_post/게시글 id정보/
+      const url = window.location.pathname; // /find/post/게시글 id정보/
 
-      console.log("https://find-thanku.herokuapp.com" + url + "/comment");
+      // GET https://find-thanku.herokuapp.com/find/post/:_id/comment
       const request = await fetch(
         "https://find-thanku.herokuapp.com" + url + "/comment",
         {
@@ -18,14 +18,13 @@ export const useCommentFind = () => {
       );
 
       if (!request.ok) {
-        alert("서버 죽음");
+        alert("Server not responding");
         return;
       }
 
       const data = await request.json();
 
       setComments(data);
-      console.log(data);
     };
 
     getInitialComments();

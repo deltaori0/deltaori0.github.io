@@ -8,7 +8,6 @@ import { useCommentFind } from "./hooks2";
 import { PostDelete, SetReplynum } from "./function";
 import axios from "axios";
 import { storage } from "../google_login/storage";
-// import { SubLabel } from "../main/styles";
 
 const headers = { withCredentials: true };
 
@@ -17,9 +16,8 @@ const FindPost = () => {
   const { comments } = useCommentFind();
   const currentId = storage.get("loggedInfo").googleId;
 
-  //var username;
   var content;
-  //삭제,수정 권한
+  //삭제,수정 권한 부여 (접속자 == 작성자)
   var editauth;
   var delauth;
   if (currentId === posts.googleId) {
@@ -32,6 +30,7 @@ const FindPost = () => {
 
   const CommentUpload = () => {
     const url = window.location.pathname;
+    // 데이터베이스로 보낼 댓글 정보
     const send_param = {
       headers,
       username: storage.get("loggedInfo").email.split("@")[0],
@@ -41,13 +40,12 @@ const FindPost = () => {
       postkind: "find",
     };
     axios
+      // POST https://find-thanku.herokuapp.com/find/post/:_id/comment
       .post("https://find-thanku.herokuapp.com" + url + "/comment", send_param)
       //에러
       .catch((err) => {
         console.log(err);
       });
-    console.log("url: ", url);
-    console.log("https://find-thanku.herokuapp.com" + url + "/comment");
     SetReplynum(1); //댓글수 +1
     alert("댓글 작성 완료!");
     //새로고침

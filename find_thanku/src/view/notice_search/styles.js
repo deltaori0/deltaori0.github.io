@@ -18,7 +18,6 @@ export const NoticeContainer = styled.div`
   flex-direction: column;
 
   align-items: center;
-  /* padding: 0rem 2rem; */
 `;
 
 export const TitleContainer = styled.div`

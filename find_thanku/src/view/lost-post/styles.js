@@ -116,9 +116,7 @@ export const WriteComment = styled.input`
   width: 97%;
   font-size: 1.4rem;
   height: 3.5rem;
-  /* border: none; */
-  /* outline: none; */
-  /* background-color: ${THEME_COLOR.GRAY}; */
+
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
 `;

@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import * as S from "./styles";
-// import TextEditor from "../../component/find-text-editor";
 import Layout from "../../component/layout";
 import axios from "axios";
-// import { render } from "@testing-library/react";
 import { Editor } from "@tinymce/tinymce-react";
 import { storage } from "../google_login/storage";
 
@@ -17,18 +15,16 @@ class NoticeUpload extends Component {
       content: this.content,
       googleId: storage.get("loggedInfo").googleId,
     };
+    // POST https://find-thanku.herokuapp.com/notice/upload
     axios
       .post("https://find-thanku.herokuapp.com/notice/upload", send_param)
-      //정상 수행
-      //에러
       .catch((err) => {
         console.log(err);
       });
     alert("작성 완료!");
   };
-  //texteditor 관련
+  // texteditor에 작성되는 내용을 content 변수로 받아줌
   handleEditorChange = (e) => {
-    console.log(e.target.getContent());
     this.content = e.target.getContent();
   };
   render() {

@@ -3,7 +3,6 @@ import { THEME_COLOR } from "../../constant";
 
 export const Footer = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
 
   width: 100%;

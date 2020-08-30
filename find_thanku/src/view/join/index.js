@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import * as S from "./styles";
 import Layout from "../../component/layout";
-// import { render } from "@testing-library/react";
 import axios from "axios";
 const headers = { withCredentials: true };
 
@@ -15,7 +14,6 @@ class JoinForm extends Component {
     };
     axios
       .post("https://find-thanku.herokuapp.com/join", send_param)
-      //정상 수행
 
       //에러
       .catch((err) => {

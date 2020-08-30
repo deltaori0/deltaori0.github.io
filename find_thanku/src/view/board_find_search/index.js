@@ -10,28 +10,6 @@ import { useBoardSearch } from "./hooks";
 
 const BoardFindSearch = () => {
   const { posts } = useBoardSearch();
-  let url_string = window.location.pathname.split("/");
-  let page = 1; // 나중에 url 맨 뒷부분 보고 현재 보고 있는 페이지 추출 (근데 맨 처음 클릭했을 때 값은 1 뒤 url이 없으므로)
-  if (url_string.length === 3) {
-    page = 1;
-  } else {
-    page = parseInt(url_string[3]);
-  }
-  const totalCount = posts.length;
-  const listCount = 10;
-  let totalPage = parseInt(totalCount / listCount);
-  if (totalCount % listCount > 0) {
-    totalPage += 1;
-  }
-  if (totalPage < page) {
-    page = totalPage; // 사용자가 임의로 페이지 수 바꿀 수 있으므로
-  }
-  const pageCount = 5;
-  let startPage = parseInt((page - 1) / pageCount + 1);
-  let endPage = startPage + pageCount - 1;
-  if (endPage > totalPage) {
-    endPage = totalPage;
-  }
   return (
     <Layout>
       <S.BoardFind>
@@ -49,14 +27,7 @@ const BoardFindSearch = () => {
           <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
-          <Pagebar
-            board_type="find"
-            page={page}
-            start_page={startPage}
-            end_page={endPage}
-            page_count={pageCount}
-            total_page={totalPage}
-          />
+          <Pagebar />
         </S.PagebarContainer>
       </S.BoardFind>
     </Layout>

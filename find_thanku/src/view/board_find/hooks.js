@@ -4,6 +4,8 @@ export const useBoardFind = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // 습득물 게시판에 작성된 게시글 정보들을 JSON Object Array로 가져온다
+    // GET https://find-thanku.herokuapp.com/find/board
     const getInitialPosts = async () => {
       const request = await fetch(
         "https://find-thanku.herokuapp.com/find/board",
@@ -13,14 +15,13 @@ export const useBoardFind = () => {
       );
 
       if (!request.ok) {
-        alert("서버 죽음");
+        alert("Server not responding");
         return;
       }
 
       const data = await request.json();
 
-      setPosts(data.slice(0, 10));
-      console.log(data.slice(0, 10));
+      setPosts(data);
     };
 
     getInitialPosts();

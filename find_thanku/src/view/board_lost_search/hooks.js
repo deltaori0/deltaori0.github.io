@@ -4,6 +4,8 @@ export const useBoardSearch = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    // 검색 결과에 해당하는 게시글들을 JSON 배열 형태로 가져온다
+    // GET https://find-thanku.herokuapp.com/lost/board/search/:searchval
     const getInitialPosts = async () => {
       const url = window.location.pathname;
       const request = await fetch("https://find-thanku.herokuapp.com" + url, {
@@ -11,14 +13,13 @@ export const useBoardSearch = () => {
       });
 
       if (!request.ok) {
-        alert("서버 죽음");
+        alert("Server not responding");
         return;
       }
 
       const data = await request.json();
 
-      setPosts(data.slice(0, 10));
-      console.log(data.slice(0, 10));
+      setPosts(data);
     };
 
     getInitialPosts();

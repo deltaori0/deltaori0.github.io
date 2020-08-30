@@ -5,19 +5,19 @@ export const useBoardNotice = () => {
 
   useEffect(() => {
     const getInitialPosts = async () => {
+      // GET https://find-thanku.herokuapp.com/notice/
       const request = await fetch("https://find-thanku.herokuapp.com/notice", {
         method: "GET",
       });
 
       if (!request.ok) {
-        alert("서버 죽음");
+        alert("Server not Responding");
         return;
       }
 
       const data = await request.json();
 
       setPosts(data);
-      console.log(data);
     };
 
     getInitialPosts();

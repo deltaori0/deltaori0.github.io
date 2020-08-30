@@ -6,9 +6,8 @@ import Layout from "../../component/layout";
 import { storage } from "../google_login/storage";
 
 export class LostEdit extends Component {
-  //texteditor 관련
+  //texteditor 안의 내용 수정시 content 값도 변경
   handleEditorChange = (e) => {
-    console.log(e.target.getContent());
     this.content = e.target.getContent();
   };
   //게시글 수정 시
@@ -19,7 +18,6 @@ export class LostEdit extends Component {
       place: this.place.value,
       content: "this.content",
     };
-    console.log(newcontent);
     const url = window.location.pathname;
     const fetchurl =
       "https://find-thanku.herokuapp.com" +
@@ -32,10 +30,10 @@ export class LostEdit extends Component {
       newcontent.place +
       "/" +
       newcontent.content;
+    // PATCH https://find-thanku.herokuapp.com/lost/post/:_id/edit/:title/:name/:place/:content
     const request = await fetch(fetchurl, {
       method: "PATCH",
     });
-    console.log(fetchurl);
     const previousurl = window.location.href.slice(0, -5); //edit 뺀 url
     if (!request.ok) {
       alert("게시글 수정 실패");
@@ -50,7 +48,6 @@ export class LostEdit extends Component {
   };
 
   render() {
-    //return
     return (
       <Layout>
         <S.Upload>
@@ -106,7 +103,6 @@ export class LostEdit extends Component {
             <S.SubmitButton onClick={this.EditPost} type="button" block>
               작성
             </S.SubmitButton>
-            {/* <img src={STATIC_URL.PENCIL_ICON} alt="pencil" /> */}
           </S.UploadContainer>
         </S.Upload>
       </Layout>

@@ -3,10 +3,6 @@ import { Editor } from "@tinymce/tinymce-react";
 import * as S from "./styles";
 
 export const FindTextEditor = () => {
-  const handleEditorChange = (e) => {
-    console.log(e.target.getContent());
-  };
-  
   return (
     <S.TextEditor>
       <Editor
@@ -29,7 +25,6 @@ export const FindTextEditor = () => {
             plugins: ["autosave", "lists", "autolink", "placeholder"],
           },
         }}
-        onChange={handleEditorChange}
       />
     </S.TextEditor>
   );

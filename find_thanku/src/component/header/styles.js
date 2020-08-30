@@ -46,7 +46,6 @@ export const Button = styled.button`
     border-radius: 4rem;
   }
 
-  /* height: 8rem; */
   width: 8.7rem;
   transition: background-color 0.5s;
 `;
