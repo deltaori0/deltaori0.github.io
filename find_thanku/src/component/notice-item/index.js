@@ -6,9 +6,9 @@ const NoticeItem = ({ post }) => {
   const url = "/notice/post/" + post._id;
   return (
     <S.BoardItem>
-      <S.NameContainer to={url}>
+      <S.TitleContainer to={url}>
         <S.Label>{post.title}</S.Label>
-      </S.NameContainer>
+      </S.TitleContainer>
       <S.DateContainer>
         <S.Label>{post.date.slice(0, 10)}</S.Label>
       </S.DateContainer>

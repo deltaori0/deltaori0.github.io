@@ -45,6 +45,7 @@ function App() {
         />
         <Route path="/login" exact component={Login} />
         <Route path="/find/upload" exact component={FindUpload} />
+        {/* <Route path="/find/upload" exact component={NoticeUpload} /> */}
         <Route path="/lost/upload" exact component={LostUpload} />
         <Route path="/notice" exact component={Notice} />
         <Route
@@ -52,8 +53,8 @@ function App() {
           exact
           component={NoticeSearch}
         />
-        <Route path="/notice/:page_number" exact component={Notice} />
         <Route path="/notice/upload" exact component={NoticeUpload} />
+        <Route path="/notice/:page_number" exact component={Notice} />
         <Route path="/find/post/:_id" exact component={FindPost} />
         <Route path="/find/post/:_id/edit" exact component={FindEdit} />
         <Route path="/lost/post/:_id" exact component={LostPost} />
