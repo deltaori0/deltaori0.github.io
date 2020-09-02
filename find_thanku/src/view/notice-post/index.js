@@ -22,6 +22,7 @@ const NoticePost = () => {
   const Edit = () => {
     PostEdit(auth, posts.content);
   };
+  const post_content = posts.content;
   return (
     <Layout>
       <S.NoticePost>
@@ -46,7 +47,9 @@ const NoticePost = () => {
                 <div></div>
               )}
             </S.MetaContainer>
-            <S.Content>{posts.content}</S.Content>
+            <S.Content>
+              <div dangerouslySetInnerHTML={{ __html: post_content }} />
+            </S.Content>
           </S.PostContainer>
         </S.NoticePostContainer>
         <S.ContentContainer></S.ContentContainer>
