@@ -28,7 +28,7 @@ const BoardLostSearch = () => {
           <BoardList posts={posts} />
         </S.BoardListContainer>
         <S.PagebarContainer>
-          <Pagebar board_type="lost" />
+          <Pagebar />
         </S.PagebarContainer>
       </S.BoardLost>
     </Layout>

@@ -18,7 +18,7 @@ export const Label = styled.ul`
   margin: 1rem;
 `;
 
-export const NameContainer = styled(Link)`
+export const TitleContainer = styled(Link)`
   border: 0.5px solid ${THEME_COLOR.GRAYER};
   flex: 2;
   display: flex;

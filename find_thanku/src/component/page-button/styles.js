@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
 
 export const PageButton = styled.li`
   font-size: 1.4rem;
@@ -9,7 +8,7 @@ export const PageButton = styled.li`
   align-items: center;
 `;
 
-export const PageButtonContainer = styled(Link)`
+export const PageButtonContainer = styled.div`
   text-decoration: none;
   color: inherit;
 
