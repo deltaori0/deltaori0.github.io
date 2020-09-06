@@ -50,8 +50,7 @@ class NoticeUpload extends Component {
                   init={{
                     height: 500,
                     menubar: false,
-                    placeholder:
-                      "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                    placeholder: "공지사항이 들어갈 예정입니다.",
                     plugins: [
                       "advlist autolink lists link image",
                       "charmap print preview anchor help",
@@ -62,8 +61,7 @@ class NoticeUpload extends Component {
                       "undo redo | formatselect | bold italic | image | alignleft aligncenter alignright | bullist numlist outdent indent | help",
                     mobile: {
                       theme: "mobile",
-                      placeholder:
-                        "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                      placeholder: "공지사항이 들어갈 예정입니다.",
                       plugins: ["autosave", "lists", "autolink", "placeholder"],
                     },
                   }}

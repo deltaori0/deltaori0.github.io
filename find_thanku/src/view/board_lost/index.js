@@ -29,13 +29,15 @@ const BoardLost = () => {
             <S.Title>분실물 게시판</S.Title>
           </S.TitleContainer>
           <S.DescContainer>
-            <S.Description>분실물 게시판에 대한 간단한 설명</S.Description>
+            <S.Description>
+              교내에서 잃어버린 물건에 대한 정보를 올리는 게시판입니다.
+            </S.Description>
           </S.DescContainer>
         </S.BoardLostContainer>
         <S.ToolsContainer>
           <S.SearchContainer>
             <S.SearchBox
-              placeholder="제목 검색"
+              placeholder="검색"
               type="text"
               ref={(ref) => (searchval = ref)}
             />
