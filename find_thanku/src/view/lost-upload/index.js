@@ -80,7 +80,7 @@ class LostUpload extends Component {
                     mobile: {
                       theme: "mobile",
                       placeholder:
-                        "습득물 게시판에 대한 공지사항이 들어갈 예정입니다.",
+                        "분실물 게시판에 대한 공지사항이 들어갈 예정입니다.",
                       plugins: ["autosave", "lists", "autolink", "placeholder"],
                     },
                   }}
